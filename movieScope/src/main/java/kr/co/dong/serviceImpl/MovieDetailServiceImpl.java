@@ -1,21 +1,30 @@
 package kr.co.dong.serviceImpl;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.AgeDAO;
 import kr.co.dong.DAO.GenreDAO;
 import kr.co.dong.DAO.MovieDAO;
 import kr.co.dong.DAO.NationDAO;
+import kr.co.dong.DAO.UserfavoriteDAO;
 import kr.co.dong.DTO.MovieDTO;
+import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.MovieDetailService;
 @Service
 public class MovieDetailServiceImpl implements MovieDetailService{
-
+	@Autowired
 	MovieDAO moviedao;
+	@Autowired
 	AgeDAO agedao;
+	@Autowired
 	GenreDAO genredao;
+	@Autowired
 	NationDAO nationdao;
+	@Autowired
+	UserfavoriteDAO userfavoritedao;
+	
 	
 	@Override
 	public String[] movieDetail(int m_number) {
@@ -43,5 +52,12 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 			list[10] = "청소년관람불가";
 		}
 		return list;
+	}
+
+	@Override
+	public void userFavAdd(UserfavoriteDTO userfavdto) {
+		userfavoritedao.favAdd(userfavdto);
+		// TODO Auto-generated method stub
+		
 	}
 }
