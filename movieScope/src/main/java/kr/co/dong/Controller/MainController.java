@@ -1,5 +1,6 @@
 package kr.co.dong.Controller;
 
+import java.lang.System.Logger;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,20 +29,25 @@ public class MainController {
 	public ModelAndView main(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("recommend",service.recommend());
-		mav.setViewName("main");
+//		mav.addObject("recommend",service.recommend());
+		mav.setViewName("dummy");
 		return mav;
 	}
 	
-	@GetMapping("/login")
+	@PostMapping("login")
 	public String login(@RequestParam Map<String, Object> map, HttpSession session, HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		Map user = service.login(map);
+		String user = service.login(map);
+		System.out.println(user);
 		if(user == null) { // 로그인 실패
 			return "redirect:login";
 		}else { // 로그인 성공 -> 세션 부여
 			session.setAttribute("user", user);
 			return "redirect:/";
 		}
+	}
+	@GetMapping("login")
+	public String loginForm() {
+		return "login";
 	}
 }

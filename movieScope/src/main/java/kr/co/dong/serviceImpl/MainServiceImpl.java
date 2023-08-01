@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.GenreDAO;
@@ -17,13 +18,17 @@ import kr.co.dong.service.MainService;
 @Service
 public class MainServiceImpl implements MainService{
 
+	@Autowired
 	UserDAO userdao;
+	@Autowired
 	UserfavoriteDAO favdao;
+	@Autowired
 	MovieDAO moviedao;
+	@Autowired
 	GenreDAO genredao;
 	
 	@Override
-	public Map<String, Object> login(Map<String, Object> map) {
+	public String login(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return userdao.login(map);
 	}

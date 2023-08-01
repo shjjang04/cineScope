@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.dong.DTO.UserDTO;
 public interface UserDAO {
 
-	public Map login(Map<String, Object> map);
-	
+	public String login(Map<String, Object> map);
 	public UserDTO listAll();
 	public UserDTO selectOne(int uno);
 	public void insert(UserDTO ud);
