@@ -11,8 +11,8 @@
                      </div>
                      <div class="col-lg-6 col-sm-6 text-right">
                         <div class="app">
-                           <a href="#"><img alt="" src="resources/img/google.png"></a>
-                           <a href="#"><img alt="" src="resources/img/apple.png"></a>
+                           <a href="#"><img alt="" src="${contextPath }/resources/img/google.png"></a>
+                           <a href="#"><img alt="" src="${contextPath }/resources/img/apple.png"></a>
                         </div>
                      </div>
                   </div>

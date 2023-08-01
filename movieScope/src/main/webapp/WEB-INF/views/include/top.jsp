@@ -9,7 +9,7 @@
 		<i class="fas fa-bars"></i>
 	</button>
 	&nbsp;&nbsp; <a class="navbar-brand mr-1" href="home"><img
-		class="img-fluid" alt="" src="resources/img/logo.png"></a>
+		class="img-fluid" alt="" src="${contextPath }/resources/img/logo.png"></a>
 	<!-- Navbar Search -->
 	<form
 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
@@ -61,7 +61,7 @@
 			<a class="nav-link dropdown-toggle user-dropdown-link" href="#"
 			id="userDropdown" role="button" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="false"> <img alt="Avatar"
-				src="resources/img/user.png"> Osahan
+				src="${contextPath }/resources/img/user.png"> Osahan
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="userDropdown">
