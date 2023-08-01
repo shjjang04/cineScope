@@ -58,7 +58,7 @@ public class BoardController {
 	public String boardListAll() {
 		ModelAndView mav = new ModelAndView();
 		List<BoardDTO> boardListAll = boardService.board_listAll();
-		mav.add("boardListAll",boardListAll);
+		mav.addObject("boardListAll",boardListAll);
 		System.out.println("BoardController-boardListAll");
 		return "boardListAll";
 	}
