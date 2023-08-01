@@ -4,6 +4,7 @@
 <head>
 <%@include file="include/head.jsp" %>
 </head>
+
    <%@include file="include/top.jsp"%>
       <div id="wrapper">
          <!-- Sidebar -->
@@ -12,10 +13,7 @@
             <div class="container-fluid pb-0">
             <!-- 여기서 부터 본문 작성 -->
             
-            
-            더미파일입니다
-            
-            
+            <button type="button" onclick="location.href='login'" class="btn btn-primary border-none">로그인</button>
             </div>
             <!-- /.container-fluid -->
             <!-- Sticky Footer -->
