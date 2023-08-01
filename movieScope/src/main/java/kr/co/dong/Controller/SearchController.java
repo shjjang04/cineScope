@@ -31,50 +31,68 @@ public class SearchController {
 		return "search";
 	}
 	
+//	@GetMapping("movieDetail")
+//	public ModelAndView movieDetail(int m_number, HttpServletRequest request) throws Exception{
+//		request.setCharacterEncoding("utf-8");
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("list", service.movieDetail(m_number));
+//		mav.setViewName("movieDetail");
+//		return mav;
+//	}
+	
+//	@GetMapping("searchresult")
+//	public ModelAndView searchresult() {
+//		logger.info("============== > resultsearch페이지로 이동");
+//		ModelAndView mav = new ModelAndView();
+//		
+//		mav.setViewName("searchresult");
+//		return mav;
+//	}
+	
+	
 	@GetMapping("search/name")
 	public ModelAndView name(MovieVO mVo) {
-		logger.info("============== > result페이지로 이동");
 		logger.info("mVo : " + mVo);
 		ModelAndView mav = new ModelAndView();
 		
 		List<Integer> movieList = searchService.searchCollectAll(mVo);
 		logger.info("movieList : " + movieList);
-		mav.addObject("nameMovieList", movieList);
+		mav.addObject("movieList", movieList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
 	
 	@GetMapping("search/age")
 	public ModelAndView age(int m_age) {
-		logger.info("============== > result페이지로 이동");
 		logger.info("m_age : " + m_age);
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_age(m_age);
 		logger.info("movieList : " + movieList);
-		mav.addObject("ageMovieList", movieList);
+		mav.addObject("movieList", movieList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
 	@GetMapping("search/genre")
 	public ModelAndView genre(String m_genre) {
-		logger.info("============== > result페이지로 이동");
 		logger.info("m_genre : " + m_genre);
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_genre(m_genre);
 		logger.info("movieList : " + movieList);
-		mav.addObject("genreMovieList", movieList);
+		mav.addObject("movieList", movieList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
 	@GetMapping("search/nation")
 	public ModelAndView nation(String m_nation) {
-		logger.info("============== > result페이지로 이동");
 		logger.info("m_nation : " + m_nation);
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_nation(m_nation);
 		logger.info("movieList : " + movieList);
-		mav.addObject("nationMovieList", movieList);
+		mav.addObject("movieList", movieList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
+
+	
+	
 }

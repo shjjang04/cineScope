@@ -15,14 +15,14 @@
 			<!-- 여기서 부터 본문 작성 -->
 			<table>
 				<tr>
-					<th>b_title</th>
-					<th>b_context</th>
-					<th>b_date</th>
-					<th>FK_u_number</th>
+					<th>글제목</th>
+					<th>날자</th>
 				</tr>
-				<tr th:eath="board: ${mav }">
-					<td th:text="${board.b_title }"></td>
-					<td th:text="${board.b_context }"></td>
+				<tr>
+				<c:forEach var="board" items="${boardListAll }">
+					<td>${board.b_title }</td>
+					<td>${board.b_date }</td>
+				</c:forEach>
 				</tr>
 			</table>
 		</div>

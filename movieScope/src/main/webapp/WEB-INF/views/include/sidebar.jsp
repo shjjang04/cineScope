@@ -2,11 +2,11 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <ul class="sidebar navbar-nav">
-	<li class="nav-item active"><a class="nav-link" href="index.html">
+	<li class="nav-item active"><a class="nav-link" href="/">
 			<i class="fas fa-fw fa-home"></i> <span>Home</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="channels.html">
-			<i class="fas fa-fw fa-users"></i> <span>Channels</span>
+	<li class="nav-item"><a class="nav-link" href="${contextPath }/search">
+			<i class="fas fa-fw fa-users"></i> <span>영화조회</span>
 	</a></li>
 	<li class="nav-item"><a class="nav-link"
 		href="single-channel.html"> <i class="fas fa-fw fa-user-alt"></i>
@@ -50,18 +50,18 @@
 	<li class="nav-item channel-sidebar-list">
 		<h6>SUBSCRIPTIONS</h6>
 		<ul>
-			<li><a href="subscriptions.html"> <img class="resources/img-fluid"
-					alt="" src="resources/img/s1.png"> Your Life
+			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
+					alt="" src="${contextPath }/resources/img/s1.png"> Your Life
 			</a></li>
-			<li><a href="subscriptions.html"> <img class="resources/img-fluid"
-					alt="" src="resources/img/s2.png"> Unboxing <span
+			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
+					alt="" src="${contextPath }/resources/img/s2.png"> Unboxing <span
 					class="badge badge-warning">2</span>
 			</a></li>
-			<li><a href="subscriptions.html"> <img class="resources/img-fluid"
-					alt="" src="resources/img/s3.png"> Product / Service
+			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
+					alt="" src="${contextPath }/resources/img/s3.png"> Product / Service
 			</a></li>
-			<li><a href="subscriptions.html"> <img class="resources/img-fluid"
-					alt="" src="resources/img/s4.png"> Gaming
+			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
+					alt="" src="${contextPath }/resources/img/s4.png"> Gaming
 			</a></li>
 		</ul>
 	</li>

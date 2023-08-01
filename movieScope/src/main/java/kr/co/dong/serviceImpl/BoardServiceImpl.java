@@ -2,6 +2,7 @@ package kr.co.dong.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.ArticleDAO;
@@ -11,7 +12,9 @@ import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.service.BoardService;
 @Service
 public class BoardServiceImpl implements BoardService{
+	@Autowired
 	ArticleDAO articleDAO;
+	@Autowired
 	BoardDAO boardDAO;
 	
 	@Override //모두보기
@@ -75,9 +78,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardDTO> checkAll(int uno) {
+	public List<BoardDTO> checkAll(int FK_u_number) {
 		// TODO Auto-generated method stub
-		return boardDAO.checkAll(uno);
+		return boardDAO.checkAll(FK_u_number);
 	}
 
 }

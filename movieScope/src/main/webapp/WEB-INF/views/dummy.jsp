@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
-<title>시네스코프 코리아 - </title>
 </head>
    <%@include file="include/top.jsp"%>
       <div id="wrapper">

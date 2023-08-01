@@ -16,5 +16,5 @@ public interface BoardService {
 	public BoardDTO board_detail(int b_number); //r
 	public void board_update(BoardDTO bD); //u
 	public void board_delete(int b_number); //d
-	public List<BoardDTO> checkAll(int uno);
+	public List<BoardDTO> checkAll(int FK_u_number);
 }

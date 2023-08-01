@@ -10,7 +10,6 @@ public interface BoardDAO {
 	public void delete(int b_number);
 	public void update(BoardDTO bD);
 	public BoardDTO detail(int b_number);
-	public BoardDTO write(int FK_u_number);
 	public void insert(BoardDTO bD);
 	public List<BoardDTO> checkAll(int uno);
 }

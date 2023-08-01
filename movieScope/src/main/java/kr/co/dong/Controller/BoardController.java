@@ -20,15 +20,6 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-//	@GetMapping("board")
-//	public ModelAndView board() {
-//		ModelAndView mav = new ModelAndView();
-//		List<BoardDTO> boardList = boardService.board_listAll();
-//		mav.addObject("boardList", boardList);
-//		mav.setViewName("board");
-//		return mav;
-//	}
-//
 //	@GetMapping("board/b_number")
 //	public ModelAndView board_b_number(int b_number) {
 //		logger.info("보드상세보여줌");
@@ -47,20 +38,17 @@ public class BoardController {
 		return "dummy";
 	}
 
-//	//게시판 틀만 보기
-//	@GetMapping("boardListAll")
-//	public String boardListAll() {
-//		return "boardListAll";
-//	}
-	
 	//게시판 전체조회
 	@GetMapping("boardListAll")
-	public String boardListAll() {
+	public ModelAndView boardListAll() {
 		ModelAndView mav = new ModelAndView();
+		logger.info("======================> 보드리스트 페이지로 이동");
 		List<BoardDTO> boardListAll = boardService.board_listAll();
+		logger.info("리스트 : " + boardListAll );
 		mav.addObject("boardListAll",boardListAll);
+		mav.setViewName("boardListAll");
 		System.out.println("BoardController-boardListAll");
-		return "boardListAll";
+		return mav;
 	}
 	
 	
@@ -69,10 +57,13 @@ public class BoardController {
 	public String boardWrite() {
 		return "boardWrite";
 	}
+	
 	@PostMapping("boardWrite")
 	public String boardWritePro(BoardDTO boardDTO) {
-		System.out.println("BoardController-boardWrite");
+		System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+		System.out.println(boardDTO);
 		boardService.board_insert(boardDTO);
+		System.out.println("BoardController-board_insert");
 		return "redirect:boardListAll";
 	}
 

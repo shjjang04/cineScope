@@ -18,8 +18,8 @@ public class UserDAOImpl implements UserDAO {
 	private final static String namespace = "kr.co.dong.userMapper";
 
 	@Override
-	public Map login(Map<String, Object> map) {
-		return sqlsession.selectOne(namespace + ".login", map);
+	public String login(Map<String, Object> map) {
+		return sqlsession.selectOne(namespace + ".user_login", map);
 	}
 
 	@Override

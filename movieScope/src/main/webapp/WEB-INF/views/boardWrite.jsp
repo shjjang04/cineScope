@@ -16,12 +16,11 @@
 
 
 			<form action="boardWrite" method="post">
-				b_number: <input type="text" name="b_number"> <br>
 				b_cnt: <input type="text" name="b_cnt"> <br>
 				FK_u_number: <input type="text" name="FK_u_number"> <br>
 				b_title: <input type="text" name="b_title"> <br>
 				b_context: <input type="text" name="b_context"> <br>
-				b_date(2021-01-01): <input type="text" name="b_date"> <br> 
+				b_date(2021-01-01): <input type="date" name="b_date"> <br> 
 				<input type="submit" value="글작성">
 			</form>
 
