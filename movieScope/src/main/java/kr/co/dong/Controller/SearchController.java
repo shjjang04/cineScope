@@ -77,7 +77,4 @@ public class SearchController {
 		mav.setViewName("searchresult");
 		return mav;
 	}
-
-	
-	
 }

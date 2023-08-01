@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp"%>
-<title>시네스코프 코리아 - Home</title>
+<title>시네스코프 코리아 - 게시판</title>
 </head>
 <%@include file="include/top.jsp"%>
 <div id="wrapper">
@@ -13,12 +13,18 @@
 	<div id="content-wrapper">
 		<div class="container-fluid pb-0">
 			<!-- 여기서 부터 본문 작성 -->
-
-
-			<a href="boardListAll">보드 전체보기</a><br> 
-			<a href="boardWrite">글 작성하기</a>
-
-
+			<table>
+				<tr>
+					<th>b_title</th>
+					<th>b_context</th>
+					<th>b_date</th>
+					<th>FK_u_number</th>
+				</tr>
+				<tr th:eath="board: ${mav }">
+					<td th:text="${board.b_title }"></td>
+					<td th:text="${board.b_context }"></td>
+				</tr>
+			</table>
 		</div>
 		<!-- /.container-fluid -->
 		<!-- Sticky Footer -->
