@@ -75,9 +75,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardDTO> checkAll(int uno) {
+	public List<BoardDTO> checkAll(int FK_u_number) {
 		// TODO Auto-generated method stub
-		return boardDAO.checkAll(uno);
+		return boardDAO.checkAll(FK_u_number);
 	}
 
 }

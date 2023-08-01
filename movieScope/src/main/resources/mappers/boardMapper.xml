@@ -38,4 +38,8 @@
    select b_number, b_title, b_context ,b_date, b_cnt, FK_u_number
    from board
    </select>
+   
+   <select id="checkALL" resultType="boardDTO">
+   select * from board where 
+   </select>
   </mapper>

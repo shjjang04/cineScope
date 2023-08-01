@@ -1,16 +1,21 @@
 package kr.co.dong.Controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.MovieDetailService;
 
 @Controller
 public class MoviedetailController {
+	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
 	@Autowired
 	private MovieDetailService service;
@@ -24,4 +29,12 @@ public class MoviedetailController {
 		return mav;
 	}
 	
+	@GetMapping("userfavadd")
+	public ModelAndView userfavadd(UserfavoriteDTO userfavdto) {
+		logger.info("유저 찜 항목 추가");
+		ModelAndView mav = new ModelAndView();
+		service.userFavAdd(userfavdto);
+		mav.setViewName("movieDetail");
+		return mav;	
+	}
 }
