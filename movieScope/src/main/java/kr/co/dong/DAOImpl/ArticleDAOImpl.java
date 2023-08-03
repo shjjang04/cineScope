@@ -3,12 +3,14 @@ package kr.co.dong.DAOImpl;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.dong.DAO.ArticleDAO;
 import kr.co.dong.DTO.ArticleDTO;
 @Repository
 public class ArticleDAOImpl implements ArticleDAO {
+	@Autowired
 	private SqlSession sqlsession;
 
 	private final static String namespace = "kr.co.dong.articleMapper";
@@ -34,13 +36,21 @@ public class ArticleDAOImpl implements ArticleDAO {
 	@Override
 	public List<ArticleDTO> listall(int FK_b_number) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList(namespace+".listall",FK_b_number);
+		return sqlsession.selectList(namespace+".article_listall",FK_b_number);
 	}
 
 	@Override
 	public void update(ArticleDTO aD) {
 		// TODO Auto-generated method stub
 		sqlsession.update(namespace+".update",aD);
+	}
+
+	@Override
+	public void board_article_delete(int b_number) {
+		// TODO Auto-generated method stub
+		System.out.println("디에이오");
+		int tmp =  sqlsession.delete(namespace+".board_article_delete",b_number);
+		System.out.println("tmp : "+tmp);
 	}
 
 }

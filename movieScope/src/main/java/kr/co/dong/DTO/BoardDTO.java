@@ -3,6 +3,7 @@ package kr.co.dong.DTO;
 import java.sql.Date;
 
 public class BoardDTO {
+	private int b_number;
 	private int b_cnt;
 	private int FK_u_number;
 	private String b_title;
@@ -38,10 +39,16 @@ public class BoardDTO {
 	public void setB_date(Date b_date) {
 		this.b_date = b_date;
 	}
+	public int getB_number() {
+		return b_number;
+	}
+	public void setB_number(int b_number) {
+		this.b_number = b_number;
+	}
 	@Override
 	public String toString() {
-		return "BoardDTO [b_cnt=" + b_cnt + ", FK_u_number=" + FK_u_number + ", b_title=" + b_title + ", b_context="
-				+ b_context + ", b_date=" + b_date + "]";
+		return "BoardDTO [b_number=" + b_number + ", b_cnt=" + b_cnt + ", FK_u_number=" + FK_u_number + ", b_title="
+				+ b_title + ", b_context=" + b_context + ", b_date=" + b_date + "]";
 	}
 
 	

@@ -32,6 +32,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void update(BoardDTO bD) {
 		// TODO Auto-generated method stub
+		System.out.println("디에이오");
 		sqlsession.update(namespace + ".board_update", bD);
 	}
 

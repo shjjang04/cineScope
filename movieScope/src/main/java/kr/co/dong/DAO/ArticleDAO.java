@@ -11,4 +11,5 @@ public interface ArticleDAO {
 	public void insert(ArticleDTO aD);
 	public List<ArticleDTO> listall(int FK_b_number);
 	public void update(ArticleDTO aD);
+	public void board_article_delete(int b_number);
 }

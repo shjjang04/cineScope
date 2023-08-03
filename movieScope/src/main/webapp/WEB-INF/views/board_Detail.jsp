@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp"%>
-<title>시네스코프 코리아 - 게시판</title>
 </head>
 <%@include file="include/top.jsp"%>
 <div id="wrapper">
@@ -13,25 +12,21 @@
 	<div id="content-wrapper">
 		<div class="container-fluid pb-0">
 			<!-- 여기서 부터 본문 작성 -->
-			<table>
-				<tr>
-					<th>글제목</th>
-					<th>날자</th>
-				</tr>
-				<tr>
-				<c:forEach var="board" items="${boardListAll }">
-					<td><a href="board_Detail?b_number=${board.b_number}">${board.b_title}</a></td><p>
-					<td>${board.b_date }</td>
-					
-				</c:forEach><p>
-				</tr>
-			</table>
-			<br>
-			<button><a href="boardWrite">글작성</a></button>
-		</div>
-		<!-- /.container-fluid -->
-		<!-- Sticky Footer -->
-		<%@include file="include/footer.jsp"%>
+
+
+			<var ="board" items="${board_Detail }">
+				<td>제목: ${board.b_title }</td>
+				<td>내용: ${board.b_context }</td>
+				<td>작성일: ${board.b_date }</td>
+				<br>
+			</var>
+			<c:forEach var="article" items="${article }">
+		 		<tr>
+		 			<td>댓글: ${article.a_context }</td>
+		 		</tr>
+			</c:forEach>
+				<br>
+				<button><a href="board_Modify?b_number=${board.b_number}">글수정</a></button>
 	</div>
 	<!-- /.content-wrapper -->
 </div>

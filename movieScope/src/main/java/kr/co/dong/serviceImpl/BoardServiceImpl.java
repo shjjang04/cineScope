@@ -26,6 +26,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override //c
 	public void article_insert(ArticleDTO aD) {
 		// TODO Auto-generated method stub
+		System.out.println("서비스");
 		articleDAO.insert(aD);
 	}
 	
@@ -68,6 +69,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void board_update(BoardDTO bD) {
 		// TODO Auto-generated method stub
+		System.out.println("서비스 임플");
 		boardDAO.update(bD);
 	}
 
@@ -81,6 +83,14 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardDTO> checkAll(int FK_u_number) {
 		// TODO Auto-generated method stub
 		return boardDAO.checkAll(FK_u_number);
+	}
+
+	@Override
+	public void board_article_delete(int b_number) {
+		// TODO Auto-generated method stub
+		System.out.println("서비스");
+		System.out.println(b_number);
+		articleDAO.board_article_delete(b_number);
 	}
 
 }
