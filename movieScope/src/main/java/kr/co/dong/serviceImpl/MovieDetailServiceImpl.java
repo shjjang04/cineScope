@@ -1,6 +1,8 @@
 package kr.co.dong.serviceImpl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,9 +57,10 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 	}
 
 	@Override
-	public void userFavAdd(UserfavoriteDTO userfavdto) {
-		userfavoritedao.favAdd(userfavdto);
+	public List<String> userFav(int m_number) {
 		// TODO Auto-generated method stub
 		
+		
 	}
+	
 }

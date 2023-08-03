@@ -1,11 +1,16 @@
 package kr.co.dong.serviceImpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import kr.co.dong.DAO.UserDAO;
 import kr.co.dong.DTO.UserDTO;
 import kr.co.dong.service.AccountService;
 
+@Service
 public class AccountServiceImpl implements AccountService {
 
+	@Autowired
 	UserDAO userdao;
 
 	@Override
@@ -26,5 +31,9 @@ public class AccountServiceImpl implements AccountService {
 		userdao.delete(u_no);
 	}
 
+	@Override
+	public String idCheck(String u_id) {
+		return userdao.idCheck(u_id);
+	}
 
 }

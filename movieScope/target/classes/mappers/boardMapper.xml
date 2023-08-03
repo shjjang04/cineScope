@@ -13,7 +13,7 @@
       insert into board (b_number, b_title, b_context, b_date, b_cnt, FK_u_number)
       values(#{b_number},#{b_title},#{b_date},#{b_cnt},#{FK_u_number})
    </insert>
-
+ 
    <select id="board_detail" resultType="boardDTO">
       select b_number, b_title, b_context, b_date, b_cnt, FK_u_number
       from board

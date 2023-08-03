@@ -1,9 +1,10 @@
 package kr.co.dong.service;
 
+import java.util.List;
+
 import kr.co.dong.DTO.UserfavoriteDTO;
 
 public interface MovieDetailService {
 	public String[] movieDetail(int m_number);
-	
-	public void userFavAdd(UserfavoriteDTO userfavdto);
+	public List<String> userFavAdd(int m_number);
 }

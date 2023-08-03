@@ -8,4 +8,5 @@ public interface UserfavoriteDAO {
 	   public void favAdd(UserfavoriteDTO dto);
 	   public void favDelete(int uf_number);
 	   public int favLikeMovie(int FK_u_number);
+	   public List<UserfavoriteDTO> favList();
 }

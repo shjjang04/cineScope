@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void insert(UserDTO ud) {
 		// TODO Auto-generated method stub
-		sqlsession.insert(namespace + ".insert", ud);
+		sqlsession.insert(namespace + ".user_signup", ud);
 	}
 
 	@Override
@@ -50,6 +50,12 @@ public class UserDAOImpl implements UserDAO {
 	public void delete(int uno) {
 		// TODO Auto-generated method stub
 		sqlsession.delete(namespace+".delete", uno);
+	}
+
+	@Override
+	public String idCheck(String u_id) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namespace +".idCheck" ,u_id);
 	}
 
 }

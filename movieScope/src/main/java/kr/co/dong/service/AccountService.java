@@ -9,4 +9,5 @@ public interface AccountService {
 	public void insert (UserDTO u_no);
 	public void update (UserDTO u_no);
 	public void delete (int u_no);
+	public String idCheck(String u_id);
 }

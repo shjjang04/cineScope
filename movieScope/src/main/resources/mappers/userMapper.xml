@@ -6,11 +6,8 @@
 
 	<!-- 회원 가입 -->
 	<insert id="user_signup" parameterType="userDTO">
-		insert into User( u_date
-		,u_id ,u_pw u_age ,u_addr ,u_gender ,u_email ,u_birthday)
-		value(
-		#{u_date} ,#{u_id} ,#{u_pw} ,#{u_age} ,#{u_addr} ,#{u_gender}
-		,#{u_email} ,#{u_birthday})
+		insert into User(u_date ,u_id ,u_pw, u_age ,u_addr ,u_gender ,u_email ,u_birthday)
+		value(curdate() ,#{u_id} ,#{u_pw} ,#{u_age} ,#{u_addr} ,#{u_gender},#{u_email} ,#{u_birthday})
 	</insert>
 
 	<!-- 로그인 -->
@@ -24,6 +21,11 @@
 		select * from user
 		where = u_number = #{u_number}
 	</select>
+
+	<update id="update">
+		update user set u_pw = #{u_pw}, u_email = #{u_email}, u_addr = #{u_addr}, u_gender = #{u_gender}
+		where u_number = #{u_number}
+	</update>
 
 	<!-- 회원 정보 수정 -->
 	<update id="user_updatePw">
@@ -52,6 +54,11 @@
 	<select id="user_info" resultType="userDTO">
 		SELECT * FROM user
 		WHERE u_number=#{u_number}
+	</select>
+
+	<select id="idCheck" resultType="String">
+		select u_id from user
+		where u_id = #{u_id}
 	</select>
 
 </mapper>

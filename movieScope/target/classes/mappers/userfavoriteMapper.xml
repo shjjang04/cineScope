@@ -25,4 +25,7 @@
 			select FK_m_number from userfavorite where FK_u_number = #{FK_u_number}
 		</select>
 		
+		<select id="userfavoriteList" resultType="UserfavoriteDTO">
+			select * from userfavorite
+		</select>
   </mapper>

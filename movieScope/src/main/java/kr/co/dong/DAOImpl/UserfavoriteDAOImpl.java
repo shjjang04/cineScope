@@ -39,4 +39,10 @@ public class UserfavoriteDAOImpl implements UserfavoriteDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace + ".find", FK_u_number);
 	}
+
+	@Override
+	public List<UserfavoriteDTO> favList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace + ".userfavoriteList");
+	}
 }

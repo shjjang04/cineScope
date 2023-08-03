@@ -14,4 +14,5 @@ public interface UserDAO {
 	public void insert(UserDTO ud);
 	public void update (UserDTO ud);
 	public void delete(int uno);
+	public String idCheck(String u_id);
 }
