@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
@@ -7,6 +8,7 @@
 <title>search 결과 보여주는 화면</title>
 
 </head>
+ <body id="page-top">
    <%@include file="include/top.jsp"%>
       <div id="wrapper">
          <!-- Sidebar -->
@@ -15,14 +17,62 @@
          <div id="content-wrapper">
             <div class="container-fluid upload-details">
             <!-- 여기서 부터 본문 작성 -->
-            	<c:if test="${movieList ne null}">
-	영화목록 화면<br>
-	<hr>
-	${movieList}
-	</c:if>
-	
+           	<c:if test="${movieList ne null}">
+				<div class="video-block section-padding">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="main-title">
+                           <div class="btn-group float-right right-action">
+                              <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                              </div>
+                           </div>
+                           <h6>Movie List</h6>
+                        </div>
+                     </div>
+                     
+                     <c:forEach var="list" items="${requestScope.movieDtoList}">
+	                     	<div class="col-xl-3 col-sm-6 mb-3">
+		                        <div class="category-item mt-0 mb-0">
+		                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
+		                              <img class="img-fluid" src="img/${list.m_name }.png" alt="">
+		                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
+		                              <p>평점 : ${list.m_grade }</p>
+		                           </a>
+		                        </div>
+	                     	</div>
+                     </c:forEach>
+                     
+                  </div>
+                  <nav aria-label="Page navigation example">
+                     <ul class="pagination justify-content-center pagination-sm mb-0">
+                        <li class="page-item disabled">
+                           <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                           <a class="page-link" href="#">Next</a>
+                        </li>
+                     </ul>
+                  </nav>
+               </div>
+               
+            </c:if>
+            
+            <c:if test="${fn:length(movieList) == 0}">
+            	<h1> 검색하신 영화가 없습니다.</h1>
+            </c:if>
+            
+              
             </div>
-            </div>
+
             <!-- /.container-fluid -->
             <!-- Sticky Footer -->
             <%@include file="include/footer.jsp" %>

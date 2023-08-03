@@ -59,8 +59,14 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 	@Override
 	public List<String> userFav(int m_number) {
 		// TODO Auto-generated method stub
+		return null;
 		
-		
+	}
+
+	@Override
+	public List<String> userFavAdd(int m_number) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

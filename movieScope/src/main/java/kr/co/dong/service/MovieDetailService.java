@@ -6,5 +6,6 @@ import kr.co.dong.DTO.UserfavoriteDTO;
 
 public interface MovieDetailService {
 	public String[] movieDetail(int m_number);
+	public List<String> userFav(int m_number);
 	public List<String> userFavAdd(int m_number);
 }
