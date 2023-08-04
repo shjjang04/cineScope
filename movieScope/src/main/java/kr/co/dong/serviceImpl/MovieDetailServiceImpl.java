@@ -1,7 +1,11 @@
 package kr.co.dong.serviceImpl;
 
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,9 +13,10 @@ import org.springframework.stereotype.Service;
 import kr.co.dong.DAO.AgeDAO;
 import kr.co.dong.DAO.GenreDAO;
 import kr.co.dong.DAO.MovieDAO;
-import kr.co.dong.DAO.NationDAO;
+import kr.co.dong.DAO.NationDAO;import kr.co.dong.DAO.UserDAO;
 import kr.co.dong.DAO.UserfavoriteDAO;
 import kr.co.dong.DTO.MovieDTO;
+import kr.co.dong.DTO.UserDTO;
 import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.MovieDetailService;
 @Service
@@ -59,8 +64,35 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 	@Override
 	public List<String> userFav(int m_number) {
 		// TODO Auto-generated method stub
+		List<Integer> userList = null;
+		List<Integer> movieList = null;
+		List<Integer> countList = null;
+		List<String> selectList = null;
+		List<UserfavoriteDTO> list = userfavoritedao.favList();
+		for(UserfavoriteDTO data : list) {
+			if(m_number == data.getFK_m_number()) {
+				userList.add(data.getFK_u_number());
+			}
+		}
 		
-		
+		for(int data : userList) {
+			for(UserfavoriteDTO dto : userfavoritedao.favCheck(data)) {
+				if(dto.getFK_m_number() != m_number) {
+					movieList.add(dto.getFK_m_number());
+				}
+			}
+		}
+		Set<Integer> set = new HashSet<Integer>(movieList);
+		for(int data : set) {
+			countList.add(Collections.frequency(movieList, data));
+		}
+		Collections.sort(countList);
+		for(int data : set) {
+			if(Collections.frequency(movieList, data) >= countList.get(2)) {
+				selectList.add(moviedao.detail(data).getM_name());
+			}
+		}
+		return selectList;
 	}
 	
 }

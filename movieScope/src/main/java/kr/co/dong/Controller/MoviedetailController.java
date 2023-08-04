@@ -23,16 +23,10 @@ public class MoviedetailController {
 	public ModelAndView movieDetail(int m_number, HttpServletRequest request) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", service.userFav(m_number));
 		mav.addObject("movie", service.movieDetail(m_number));
 		mav.setViewName("movieDetail");
 		return mav;
 	}
-	
-	@GetMapping("userfavadd")
-	public ModelAndView userfavadd(UserfavoriteDTO userfavdto) {
-		logger.info("유저 찜 항목 추가");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("movieDetail");
-		return mav;
-	}
+
 }

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,6 +69,17 @@ public class MainServiceImpl implements MainService{
 		}
 		return list;
 	}
+	
+	public List<String> random(){
+		List<String> list = null;
+		Random random = new Random();
+		for(int i = 0; i < 10; i++) {
+			int ran = (int)(random.nextInt(moviedao.listAll().size() - 1) + 1);
+			list.add(moviedao.detail(ran).getM_name());
+		}
+		return list;
+	}
+	
 
 	public int split(String str) {
 		str=str.replace(",", "");
