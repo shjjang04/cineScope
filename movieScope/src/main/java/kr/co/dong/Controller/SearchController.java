@@ -3,6 +3,8 @@ package kr.co.dong.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +55,9 @@ public class SearchController {
 	
 	
 	@GetMapping("search/name")
-	public ModelAndView name(MovieVO mVo) {
+	public ModelAndView name(MovieVO mVo, HttpServletRequest request) throws Exception{
 		logger.info("mVo : " + mVo);
+		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
 		
 		List<Integer> movieList = searchService.searchCollectAll(mVo);
@@ -71,8 +74,9 @@ public class SearchController {
 	}
 	
 	@GetMapping("search/age")
-	public ModelAndView age(int m_age) {
+	public ModelAndView age(int m_age, HttpServletRequest request) throws Exception{
 		logger.info("m_age : " + m_age);
+		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_age(m_age);
 		List<MovieDTO> movieDtoList = new ArrayList<MovieDTO>();
@@ -81,14 +85,14 @@ public class SearchController {
 			movieDtoList.get(i).setM_number(movieList.get(i));
 		}
 		logger.info("movieList : " + movieList);
-		mav.addObject("movieList", movieList);
 		mav.addObject("movieDtoList", movieDtoList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
 	@GetMapping("search/genre")
-	public ModelAndView genre(String m_genre) {
+	public ModelAndView genre(String m_genre, HttpServletRequest request) throws Exception {
 		logger.info("m_genre : " + m_genre);
+		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_genre(m_genre);
 		List<MovieDTO> movieDtoList = new ArrayList<MovieDTO>();
@@ -103,8 +107,9 @@ public class SearchController {
 		return mav;
 	}
 	@GetMapping("search/nation")
-	public ModelAndView nation(String m_nation) {
+	public ModelAndView nation(String m_nation, HttpServletRequest request) throws Exception{
 		logger.info("m_nation : " + m_nation);
+		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_nation(m_nation);
 		List<MovieDTO> movieDtoList = new ArrayList<MovieDTO>();

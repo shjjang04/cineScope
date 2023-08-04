@@ -20,6 +20,8 @@ Version: 1.0
 	-- Footer
 */
 /* Body */
+
+
  html {
      position: relative;
      min-height: 100%;
@@ -30,7 +32,10 @@ Version: 1.0
      font-size: 13px;
      height: 100%;
 }
- .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+ .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h6,{
+ font-family: 'nanumsquare';
+ }
+ h5{border-left: 5px solid #fa320a;
 }
  #wrapper {
      display: -webkit-box;
@@ -759,27 +764,28 @@ Version: 1.0
      border-radius: 2px;
 }
 /* Category Slider */
+
  .category-item img {
      background: #fff none repeat scroll 0 0;
-     border-radius: 50px;
-     box-shadow: 0 0 2px #ccc;
-     height: 60px;
+     border-radius: 15px;
+     width: 180px;
+     height: 258px;
      margin: 1px 0 8px;
      object-fit: scale-down;
      transform: scale(1);
-     width: 60px;
+     
 }
  .category-item:hover img {
      transform: scale(1.09);
      transition-duration: 0.4s;
 }
  .category-item {
-     background: #fff none repeat scroll 0 0;
-     border-radius: 2px;
-     box-shadow: 0 0 6px #ececec;
+     background: none;
      margin: 6px 2px;
      padding: 24px 12px;
      text-align: center;
+     width: 100%;
+     height:100%;
 }
  .top-category .category-item {
      padding: 20px 11px;
@@ -1542,6 +1548,8 @@ Version: 1.0
     .sidebar-toggled .sidebar .channel-sidebar-list {
         display: none;
     }
+    
+    
 }
 /* Extra large devices (large desktops, 1200px and up) */
  @media (min-width: 1200px) {
