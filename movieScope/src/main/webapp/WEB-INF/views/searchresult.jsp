@@ -40,7 +40,7 @@
 	                     	<div class="col-xl-3 col-sm-6 mb-3">
 		                        <div class="category-item mt-0 mb-0">
 		                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
-		                              <img class="img-fluid" src="img/${list.m_name }.png" alt="">
+		                              <img class="img-fluid" src="img/images/${list.m_name }.jpg" alt="">
 		                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
 		                              <p>평점 : ${list.m_grade }</p>
 		                           </a>
