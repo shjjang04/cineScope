@@ -31,9 +31,10 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override //r
-	public void article_check(int FK_u_number) {
+	public ArticleDTO article_check(int a_number) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("보드서비스");
+		return articleDAO.check(a_number);
 	}
 
 	@Override //u

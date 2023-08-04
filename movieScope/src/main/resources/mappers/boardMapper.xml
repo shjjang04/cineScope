@@ -19,7 +19,7 @@
 	</select>
 
 	<update id="board_update">
-		update board set b_title = #{b_title}, b_comtext = #{b_context}
+		update board set b_title = #{b_title}, b_context = #{b_context}
 		where b_number = #{b_number}
 	</update>
 

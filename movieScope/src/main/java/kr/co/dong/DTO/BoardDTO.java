@@ -8,7 +8,13 @@ public class BoardDTO {
 	private int FK_u_number;
 	private String b_title;
 	private String b_context;
-	private Date b_date;
+	private String b_date;
+	public int getB_number() {
+		return b_number;
+	}
+	public void setB_number(int b_number) {
+		this.b_number = b_number;
+	}
 	public int getB_cnt() {
 		return b_cnt;
 	}
@@ -33,17 +39,11 @@ public class BoardDTO {
 	public void setB_context(String b_context) {
 		this.b_context = b_context;
 	}
-	public Date getB_date() {
+	public String getB_date() {
 		return b_date;
 	}
-	public void setB_date(Date b_date) {
+	public void setB_date(String b_date) {
 		this.b_date = b_date;
-	}
-	public int getB_number() {
-		return b_number;
-	}
-	public void setB_number(int b_number) {
-		this.b_number = b_number;
 	}
 	@Override
 	public String toString() {

@@ -14,7 +14,7 @@
 	<div id="content-wrapper">
 		<div class="container-fluid pb-0">
 			<!-- 여기서 부터 본문 작성 -->
-				<form role="form" method="post">
+				<form role="form" method="post" action="boardListAll">
 				<div class="form-group">
 				<label>제목</label> <input type="text" name='b_title' class="form-control"  value="${board.b_title}"/>
 				</div>

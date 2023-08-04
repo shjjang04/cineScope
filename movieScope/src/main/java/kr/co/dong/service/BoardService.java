@@ -8,7 +8,7 @@ import kr.co.dong.DTO.BoardDTO;
 public interface BoardService {
 	public List<ArticleDTO> article_listall(int FK_b_number); //모두조회
 	public void article_insert(ArticleDTO aD); //c
-	public void article_check(int FK_u_number); //r
+	public ArticleDTO article_check(int a_number); //r
 	public void article_update(ArticleDTO aD); //u
 	public void article_delete(int a_number); //d
 	public List<BoardDTO> board_listAll(); //모두보이기

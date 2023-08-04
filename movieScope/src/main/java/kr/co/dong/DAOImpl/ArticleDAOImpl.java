@@ -16,21 +16,22 @@ public class ArticleDAOImpl implements ArticleDAO {
 	private final static String namespace = "kr.co.dong.articleMapper";
 
 	@Override
-	public void check(int FK_u_number) {
+	public ArticleDTO check(int a_number) {
 		// TODO Auto-generated method stub
-		sqlsession.selectOne(namespace+".check", FK_u_number);
+		System.out.println("아티클DAO로 왔따");
+		return sqlsession.selectOne(namespace+".article_check", a_number);
 	}
 
 	@Override
 	public void delete(int a_number) {
 		// TODO Auto-generated method stub
-		sqlsession.delete(namespace+".delete",a_number);
+		sqlsession.delete(namespace+".article_delete",a_number);
 	}
 
 	@Override
 	public void insert(ArticleDTO aD) {
 		// TODO Auto-generated method stub
-		sqlsession.insert(namespace+".insert",aD);
+		sqlsession.insert(namespace+".article_insert",aD);
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	@Override
 	public void update(ArticleDTO aD) {
 		// TODO Auto-generated method stub
-		sqlsession.update(namespace+".update",aD);
+		sqlsession.update(namespace+".article_update",aD);
 	}
 
 	@Override
