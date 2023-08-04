@@ -14,9 +14,9 @@ public class BoardDAOImpl implements BoardDAO {
 	private final static String namespace = "kr.co.dong.boardMapper";
    
    @Override
-   public List<BoardDTO> listAll() {
+   public List<BoardDTO> board_listAll() {
       // TODO Auto-generated method stub
-      return sqlsession.selectList(namespace+".listAll");
+      return sqlsession.selectList(namespace+".board_listAll");
    }
    @Override
    public void delete(int b_number) {
