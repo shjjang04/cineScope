@@ -1,7 +1,6 @@
 package kr.co.dong.serviceImpl;
 
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -13,10 +12,9 @@ import org.springframework.stereotype.Service;
 import kr.co.dong.DAO.AgeDAO;
 import kr.co.dong.DAO.GenreDAO;
 import kr.co.dong.DAO.MovieDAO;
-import kr.co.dong.DAO.NationDAO;import kr.co.dong.DAO.UserDAO;
+import kr.co.dong.DAO.NationDAO;
 import kr.co.dong.DAO.UserfavoriteDAO;
 import kr.co.dong.DTO.MovieDTO;
-import kr.co.dong.DTO.UserDTO;
 import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.MovieDetailService;
 @Service
