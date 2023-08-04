@@ -2,23 +2,50 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <ul class="sidebar navbar-nav">
-	<li class="nav-item active"><a class="nav-link" href="/">
+
+
+	<li class="nav-item active"><a class="nav-link" href="${contextPath}/">
 			<i class="fas fa-fw fa-home"></i> <span>Home</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="${contextPath }/search">
-			<i class="fas fa-fw fa-users"></i> <span>영화조회</span>
+	
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/profile">
+			<i class="fas fa-fw fa-user"></i> <span>My Channel</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link"
-		href="single-channel.html"> <i class="fas fa-fw fa-user-alt"></i>
-			<span>Single Channel</span>
+	
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/search">
+			<i class="fas fa-fw fa-search"></i> <span>Search</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="video-page.html">
-			<i class="fas fa-fw fa-video"></i> <span>Video Page</span>
+	
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/board">
+			<i class="fas fa-fw fa-star"></i> <span>Rating board</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="upload-video.html">
-			<i class="fas fa-fw fa-cloud-upload-alt"></i> <span>Upload
-				Video</span>
-	</a></li>
+	
+	<li class="nav-item channel-sidebar-list">
+		<h6>My menu</h6>
+				
+	</li>
+	
+	<li class="nav-item channel-sidebar-list">
+		<footer class="sticky-footer">
+					<a href="#"><img alt="" src="resources/img/google.png"></a><p>
+					<strong class="text-dark">Lim Sang-hyeon / Lee Geun-seop / Yoon Gap-min / Yoon Gap-min / Noh Gyeong-wook</strong>.<p>
+					<small class="mt-0 mb-0"><a	class="text-secondary">
+					© 2023 Cinescope : /*Let me go home*/ group³. All rights reserved.</a> </small>
+				</p>
+			</div>
+			<div class="col-lg-6 col-sm-6 text-right">
+				<div class="app">
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+				
+	</li>
+	
+	
+	
+	<!--
 	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 		href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
 		aria-expanded="false"> <i class="fas fa-fw fa-folder"></i> <span>Pages</span>
@@ -34,9 +61,6 @@
 			<a class="dropdown-item" href="404.html">404 Page</a> <a
 				class="dropdown-item" href="blank.html">Blank Page</a>
 		</div></li>
-	<li class="nav-item"><a class="nav-link" href="history-page.html">
-			<i class="fas fa-fw fa-history"></i> <span>History Page</span>
-	</a></li>
 	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 		href="categories.html" role="button" data-toggle="dropdown"
 		aria-haspopup="true" aria-expanded="false"> <i
@@ -47,22 +71,5 @@
 				class="dropdown-item" href="categories.html">Music</a> <a
 				class="dropdown-item" href="categories.html">Television</a>
 		</div></li>
-	<li class="nav-item channel-sidebar-list">
-		<h6>SUBSCRIPTIONS</h6>
-		<ul>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s1.png"> Your Life
-			</a></li>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s2.png"> Unboxing <span
-					class="badge badge-warning">2</span>
-			</a></li>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s3.png"> Product / Service
-			</a></li>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s4.png"> Gaming
-			</a></li>
-		</ul>
-	</li>
+		-->
 </ul>
