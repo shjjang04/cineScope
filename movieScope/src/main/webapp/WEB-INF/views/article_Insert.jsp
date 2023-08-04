@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp"%>
-<title>시네스코프 코리아 - Home</title>
+<title>시네스코프 코리아 - 취향을 저격하는 영화 DB 검색서비스 </title>
 </head>
 <%@include file="include/top.jsp"%>
 <div id="wrapper">
@@ -13,12 +13,20 @@
 	<div id="content-wrapper">
 		<div class="container-fluid pb-0">
 			<!-- 여기서 부터 본문 작성 -->
-
-
-			<a href="boardListAll">보드 전체보기</a><br> 
-			<a href="boardWrite">글 작성하기</a>
-
-
+			<%
+			int b_number = Integer.parseInt(request.getParameter("b_number"));
+			int FK_u_number = Integer.parseInt(request.getParameter("FK_u_number"));
+			int a_number = Integer.parseInt(request.getParameter("a_number"));
+			String a_context = request.getParameter("a_context");
+			%>
+			
+			<form action="article_Insert" method="POST">
+			  내용: <input type="text" name="a_context"><br>
+			  <input type="hidden" name="b_number" value="<%= b_number %>">
+			  <input type="hidden" name="FK_u_number" value="<%= FK_u_number %>">
+			  <input type="hidden" name="a_number" value="<%= a_number %>">
+			  <input type="submit" value="댓글 작성">
+			</form>
 		</div>
 		<!-- /.container-fluid -->
 		<!-- Sticky Footer -->

@@ -1,10 +1,12 @@
+<%@page import="kr.co.dong.DTO.ArticleDTO"%>
+<%@page import="kr.co.dong.DTO.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp"%>
-<title>시네스코프 코리아 - Home</title>
+<title>시네스코프 코리아 - 취향을 저격하는 영화 DB 검색서비스 </title>
 </head>
 <%@include file="include/top.jsp"%>
 <div id="wrapper">
@@ -13,12 +15,15 @@
 	<div id="content-wrapper">
 		<div class="container-fluid pb-0">
 			<!-- 여기서 부터 본문 작성 -->
-
-
-			<a href="boardListAll">보드 전체보기</a><br> 
-			<a href="boardWrite">글 작성하기</a>
-
-
+			
+			<form action="article_Modify" method="POST">
+			  내용: <input type="text" name="a_context"><br>
+			  <input type="hidden" name="FK_b_number" value="${dto.FK_b_number}"/>
+			  <input type="hidden" name="FK_u_number" value="${dto.FK_u_number}"/>
+			  <input type="hidden" name="a_number" value="${dto.a_number}"/>
+			  <input type="hidden" name="a_date" value="${dto.a_date}">
+			  <input type="submit" value="댓글 수정">
+			</form>
 		</div>
 		<!-- /.container-fluid -->
 		<!-- Sticky Footer -->

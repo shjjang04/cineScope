@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp"%>
-<title>시네스코프 코리아 - Home</title>
+<title>시네스코프 코리아 - 취향을 저격하는 영화 DB 검색서비스 </title>
 </head>
 <%@include file="include/top.jsp"%>
 <div id="wrapper">
@@ -15,8 +15,14 @@
 			<!-- 여기서 부터 본문 작성 -->
 
 
-			<a href="boardListAll">보드 전체보기</a><br> 
-			<a href="boardWrite">글 작성하기</a>
+			<form action="boardWrite" method="post">
+				b_cnt: <input type="text" name="b_cnt"> <br>
+				FK_u_number: <input type="text" name="FK_u_number"> <br>
+				b_title: <input type="text" name="b_title"> <br>
+				b_context: <input type="text" name="b_context"> <br>
+				b_date(2021-01-01): <input type="date" name="b_date"> <br> 
+				<input type="submit" value="글작성">
+			</form>
 
 
 		</div>
