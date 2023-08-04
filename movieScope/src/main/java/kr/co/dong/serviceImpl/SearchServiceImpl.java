@@ -82,4 +82,10 @@ public class SearchServiceImpl implements SearchService{
 		return natinoDAO.searchMovie(m_nation);
 	}
 
+	@Override
+	public MovieDTO searchDetail(int m_number) {
+		// TODO Auto-generated method stub
+		return movieDAO.detail(m_number);
+	}
+
 }
