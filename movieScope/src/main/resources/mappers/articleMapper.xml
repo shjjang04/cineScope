@@ -5,9 +5,9 @@
   <mapper namespace="kr.co.dong.articleMapper"> 
 	
 	<!-- 작성 댓글 정보조회 -->
-		<select id="article_check" resultType="int">
+		<select id="article_check" resultType="articleDTO">
 			SELECT * FROM article
-			 WHERE FK_u_number=#{FK_u_number}
+			 WHERE a_number=#{a_number}
 		</select>
 	
 	<!-- 작성 댓글 삭제 -->
@@ -15,20 +15,25 @@
 			DELETE FROM article
 			WHERE a_number=#{a_number}
 		</delete>
+	<!-- 작성한 게시판 댓글 삭제 -->
+		<delete id="board_article_delete">
+			DELETE FROM article
+			WHERE FK_b_number=#{b_number}
+		</delete>
 		
 	<insert id="article_insert">
-		insert into	article(a_number,a_context,a_date,FK_b_number,FK_u_number)
-		values(#{a_number},#{a_context},#{a_date},#{FK_b_number},#{FK_u_number})
+		insert into	article(a_number,a_context,FK_b_number,FK_u_number)
+		values(#{a_number},#{a_context},#{FK_b_number},#{FK_u_number})
 	</insert>
 
-	<select id="article_listall">
-		select a_number,a_context,a_date,FK_b_number,FK_u_number
+	<select id="article_listall" resultType="articleDTO">
+		select *
 		from article
 		where FK_b_number=#{FK_b_number}
 	</select>
 
 	<update id="article_update">
-		update article set a_context = #{a_context}, a_date = #{a_date}
+		update article set a_context = #{a_context}
 		where a_number = #{a_number}
 	</update>
 

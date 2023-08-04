@@ -2,6 +2,7 @@ package kr.co.dong.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.ArticleDAO;
@@ -11,7 +12,9 @@ import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.service.BoardService;
 @Service
 public class BoardServiceImpl implements BoardService{
+	@Autowired
 	ArticleDAO articleDAO;
+	@Autowired
 	BoardDAO boardDAO;
 	
 	@Override //모두보기
@@ -23,13 +26,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override //c
 	public void article_insert(ArticleDTO aD) {
 		// TODO Auto-generated method stub
+		System.out.println("서비스");
 		articleDAO.insert(aD);
 	}
 	
 	@Override //r
-	public void article_check(int FK_u_number) {
+	public ArticleDTO article_check(int a_number) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("보드서비스");
+		return articleDAO.check(a_number);
 	}
 
 	@Override //u
@@ -65,6 +70,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void board_update(BoardDTO bD) {
 		// TODO Auto-generated method stub
+		System.out.println("서비스 임플");
 		boardDAO.update(bD);
 	}
 
@@ -78,6 +84,14 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardDTO> checkAll(int FK_u_number) {
 		// TODO Auto-generated method stub
 		return boardDAO.checkAll(FK_u_number);
+	}
+
+	@Override
+	public void board_article_delete(int b_number) {
+		// TODO Auto-generated method stub
+		System.out.println("서비스");
+		System.out.println(b_number);
+		articleDAO.board_article_delete(b_number);
 	}
 
 }
