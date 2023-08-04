@@ -96,6 +96,10 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 		return selectList;
 	}
 
+	
+	
+	
+	
 	public String merge(List<String> list) {
 		int cnt = 0;
 		String merge = "";
