@@ -43,15 +43,15 @@
 					<div class="row">
 					<div class="col-lg-12">
           			  <div class="form-group">
-			            <label for="m_name">영화제목</label>
-			            <input type="text" name="m_name" placeholder="타이타닉" id="m_name" class="form-control">
+			            <label for="m_name">Movie Title</label>
+			            <input type="text" name="m_name" placeholder="영화제목" id="m_name" class="form-control">
 		              </div>
                     </div>
                     </div>
                     <div class="row">
 	       			<div class="col-lg-3">
 	          		  <div class="form-group">
-			             <label for="m_opening">영화 개봉일</label>
+			             <label for="m_opening">Movie Opening Date</label>
 			             <select id="m_opening" class="custom-select" name="m_opening">
 			                <option value="1900" selected>전체</option>
 			                <option value="1990">1990년대이후</option>
@@ -64,47 +64,47 @@
 					<input type="hidden" value="" name="m_reopening">
 					<div class="col-lg-3">
 			           <div class="form-group">
-			              <label for="m_runtime">영화 상영시간</label>
-			              <input type="text" name="m_runtime" placeholder="90" id="m_runtime" class="form-control">
+			              <label for="m_runtime">Movie Running Time</label>
+			              <input type="text" name="m_runtime" placeholder="영화상영시간(**분)" id="m_runtime" class="form-control">
 			           </div>
 			        </div>
 					<div class="col-lg-3">
 			           <div class="form-group">
-			              <label for="m_grade">영화 평점</label>
-			              <input type="text" name="m_grade" placeholder="5.0" id="m_grade" class="form-control">
+			              <label for="m_grade">Movie Grade</label>
+			              <input type="text" name="m_grade" placeholder="영화평점(0.0~10.0)" id="m_grade" class="form-control">
 			           </div>
 			        </div>
 					<div class="col-lg-3">
 			           <div class="form-group">
-			              <label for="m_director">영화 감독</label>
-			              <input type="text" name="m_director" placeholder="제임스 카메론" id="m_director" class="form-control">
+			              <label for="m_director">Movie Director</label>
+			              <input type="text" name="m_director" placeholder="영화감독" id="m_director" class="form-control">
 			           </div>
 			        </div>
 			        </div>
 			        <div class="row">
 					<div class="col-lg-4">
 			           <div class="form-group">
-			              <label for="m_actor">영화 배우</label>
-			              <input type="text" name="m_actor" placeholder="톰 크루즈" id="m_actor" class="form-control">
+			              <label for="m_actor">Movie Actor</label>
+			              <input type="text" name="m_actor" placeholder="영화배우" id="m_actor" class="form-control">
 			           </div>
 			        </div>
 					<div class="col-lg-4">
 			           <div class="form-group">
-			              <label for="m_attendance">영화 관객수</label>
-			              <input type="text" name="m_attendance" placeholder="10,000,000명" id="m_attendance" class="form-control">
+			              <label for="m_attendance">Movie Attendance</label>
+			              <input type="text" name="m_attendance" placeholder="영화 관객수" id="m_attendance" class="form-control">
 			           </div>
 			        </div>
 					<div class="col-lg-4">
 			           <div class="form-group">
-			              <label for="m_awards">영화 수상</label>
-			              <input type="text" name="m_awards" placeholder="아카데미" id="m_awards" class="form-control">
+			              <label for="m_awards">Movie Awards</label>
+			              <input type="text" name="m_awards" placeholder="영화 수상" id="m_awards" class="form-control">
 			           </div>
 			        </div>
 			        </div>
 			        <div class="row">
 			        <div class="col-lg-4">
 	          		  <div class="form-group">
-			             <label for="m_genre">영화 장르</label>
+			             <label for="m_genre">Movie Genre</label>
 			             <select id="m_genre" class="custom-select" name="m_genre">
 			                <option value="SF" selected> SF</option>
 							<option value="가족" > 가족</option>
@@ -133,7 +133,7 @@
 	       			</div>
 	       			<div class="col-lg-4">
 	          		  <div class="form-group">
-			             <label for="m_age">영화 관람연령</label>
+			             <label for="m_age">Movie Age</label>
 			             <select id="m_age" class="custom-select" name="m_age">
 			                <option value="-1" selected> 연령제한없음</option>
 							<option value="0" > 전체연령 관람가</option>
@@ -145,7 +145,7 @@
 	       			</div>
 					<div class="col-lg-4">
 	          		  <div class="form-group">
-			             <label for="m_nation">영화 국가</label>
+			             <label for="m_nation">Nation</label>
 			             <select id="m_nation" class="custom-select" name="m_nation">
 			                <option value="나이지리아" > 나이지리아</option>
 							<option value="네덜란드" > 네덜란드</option>
@@ -183,7 +183,7 @@
 	       			</div>
 	       			</div>
 	       			<div class="osahan-area text-center mt-3">
-                        <input type="submit" class="btn btn-outline-primary" value="제출">
+                        <input type="submit" class="btn btn-outline-primary" value="검색">
                      </div>
                      <hr>
 					
@@ -227,7 +227,7 @@
                    </div>                  
                 </div>
                 <div class="osahan-area text-center mt-3">
-                	<input type="submit" class="btn btn-outline-primary" value="제출">
+                	<input type="submit" class="btn btn-outline-primary" value="검색">
              	</div>
              	<hr>
            		</form>
@@ -273,22 +273,6 @@
                                  <input type="checkbox" name="m_genre" value="공포" class="custom-control-input" id="customCheck4" onclick='checkOnlyOneGenre(this)'>
                                  <label class="custom-control-label" for="customCheck4">공포</label>
                               </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="다큐멘터리" class="custom-control-input" id="customCheck5" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="customCheck5">다큐멘터리</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="시대극" class="custom-control-input" id="customCheck6" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="customCheck6">시대극</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="어드벤처" class="custom-control-input" id="customCheck7" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="customCheck7">어드벤처</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="판타지" class="custom-control-input" id="customCheck8" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="customCheck8">판타지</label>
-                              </div>
                            </div>
                            <!-- checkbox 2col -->
                            <div class="col-lg-2 col-xs-6 col-4">
@@ -308,6 +292,43 @@
                                  <input type="checkbox" name="m_genre" value="뮤지컬" class="custom-control-input" id="zcustomCheck4" onclick='checkOnlyOneGenre(this)'>
                                  <label class="custom-control-label" for="zcustomCheck4">뮤지컬</label>
                               </div>
+                           </div>
+                           <!-- checkbox 3col -->
+                           <div class="col-lg-2 col-xs-6 col-4">
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="스릴러" class="custom-control-input" id="czcustomCheck5" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="czcustomCheck5">스릴러</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="액션" class="custom-control-input" id="czcustomCheck6" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="czcustomCheck6">액션</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="코미디" class="custom-control-input" id="czcustomCheck7" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="czcustomCheck7">코미디</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="판타지" class="custom-control-input" id="customCheck8" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="customCheck8">판타지</label>
+                              </div>
+                           </div>
+                           <!-- checkbox 4col -->
+                           <div class="col-lg-2 col-xs-6 col-4">
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="다큐멘터리" class="custom-control-input" id="customCheck5" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="customCheck5">다큐멘터리</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="시대극" class="custom-control-input" id="customCheck6" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="customCheck6">시대극</label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                 <input type="checkbox" name="m_genre" value="어드벤처" class="custom-control-input" id="customCheck7" onclick='checkOnlyOneGenre(this)'>
+                                 <label class="custom-control-label" for="customCheck7">어드벤처</label>
+                              </div>
+                           </div>
+                           <!-- checkbox 5col -->
+                           <div class="col-lg-2 col-xs-6 col-4">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" name="m_genre" value="무협" class="custom-control-input" id="zcustomCheck5" onclick='checkOnlyOneGenre(this)'>
                                  <label class="custom-control-label" for="zcustomCheck5">무협</label>
@@ -321,24 +342,8 @@
                                  <label class="custom-control-label" for="zcustomCheck7">전쟁</label>
                               </div>
                            </div>
-                           <!-- checkbox 3col -->
+                           <!-- checkbox 6col -->
                            <div class="col-lg-2 col-xs-6 col-4">
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="미스터리" class="custom-control-input" id="czcustomCheck1" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck1">미스터리</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="범죄" class="custom-control-input" id="czcustomCheck2" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck2">범죄</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="서부" class="custom-control-input" id="czcustomCheck3" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck3">서부</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="성인" class="custom-control-input" id="czcustomCheck4" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck4">성인</label>
-                              </div>
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" name="m_genre" value="스릴러" class="custom-control-input" id="czcustomCheck5" onclick='checkOnlyOneGenre(this)'>
                                  <label class="custom-control-label" for="czcustomCheck5">스릴러</label>
@@ -354,7 +359,7 @@
                            </div>
                            </div>
                            <div class="osahan-area text-center mt-3">
-			                <input type="submit" class="btn btn-outline-primary" value="제출">
+			                <input type="submit" class="btn btn-outline-primary" value="검색">
 			             	</div>
 			             	<hr>
                           </form>
@@ -521,7 +526,7 @@
                            </div>
                            </div>
                            <div class="osahan-area text-center mt-3">
-			                <input type="submit" class="btn btn-outline-primary" value="제출">
+			                <input type="submit" class="btn btn-outline-primary" value="검색">
 			             	</div>
 			             	<hr>
 							</form>
