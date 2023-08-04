@@ -6,8 +6,8 @@
 <head>
 <%@include file="include/head.jsp"%>
 </head>
-<body>
-<%@include file="include/top.jsp"%>
+<body id="page-top">
+<%@include file="include/nav.jsp"%>
 <div id="wrapper">
 	<!-- Sidebar -->
 	<%@include file="include/sidebar.jsp"%>

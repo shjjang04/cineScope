@@ -23,7 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.RedirectAttributesMethodArgumentResolver;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import kr.co.dong.DAO.ArticleDAO;
 import kr.co.dong.DAOImpl.ArticleDAOImpl;
 import kr.co.dong.DTO.ArticleDTO;

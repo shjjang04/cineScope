@@ -6,8 +6,10 @@
 <%@include file="include/head.jsp"%>
 <title>시네스코프 코리아 - 취향을 저격하는 영화 DB 검색서비스 </title>
 </head>
-<%@include file="include/top.jsp"%>
+
 <div id="wrapper">
+<body id="page-top">
+<%@include file="include/nav.jsp"%>
 	<!-- Sidebar -->
 	<%@include file="include/sidebar.jsp"%>
 	<div id="content-wrapper">
@@ -27,8 +29,6 @@
 
 		</div>
 		<!-- /.container-fluid -->
-		<!-- Sticky Footer -->
-		<%@include file="include/footer.jsp"%>
 	</div>
 	<!-- /.content-wrapper -->
 </div>

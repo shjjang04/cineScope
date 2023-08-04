@@ -6,8 +6,9 @@
 <%@include file="include/head.jsp"%>
 <title>시네스코프 코리아 - 게시판</title>
 </head>
-<%@include file="include/top.jsp"%>
 <div id="wrapper">
+<body id="page-top">
+<%@include file="include/nav.jsp"%>
 	<!-- Sidebar -->
 	<%@include file="include/sidebar.jsp"%>
 	<div id="content-wrapper">
@@ -30,8 +31,7 @@
 			<button><a href="boardWrite">글작성</a></button>
 		</div>
 		<!-- /.container-fluid -->
-		<!-- Sticky Footer -->
-		<%@include file="include/footer.jsp"%>
+		
 	</div>
 	<!-- /.content-wrapper -->
 </div>

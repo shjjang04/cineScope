@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
@@ -8,13 +9,10 @@
 <%@include file="include/nav.jsp"%>
 <!-- Sidebar -->
 <%@include file="include/sidebar.jsp" %>
-
 <div id="wrapper">
-<!-- Sidebar -->
-<%@include file="include/sidebar.jsp" %>
-
 		<div id="content-wrapper">
 			<div class="single-channel-image">
+	               
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
                <div class="channel-profile">
                   <img class="channel-profile-img" alt="" src="resources/img/s2.png">
@@ -176,8 +174,6 @@
           </div>
           <hr> 
          
-         <!-- Sticky Footer -->
-         <%@include file="include/footer.jsp" %>
          <!-- /.content-wrapper -->
      	 </div>
       
