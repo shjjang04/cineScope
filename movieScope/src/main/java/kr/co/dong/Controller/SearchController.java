@@ -64,7 +64,20 @@ public class SearchController {
 			movieDtoList.get(i).setM_number(movieList.get(i));
 		}
 		logger.info("movieList : " + movieList);
-		mav.addObject("movieDtoList", movieDtoList);
+		int numInPage = 12;	//한페이지에 보여줄 영화갯수
+		int pageTotal = (movieDtoList.size() / numInPage) + 1;	// 전체 페이지 갯수
+		for(int i = 0; i<pageTotal; i++) {
+			List<MovieDTO> tmp = new ArrayList<MovieDTO>();
+			for(int j = 0; j<numInPage; j++) {
+				if((j+i*numInPage) == movieDtoList.size())
+					break;
+				tmp.add(movieDtoList.get(j+i*numInPage));
+			}
+			mav.addObject("movieDtoList"+i, tmp);
+		}
+		mav.addObject("numInPage", numInPage);
+		mav.addObject("pageTotal", pageTotal);
+//		mav.addObject("movieDtoList", movieDtoList);
 		mav.addObject("movieList", movieList);
 		mav.setViewName("searchresult");
 		return mav;

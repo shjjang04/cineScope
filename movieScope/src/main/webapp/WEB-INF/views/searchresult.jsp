@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
-
 <title>search 결과 보여주는 화면</title>
 
 </head>
@@ -13,7 +12,7 @@
       <div id="wrapper">
          <!-- Sidebar -->
          <%@include file="include/sidebar.jsp" %>
-
+       
          <div id="content-wrapper">
             <div class="container-fluid upload-details">
             <!-- 여기서 부터 본문 작성 -->
@@ -35,33 +34,37 @@
                            <h6>Movie List</h6>
                         </div>
                      </div>
-                     
-                     <c:forEach var="list" items="${requestScope.movieDtoList}">
-	                     	<div class="col-xl-3 col-sm-6 mb-3">
-		                        <div class="category-item mt-0 mb-0">
-		                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
-		                              <img class="img-fluid" src="img/${list.m_name }.png" alt="">
-		                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-		                              <p>평점 : ${list.m_grade }</p>
-		                           </a>
-		                        </div>
-	                     	</div>
-                     </c:forEach>
-                     
+
+	                     <c:if test="${movieDtoList0 != null }">                     	
+	                         <c:forEach var="list" items="${requestScope.movieDtoList0 }">
+			                     	<div class="col-xl-3 col-sm-6 mb-3">
+				                        <div class="category-item mt-0 mb-0">
+				                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
+				                              <img class="img-fluid" src="${contextPath }/resources/img/images/${list.m_name }.jpg" alt="">
+				                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
+				                              <p>평점 : ${list.m_grade }</p>
+				                           </a>
+				                        </div>
+			                     	</div>
+		                     </c:forEach>
+		                 </c:if>
+
                   </div>
+ 	
                   <nav aria-label="Page navigation example">
                      <ul class="pagination justify-content-center pagination-sm mb-0">
                         <li class="page-item disabled">
                            <a class="page-link" href="#" tabindex="-1">Previous</a>
                         </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item active"><button type="button" class="page-link" id="button1" >1</button></li>
+                        <li class="page-item"><button type="button" class="page-link" id="button2">2</button></li>
+                        <li class="page-item"><button type="button" class="page-link" id="button3">3</button></li>
                         <li class="page-item">
                            <a class="page-link" href="#">Next</a>
                         </li>
                      </ul>
                   </nav>
+
                </div>
                
             </c:if>
