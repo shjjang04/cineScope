@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.MovieDetailService;
+import kr.co.dong.service.SearchService;
 
 @Controller
 public class MoviedetailController {
@@ -18,6 +19,7 @@ public class MoviedetailController {
 
 	@Autowired
 	private MovieDetailService service;
+	private SearchService searchservice;
 	
 	@GetMapping("movieDetail")
 	public ModelAndView movieDetail(int m_number, HttpServletRequest request) throws Exception{

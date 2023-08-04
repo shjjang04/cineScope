@@ -34,33 +34,34 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 	@Override
 	public String[] movieDetail(int m_number) {
 		// TODO Auto-generated method stub
-		String[] list = new String [11];
+		String[] list = new String [12];
 		MovieDTO dto = moviedao.detail(m_number);
 		list[0] = (dto.getM_name());
 		list[1] = (dto.getM_opening());
 		list[2] = (dto.getM_reopening());
 		list[3] = (dto.getM_director());
-		list[4] = (dto.getM_grade());
-		list[5] = (dto.getM_attendance());
-		list[6] = (dto.getM_runtime());
-		list[7] = (dto.getM_awards());
-		list[8] = (genredao.search(m_number));
-		list[9] = (nationdao.search(m_number));
+		list[4] = (dto.getM_actor());
+		list[5] = (dto.getM_grade());
+		list[6] = (dto.getM_attendance());
+		list[7] = (dto.getM_runtime());
+		list[8] = (dto.getM_awards());
+		list[9] = merge(genredao.search(m_number));
+		list[10] = (nationdao.search(m_number));
 		switch(agedao.search(m_number)) {
 		case 0:
-			list[10] = "전체이용가";
+			list[11] = "전체이용가";
 		case 12:
-			list[10] = "12세이용가";
+			list[11] = "12세이용가";
 		case 15:
-			list[10] = "15세이용가";
+			list[11] = "15세이용가";
 		case 18:
-			list[10] = "청소년관람불가";
+			list[11] = "청소년관람불가";
 		}
 		return list;
 	}
 
 	@Override
-	public List<String> userFav(int m_number) {
+	public List<String> userFav(int m_number){
 		// TODO Auto-generated method stub
 		List<Integer> userList = null;
 		List<Integer> movieList = null;
@@ -72,7 +73,9 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 				userList.add(data.getFK_u_number());
 			}
 		}
-		
+		if(userList == null) {
+			return null;
+		}
 		for(int data : userList) {
 			for(UserfavoriteDTO dto : userfavoritedao.favCheck(data)) {
 				if(dto.getFK_m_number() != m_number) {
@@ -91,6 +94,21 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 			}
 		}
 		return selectList;
+	}
+
+	public String merge(List<String> list) {
+		int cnt = 0;
+		String merge = "";
+		if(cnt == 0) {
+			merge += list.get(0);
+			cnt++;
+		}else {
+			for(String str : list) {
+				merge += ", " + str;
+			}
+		}
+		
+		return merge;
 	}
 	
 }

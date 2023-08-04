@@ -13,9 +13,9 @@ public class GenreDAOImpl implements GenreDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public String search(int m_number) {
+	public List<String> search(int m_number) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("kr.co.dong.genreMapper.genre_search", m_number);
+		return sqlSession.selectList("kr.co.dong.genreMapper.genre_search", m_number);
 	}
 	
 	@Override
