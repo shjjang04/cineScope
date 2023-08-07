@@ -11,31 +11,35 @@
 <%@include file="include/sidebar.jsp" %>
 <div id="wrapper">
 		<div id="content-wrapper">
-			<div class="single-channel-image">
-	               
+			<div class="single-channel-page" id="content-wrapper">
+              <div class="single-channel-image">
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
-               <div class="channel-profile">
-                  <img class="channel-profile-img" alt="" src="resources/img/s2.png">
-               </div>
             </div>
             <div class="container-fluid pb-0">
         	
         	<!-- 게시판모형 -->
-        	<button><a href="boardWrite?&user=${user}">글작성</a></button>
-        	<table>
+        	<table class="table table-hover">
+        		<thead>
 				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>날자</th>
+					<th scope="col">번호</th>
+					<th scope="col">영화</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성자</th>
+					<th scope="col">작성일</th>
+					<th scope="col">조회수</th>
 				</tr>
 				<tr>
 					<c:forEach var="board" items="${boardListAll }">
 						<td>${board.b_number }</td>
+						<td>${movie.m_name }</td>
 						<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
+						<td>${board.FK_u_number }</td>
 						<td>${board.b_date }</td>
+						<td>${board.b_cnt }</td>
 					</c:forEach>
 				</tr>
 			</table>
+        	<button><a href="boardWrite?&user=${user}">글작성</a></button>
                            
 		                           
                        </div>

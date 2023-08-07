@@ -11,14 +11,14 @@
 <%@include file="include/sidebar.jsp" %>
 <div id="wrapper">
 		<div id="content-wrapper">
-			<div class="single-channel-image">
-	               
+			<div class="single-channel-page" id="content-wrapper">
+              <div class="single-channel-image">
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
-               <div class="channel-profile">
-                  <img class="channel-profile-img" alt="" src="resources/img/s2.png">
-               </div>
             </div>
             <div class="container-fluid pb-0">
+			<div class="single-channel-image">
+	               
+            </div>
                <div class="top-mobile-search">
 					<div class="row">
                      <div class="col-md-12">   
@@ -178,7 +178,7 @@
      	 </div>
       
       <!-- /#wrapper -->
-      
+      </div>
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
       
