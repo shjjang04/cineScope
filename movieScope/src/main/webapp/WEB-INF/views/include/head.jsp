@@ -22,5 +22,3 @@
 	<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
 <!-- Dark mode switch -->
 	<link rel="stylesheet" type="text/css" href="resources/vender/darkmode/css/darkmode.css">
-<!-- nav move -->
-	<link rel="stylesheet" type="text/css" href="resources/css/nav.css">

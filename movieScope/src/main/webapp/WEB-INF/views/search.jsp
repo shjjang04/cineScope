@@ -3,15 +3,13 @@
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
-
-<title>영화조회 </title>
-
+<title>영화 찾기</title>
 </head>
-   <%@include file="include/nav.jsp"%>
+<body id="page-top">
+<%@include file="include/nav.jsp"%>
+<!-- Sidebar -->
+<%@include file="include/sidebar.jsp" %>
       <div id="wrapper">
-         <!-- Sidebar -->
-         <%@include file="include/sidebar.jsp" %>
-
          <div id="content-wrapper">
             <div class="container-fluid upload-details">
             <!-- 여기서 부터 본문 작성 -->
@@ -549,7 +547,7 @@
             <!-- /.container-fluid -->
          </div>
          <!-- /.content-wrapper -->
-      </div>
+
       <!-- /#wrapper -->
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top">
