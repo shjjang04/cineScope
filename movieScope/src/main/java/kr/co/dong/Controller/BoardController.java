@@ -1,5 +1,6 @@
 package kr.co.dong.Controller;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,7 +25,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.RedirectAttributesMethodArgumentResolver;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import kr.co.dong.DAO.ArticleDAO;
 import kr.co.dong.DAOImpl.ArticleDAOImpl;
 import kr.co.dong.DTO.ArticleDTO;
@@ -39,8 +39,9 @@ public class BoardController {
 	
 	//게시판 전체조회
 	@GetMapping("boardListAll")
-	public ModelAndView boardListAll(HttpServletRequest request) {
+	public ModelAndView boardListAll(HttpServletRequest request) throws UnsupportedEncodingException {
 	    // 로그인 체크 인터셉터
+		request.setCharacterEncoding("utf-8");
 	    HttpSession session = request.getSession(false);
 	    if(session == null || session.getAttribute("user") == null) {
 	        return new ModelAndView("redirect:/login");

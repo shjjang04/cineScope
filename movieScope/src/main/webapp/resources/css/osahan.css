@@ -772,10 +772,10 @@ Version: 1.0
 
  .category-item img {
      background: #fff none repeat scroll 0 0;
-     box-shadow: 0 0 2px #ccc;
+     box-shadow: 0 0 5px #ccc;
      border-radius: 15px;
      width: 180px;
-     height: 258px;
+     height: 263px;
      margin: 1px 0 8px;
      object-fit: scale-down;
      transform: scale(1);
@@ -1565,7 +1565,6 @@ Version: 1.0
         width: 0 !important;
      	overflow: hidden;
      	opacity: 0%
-	transition: opacity 0.5s;
     }
 }
 

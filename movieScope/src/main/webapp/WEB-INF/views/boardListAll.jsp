@@ -28,16 +28,16 @@
 					<th scope="col">작성일</th>
 					<th scope="col">조회수</th>
 				</tr>
-				<tr>
 					<c:forEach var="board" items="${boardListAll }">
+						<tr>
 						<td>${board.b_number }</td>
 						<td>${movie.m_name }</td>
 						<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
 						<td>${board.FK_u_number }</td>
 						<td>${board.b_date }</td>
 						<td>${board.b_cnt }</td>
+						</tr>
 					</c:forEach>
-				</tr>
 			</table>
         	<button><a href="boardWrite?&user=${user}">글작성</a></button>
                            
