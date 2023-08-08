@@ -15,7 +15,7 @@
 			<i class="fas fa-fw fa-search"></i> <span>Search</span>
 	</a></li>
 	
-	<li class="nav-item"><a class="nav-link" href="${contextPath}/board">
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/boardListAll">
 			<i class="fas fa-fw fa-star"></i> <span>Rating board</span>
 	</a></li>
 	
@@ -26,7 +26,7 @@
 	<li class="nav-item">
 	<footer class="sticky-footer-side">
 		<div class="nav-item">
-		<a href="#"><img alt="푸터로고" src="resources/img/flogo.png"></a>
+		<a href="#"><img alt="푸터로고" src="${contextPath }/resources/img/flogo.png"></a>
 		<p><strong class="text">Lim Sang-hyeon / Lee Keun-seop /
 				Yun Gap-min / Jeon Jae-hong / Noh Gyeong-wook</strong>
 		

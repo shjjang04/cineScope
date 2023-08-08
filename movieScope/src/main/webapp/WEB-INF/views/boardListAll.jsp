@@ -28,13 +28,13 @@
 					<th>제목</th>
 					<th>날자</th>
 				</tr>
-				<tr>
 					<c:forEach var="board" items="${boardListAll }">
-						<td>${board.b_number }</td>
-						<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
-						<td>${board.b_date }</td>
+						<tr>
+							<td>${board.b_number }</td>
+							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
+							<td>${board.b_date }</td>
+						</tr>
 					</c:forEach>
-				</tr>
 			</table>
                            
 		                           
