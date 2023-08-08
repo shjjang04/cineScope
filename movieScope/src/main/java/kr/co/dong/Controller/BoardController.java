@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.type.BigIntegerTypeHandler;
 import org.slf4j.Logger;
@@ -38,41 +39,55 @@ public class BoardController {
 	
 	//더미체크
 	@GetMapping("dummy")
-	public String dummy() {
-		return "dummy";
+	public ModelAndView dummy(HttpSession session) {
+	    ModelAndView mav = new ModelAndView();
+	    mav.setViewName("dummy");
+	    String user = (String) session.getAttribute("user");
+	    if(user != null) {
+	        mav.addObject("user", user);
+		    System.out.println("user: " + user);
+	    }
+	    return mav;
 	}
 	//게시판 전체조회
 	@GetMapping("boardListAll")
-	public ModelAndView boardListAll() {
-		ModelAndView mav = new ModelAndView();
-		logger.info("======================> 보드리스트 페이지로 이동");
-		List<BoardDTO> boardListAll = boardService.board_listAll();
-		logger.info("리스트 : " + boardListAll );
-		mav.addObject("boardListAll",boardListAll);
-		mav.setViewName("boardListAll");
-		System.out.println("BoardController-boardListAll");
-		return mav;
+	public ModelAndView boardListAll(HttpServletRequest request) {
+	    // 로그인 체크 인터셉터
+	    HttpSession session = request.getSession(false);
+	    if(session == null || session.getAttribute("user") == null) {
+	        return new ModelAndView("redirect:/login");
+	    }
+	    // request에서 user 파라미터 값 받아오기
+	    String user = request.getParameter("user");
+
+	    ModelAndView mav = new ModelAndView();
+	    List<BoardDTO> boardListAll = boardService.board_listAll();
+	    mav.addObject("boardListAll",boardListAll);
+	    mav.addObject("user",user);
+	    mav.setViewName("boardListAll");
+	    return mav;
 	}
-	@PostMapping("boardListAll")
-	public ModelAndView boardListAll2() {
-		ModelAndView mav = new ModelAndView();
-		logger.info("======================> 보드리스트 페이지로 이동");
-		List<BoardDTO> boardListAll = boardService.board_listAll();
-		logger.info("리스트 : " + boardListAll );
-		mav.addObject("boardListAll",boardListAll);
-		mav.setViewName("boardListAll");
-		System.out.println("BoardController-boardListAll");
-		return mav;
-	}
+
+//	@PostMapping("boardListAll")
+//	public ModelAndView boardListAll2() {
+//		ModelAndView mav = new ModelAndView();
+//		logger.info("======================> 보드리스트 페이지로 이동2");
+//		List<BoardDTO> boardListAll = boardService.board_listAll();
+//		logger.info("리스트 : " + boardListAll );
+//		mav.addObject("boardListAll",boardListAll);
+//		mav.setViewName("boardListAll");
+//		System.out.println("BoardController-boardListAll");
+//		return mav;
+//	}
 	//게시판 글쓰기Get
 	@GetMapping("boardWrite")
-	public String boardWrite() {
+	public String boardWrite(@RequestParam("user") int user) {
 		return "boardWrite";
 	}
 	//게시판 글쓰기Post
 	@PostMapping("boardWrite")
 	public String boardWritePro(BoardDTO boardDTO) {
-		System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+		System.out.println("보드라이투");
 		System.out.println(boardDTO);
 		boardService.board_insert(boardDTO);
 		System.out.println("BoardController-board_insert");
@@ -80,8 +95,9 @@ public class BoardController {
 	}
 	//게시판 글 상세조회
 	@GetMapping("board_Detail")
-	public void board_Detail(@RequestParam("b_number") int b_number, Model model) {
+	public void board_Detail(@RequestParam("b_number") int b_number, Model model, @RequestParam("user") int user) {
 		model.addAttribute("board", boardService.board_detail(b_number));
+		System.out.println("받은 유저 넘버: " + user);
 		//게시판 글에 댓글 전체조회
 		model.addAttribute("article", boardService.article_listall(b_number));
 	}
@@ -114,20 +130,18 @@ public class BoardController {
 	//게시판 글 댓글 조회는 보드디테일에 있음
 	//게시판 글에 댓글 작성
 	@GetMapping("article_Insert")
-	public String article_Insert(int b_number, int FK_u_number) {
+	public String article_Insert(@RequestParam("user") int user, @RequestParam("b_number") int b_number) {
 		System.out.println("댓글작성에 들어옴");
 		System.out.println("b_number: " + b_number);
-		System.out.println("FK_u_number: " + FK_u_number);
+		System.out.println("user: " + user);
 		return "article_Insert";
 	}
 	@PostMapping("article_Insert")
-	public String article_Insert2(int b_number, int FK_u_number, String a_context, int a_number) {
+	public String article_Insert2(String a_context, @RequestParam("user") int user, @RequestParam("b_number") int b_number) {
 		System.out.println("댓글작성 시도중...");
 		System.out.println("b_number: " + b_number);
-		System.out.println("FK_u_number: " + FK_u_number);
-		System.out.println("a_number: " + a_number);
+		System.out.println("user: " + user);
 		ArticleDTO dto = new ArticleDTO();
-		System.out.println("내용: " + a_context);
 		dto.setA_context(a_context);
 	    	LocalDate localDate = LocalDate.now(); // 현재 날짜 얻기
 	    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // 날짜 포맷 지정
@@ -135,39 +149,52 @@ public class BoardController {
 	    	System.out.println("Date: " + formatter);
 	    dto.setA_date(formattedDate);
 		dto.setFK_b_number(b_number);
-		dto.setFK_u_number(FK_u_number);
+		dto.setFK_u_number(user);
 		System.out.println("dto: " + dto);
 		boardService.article_insert(dto);
 		
-		return "redirect:/board_Detail?b_number=" + b_number;
+		return "redirect:/board_Detail?b_number=" + b_number + "&user=" + user;
 	}
 	//게시판 글에 댓글 수정
 	@GetMapping("article_Modify")
-	public ModelAndView article_Modify(int a_number) {
-		ModelAndView mav = new ModelAndView();
-		ArticleDTO dto = boardService.article_check(a_number);
-		mav.addObject("dto", dto);
-		System.out.println("dto : " + dto);
-		System.out.println("댓글수정에 들어옴");
-		mav.setViewName("article_Modify");
-		return mav;
+	public ModelAndView article_Modify(int a_number, @RequestParam("user") int user, @RequestParam("b_number") int b_number) {
+	    ModelAndView mav = new ModelAndView();
+	    ArticleDTO dto = boardService.article_check(a_number);
+	    
+	    // 게시글 작성자와 현재 로그인한 사용자가 다른 경우에 이전 페이지로 이동
+	    if (dto.getFK_u_number() != user) {
+	        mav.setViewName("redirect:board_Detail?b_number=" + b_number + "&user=" + user); // redirect를 사용하여 boardListAll로 이동
+	        return mav;
+	    }
+	    
+	    mav.addObject("dto", dto);
+	    mav.addObject("user", user);
+	    mav.setViewName("article_Modify");
+	    return mav;
 	}
+
+	
 	@PostMapping("article_Modify")
-	public ModelAndView article_Modify2(ArticleDTO dto) {
-		ModelAndView mav = new ModelAndView();
-		System.out.println(dto);
-		//boardService.article_update(articleDTO);
-		boardService.article_update(dto);
-		mav.setViewName("redirect:/board_Detail?b_number=" + dto.getFK_b_number());
-		return mav;
+	public ModelAndView article_Modify2(ArticleDTO dto, @RequestParam("user") int user) {
+	    ModelAndView mav = new ModelAndView();
+	    boardService.article_update(dto);
+	    mav.setViewName("redirect:/board_Detail?b_number=" + dto.getFK_b_number() + "&user=" + user); // user 값을 다시 전달
+	    return mav;
 	}
+
 	
 	//게시판 글에 댓글 삭제
 	@GetMapping("article_Remove")
-	public String article_Remove(int a_number, int b_number) {
-		//boardService.article_delete(a_number);
+	public ModelAndView article_Remove(int a_number, int b_number, @RequestParam("user") int user) {
+	    ModelAndView mav = new ModelAndView();
+	    ArticleDTO dto = boardService.article_check(a_number);
+	    if (dto.getFK_u_number() != user) {
+	        mav.setViewName("redirect:board_Detail?b_number=" + b_number + "&user=" + user); // redirect를 사용하여 boardListAll로 이동
+	        return mav;
+	    }
 		System.out.println("댓글삭제");
 		boardService.article_delete(a_number);
-		return "redirect:/board_Detail?b_number=" + b_number;
+		mav.setViewName("redirect:/board_Detail?b_number=" + b_number + "&user=" + user);
+		return mav;
 	}
 }
