@@ -27,7 +27,7 @@
 	
 	<li class="nav-item channel-sidebar-list">
 		
-					<img alt="" src="resources/img/flogo.png">
+					<img alt="" src="${contextPath }/resources/img/flogo.png">
 					<strong class="text-dark">Lim Sang-hyeon / Lee keun-seop / Yun Gap-min / Jeon Jae-hong / Noh Gyeong-wook</strong>.<p>
 					<small class="mt-0 mb-0"><a	class="text-secondary">
 					© 2023 Cinescope : /*Let me go home*/ group³. All rights reserved.</a> </small>

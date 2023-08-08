@@ -86,6 +86,7 @@ public class SearchController {
 		}
 		logger.info("movieList : " + movieList);
 		mav.addObject("movieDtoList", movieDtoList);
+		mav.addObject("movieList", movieList);
 		mav.setViewName("searchresult");
 		return mav;
 	}

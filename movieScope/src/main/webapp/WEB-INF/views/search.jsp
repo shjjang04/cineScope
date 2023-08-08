@@ -27,7 +27,7 @@
                   
                </div>
                <hr>
-				<form action="${contextPath }/search/name" method="get">
+				<form action="search/name" method="get">
 					<div class="row">
 					<div class="col-lg-12">
           			  <div class="form-group">
@@ -183,7 +183,7 @@
                         </div>
                      </div>
                 </div>
-             <form action="${contextPath }/search/age" method="get">
+             <form action="search/age" method="get">
                 <div class="row category-checkbox">
                    <!-- checkbox 1col -->
                    <div class="col-lg-3 col-xs-6 col-4">
@@ -241,7 +241,7 @@
                               </div>
                            </div>
                         </div>
-                      <form action="${contextPath }/search/genre" method="get">
+                      <form action="search/genre" method="get">
                         <div class="row category-checkbox">
                            <!-- checkbox 1col -->
                            <div class="col-lg-2 col-xs-6 col-4">
@@ -373,7 +373,7 @@
                               </div>
                            </div>
                         </div>
-                        <form action="${contextPath }/search/nation" method="get">
+                        <form action="search/nation" method="get">
                         <div class="row category-checkbox">
                            <!-- checkbox 1col -->
                            <div class="col-lg-2 col-xs-6 col-4">
