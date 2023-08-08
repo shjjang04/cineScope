@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
+<%@ page session="true" %>
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
@@ -8,7 +9,7 @@
 
 </head>
  <body id="page-top">
-   <%@include file="include/top.jsp"%>
+
       <div id="wrapper">
          <!-- Sidebar -->
          <%@include file="include/sidebar.jsp" %>
@@ -26,17 +27,30 @@
                               Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
                               </a>
                               <div class="dropdown-menu dropdown-menu-right">
-                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                              	<select id="cntPerPage" name="sel" onchange="selChange()">
+									<option value="5" class="dropdown-item"
+										<c:if test="${paging.cntPerPage == 5}">selected</c:if>> &nbsp; 5줄 보기</option>
+									<option value="10" class="dropdown-item"
+										<c:if test="${paging.cntPerPage == 10}">selected</c:if>> &nbsp; 10줄 보기</option>
+									<option value="15" class="dropdown-item"
+										<c:if test="${paging.cntPerPage == 15}">selected</c:if>> &nbsp; 15줄 보기</option>
+									<option value="20" class="dropdown-item"
+										<c:if test="${paging.cntPerPage == 20}">selected</c:if>> &nbsp; 20줄 보기</option>
+								</select>
                               </div>
                            </div>
                            <h6>Movie List</h6>
                         </div>
                      </div>
-
-	                     <c:if test="${movieDtoList0 != null }">                     	
-	                         <c:forEach var="list" items="${requestScope.movieDtoList0 }">
+					<script type="text/javascript">
+						function selChange() {
+							var sel = document.getElementById('cntPerPage').value;
+							location.href="boardList?nowPage=${paging.nowPage}&cntPerPage="+sel;
+						}
+					
+					</script>
+	                     <c:if test="${movieDtoList != null }">                     	
+	                         <c:forEach var="list" items="${requestScope.movieDtoList }">
 			                     	<div class="col-xl-3 col-sm-6 mb-3">
 				                        <div class="category-item mt-0 mb-0">
 				                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
@@ -50,6 +64,25 @@
 		                 </c:if>
 
                   </div>
+                  
+                 <div style="display: block; text-align: center;">		
+					<c:if test="${paging.startPage != 1 }">
+							<a href="${contextPath }/searchresult?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+					</c:if>
+					<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+						<c:choose>
+							<c:when test="${p == paging.nowPage }">
+								<b>${p }</b>
+							</c:when>
+							<c:when test="${p != paging.nowPage }">
+								<a href="${contextPath }/searchresult?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${paging.endPage != paging.lastPage}">
+						<a href="${contextPath }/searchresult?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+					</c:if>
+				</div>
  	
                   <nav aria-label="Page navigation example">
                      <ul class="pagination justify-content-center pagination-sm mb-0">
