@@ -62,7 +62,7 @@
 		                                 <!-- 게시물 고유 주소 -->
 		                                 	<a href="">
 		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.png" alt="">
+		                                    <img class="img-fluid" src="resources/img/s1.jpg" alt="">
 		                                 <!-- 영화 제목 -->                                 
 		                                    <strong><h6>바람난 파이터</h6></strong>
 		                                 <!-- 주연 -->
@@ -108,7 +108,7 @@
 		                                 <!-- 게시물 고유 주소 -->
 		                                 	<a href="">
 		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.png" alt="">
+		                                    <img class="img-fluid" src="resources/img/s1.jpg" alt="">
 		                                 <!-- 영화 제목 -->                                 
 		                                    <strong><h6>바람난 파이터</h6></strong>
 		                                 <!-- 주연 -->
@@ -154,7 +154,7 @@
 		                                 <!-- 게시물 고유 주소 -->
 		                                 	<a href="">
 		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.png" alt="">
+		                                    <img class="img-fluid" src="resources/img/s1.jpg" alt="">
 		                                 <!-- 영화 제목 -->                                 
 		                                    <strong><h6>바람난 파이터</h6></strong>
 		                                 <!-- 주연 -->

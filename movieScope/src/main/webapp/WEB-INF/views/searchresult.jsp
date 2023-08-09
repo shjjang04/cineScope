@@ -20,7 +20,7 @@
             <!-- 여기서 부터 본문 작성 -->
            	<c:if test="${movieList ne null}">
 				<div class="video-block section-padding">
-                  <div class="row">
+                  <div class="row" id="scroll">
                      <div class="col-md-12">
                         <div class="main-title">
                            <div class="btn-group float-right right-action">
@@ -37,12 +37,16 @@
                         </div>
                      </div>
                      
-                     <c:forEach var="list" items="${requestScope.movieDtoList}">
+                     <c:forEach var="list" items="${requestScope.movieDtoList0}">
 	                     	<div class="col-xl-3 col-sm-6 mb-3">
 		                        <div class="category-item mt-0 mb-0">
 		                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
 		                              <img class="img-fluid" src="${contextPath }/resources/img/images/${list.m_name }.jpg" alt="">
+<<<<<<< HEAD
 		                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
+=======
+		                              <h6><strong>${list.m_name }</strong></h6>
+>>>>>>> origin/Kicky5damon
 		                              <p>평점 : ${list.m_grade }</p>
 		                           </a>
 		                        </div>
