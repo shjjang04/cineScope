@@ -1,46 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="true" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
-
-<title>영화조회 </title>
-
+<title>영화 찾기</title>
 </head>
-   
+<body id="page-top">
+<%@include file="include/nav.jsp"%>
+<!-- Sidebar -->
+<%@include file="include/sidebar.jsp" %>
       <div id="wrapper">
-         <!-- Sidebar -->
-         <%@include file="include/sidebar.jsp" %>
-
          <div id="content-wrapper">
+         <div class="single-channel-page" id="content-wrapper">
+              <div class="single-channel-image">
+               <img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner2.jpg">
+            </div>
             <div class="container-fluid upload-details">
             <!-- 여기서 부터 본문 작성 -->
             	<div class="row">
                   <div class="col-lg-12">
                      <div class="main-title">
-                        <h6>원하시는 영화 검색</h6>
+                        <strong><h6>영화 검색</h6></strong>
                      </div>
                   </div>
-                  <div class="col-lg-2">
-                     <div class="imgplace"></div>
-                  </div>
-                  <div class="col-lg-10">
-                     <div class="osahan-title">Contrary to popular belief, Lorem Ipsum (2019) is not.</div>
-                     <div class="osahan-size">102.6 MB . 2:13 MIN Remaining</div>
-                     <div class="osahan-progress">
-                        <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"   aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                        </div>
-                        <div class="osahan-close">
-                           <a href="#"><i class="fas fa-times-circle"></i></a>
-                        </div>
-                     </div>
-                     <div class="osahan-desc">Your Video is still uploading, please keep this page open until it's done.</div>
-                  </div>
+                 
+                  
                </div>
                <hr>
-				<form action="${contextPath }/search/name" method="get">
+				<form action="search/name" method="get">
 					<div class="row">
 					<div class="col-lg-12">
           			  <div class="form-group">
@@ -107,8 +94,7 @@
 	          		  <div class="form-group">
 			             <label for="m_genre">Movie Genre</label>
 			             <select id="m_genre" class="custom-select" name="m_genre">
-			             	<option value="모든장르" selected> 모든장르</option>
-			                <option value="SF" > SF</option>
+			                <option value="SF" selected> SF</option>
 							<option value="가족" > 가족</option>
 							<option value="공연" > 공연</option>
 							<option value="공포" > 공포</option>
@@ -149,7 +135,6 @@
 	          		  <div class="form-group">
 			             <label for="m_nation">Nation</label>
 			             <select id="m_nation" class="custom-select" name="m_nation">
-			             	<option value="모든국가" selected> 모든국가</option>
 			                <option value="나이지리아" > 나이지리아</option>
 							<option value="네덜란드" > 네덜란드</option>
 							<option value="노르웨이" > 노르웨이</option>
@@ -179,7 +164,7 @@
 							<option value="터키" > 터키</option>
 							<option value="프랑스" > 프랑스</option>
 							<option value="핀란드" > 핀란드</option>
-							<option value="한국" >한국</option>
+							<option value="한국" selected>한국</option>
 							<option value="홍콩" > 홍콩</option>
 			             </select>
 			          </div>
@@ -198,7 +183,7 @@
                         </div>
                      </div>
                 </div>
-             <form action="${contextPath }/search/age" method="get">
+             <form action="search/age" method="get">
                 <div class="row category-checkbox">
                    <!-- checkbox 1col -->
                    <div class="col-lg-3 col-xs-6 col-4">
@@ -256,7 +241,7 @@
                               </div>
                            </div>
                         </div>
-                      <form action="${contextPath }/search/genre" method="get">
+                      <form action="search/genre" method="get">
                         <div class="row category-checkbox">
                            <!-- checkbox 1col -->
                            <div class="col-lg-2 col-xs-6 col-4">
@@ -388,7 +373,7 @@
                               </div>
                            </div>
                         </div>
-                        <form action="${contextPath }/search/nation" method="get">
+                        <form action="search/nation" method="get">
                         <div class="row category-checkbox">
                            <!-- checkbox 1col -->
                            <div class="col-lg-2 col-xs-6 col-4">
@@ -550,11 +535,9 @@
             </div>
             </div>
             <!-- /.container-fluid -->
-            <!-- Sticky Footer -->
-            <%@include file="include/footer.jsp" %>
          </div>
          <!-- /.content-wrapper -->
-      </div>
+
       <!-- /#wrapper -->
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top">

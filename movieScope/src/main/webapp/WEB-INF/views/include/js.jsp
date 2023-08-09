@@ -14,6 +14,8 @@
       <script src="${contextPath }/resources/vendor/jquery/jquery.min.js"></script>
       <script src="${contextPath }/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
-      <script src="${contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="${contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Scroll JavaScript -->
+		<script src="${contextPath }/resources/js/is.js"></script>	
 <!-- nav -->
 		<script src="${contextPath }/resources/js/nav.js"></script>	

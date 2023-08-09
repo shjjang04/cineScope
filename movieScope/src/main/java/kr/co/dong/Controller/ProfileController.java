@@ -2,6 +2,8 @@ package kr.co.dong.Controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +26,11 @@ public class ProfileController {
 	private BoardService boardService;
 
 	@GetMapping("profile")
-	public ModelAndView profile() {
+	public ModelAndView profile(HttpSession session) {
 		logger.info("프로파일 페이지로 이동");
 		ModelAndView mav = new ModelAndView();
+		int num = Integer.parseInt(String.valueOf(session.getAttribute("user")));
+		mav.addObject("u_id", profileService.userDetail(num).getU_id());
 		mav.setViewName("profile");
 		return mav;
 	}
