@@ -32,7 +32,7 @@ Version: 1.0
 		lazyLoad: true,
 		pagination: false,
 		loop: true,
-		autoPlay: 8000,
+		autoPlay: 2000,
 		navigation: true,
 		stopOnHover: true,
 		navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
@@ -46,7 +46,7 @@ Version: 1.0
           items: 1,
           lazyLoad: true,
           pagination: true,
-          autoPlay: 8000,
+          autoPlay: 4000,
 		 loop: true,
 		singleItem: true,
           navigation: false,

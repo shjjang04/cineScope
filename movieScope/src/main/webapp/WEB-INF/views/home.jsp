@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
@@ -14,11 +13,8 @@
 <!-- Sidebar -->
 <%@include file="include/sidebar.jsp" %>
 
-		<div id="content-wrapper">
-			<div class="single-channel-image">
-	               <div class="custom-ciz0oy ewlhzcl4"><h3 class="custom-vwu94r ewlhzcl2"><span>영화, 드라마, 예능, 다큐멘터리를 무제한으로<br></span></h3>
-	               <h4 class="custom-10k810s ewlhzcl3">매주 업데이트 되는 5백 여편의 신작을 즐겨보세요.</h4><div class="custom-1azakc ewlhzcl11">
-	               <a href="/payment/choose_grade" class="custom-n4072y ewlhzcl8">2주 무료 이용 시작</a></div></div>
+      <div id="content-wrapper">
+         <div class="single-channel-image">
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
                <div class="channel-profile">
                   <img class="channel-profile-img" alt="" src="resources/img/s2.png">
@@ -26,7 +22,7 @@
             </div>
             <div class="container-fluid pb-0">
                <div class="top-mobile-search">
-					<div class="row">
+               <div class="row">
                      <div class="col-md-12">   
                         <form class="mobile-search">
                            <div class="input-group">
@@ -63,30 +59,30 @@
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
                         
-		                           <div class="item">
-		                              <div class="category-item">
-		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="">
-		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.png" alt="">
-		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>바람난 파이터</h6></strong>
-		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
-		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
-		                                 <!-- 더미 -->
-		                                 </a>
-		                              </div>
-		                           </div>
+                                 <div class="item">
+                                    <div class="category-item">
+                                       <!-- 게시물 고유 주소 -->
+                                          <a href="">
+                                       <!-- 영화 이미지 -->
+                                          <img class="img-fluid" src="resources/img/s1.png" alt="">
+                                       <!-- 영화 제목 -->                                 
+                                          <strong><h6>바람난 파이터</h6></strong>
+                                       <!-- 주연 -->
+                                          <p><strong>주연:</strong>양조간장,쯔란위</p>
+                                       <!-- 감독  -->
+                                          <p><strong>감독:</strong>오우얌</p>
+                                       <!-- 더미 -->
+                                       </a>
+                                    </div>
+                                 </div>
                            
-		                           
+                                 
                        </div>
                     </div>       
                </div>
               </div>
             <hr> 
-            	<div class="row">
+               <div class="row">
                      <div class="col-md-12">
                         <div class="main-title">
                            <div class="btn-group float-right right-action">
@@ -109,24 +105,24 @@
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
                         
-                           		<div class="item">
-		                              <div class="category-item">
-		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="">
-		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.png" alt="">
-		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>바람난 파이터</h6></strong>
-		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
-		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
-		                                 <!-- 더미 -->
-		                                 </a>
-		                              </div>
-		                           </div>
+                                 <div class="item">
+                                    <div class="category-item">
+                                       <!-- 게시물 고유 주소 -->
+                                          <a href="">
+                                       <!-- 영화 이미지 -->
+                                          <img class="img-fluid" src="resources/img/s1.png" alt="">
+                                       <!-- 영화 제목 -->                                 
+                                          <strong><h6>바람난 파이터</h6></strong>
+                                       <!-- 주연 -->
+                                          <p><strong>주연:</strong>양조간장,쯔란위</p>
+                                       <!-- 감독  -->
+                                          <p><strong>감독:</strong>오우얌</p>
+                                       <!-- 더미 -->
+                                       </a>
+                                    </div>
+                                 </div>
                            
-	                           
+                              
                        </div>
                     </div>       
                </div>
@@ -155,24 +151,24 @@
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
                         
-		                           <div class="item">
-		                              <div class="category-item">
-		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="">
-		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.png" alt="">
-		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>바람난 파이터</h6></strong>
-		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
-		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
-		                                 <!-- 더미 -->
-		                                 </a>
-		                              </div>
-		                           </div>
+                                 <div class="item">
+                                    <div class="category-item">
+                                       <!-- 게시물 고유 주소 -->
+                                          <a href="">
+                                       <!-- 영화 이미지 -->
+                                          <img class="img-fluid" src="resources/img/s1.png" alt="">
+                                       <!-- 영화 제목 -->                                 
+                                          <strong><h6>바람난 파이터</h6></strong>
+                                       <!-- 주연 -->
+                                          <p><strong>주연:</strong>양조간장,쯔란위</p>
+                                       <!-- 감독  -->
+                                          <p><strong>감독:</strong>오우얌</p>
+                                       <!-- 더미 -->
+                                       </a>
+                                    </div>
+                                 </div>
                            
-		                           
+                                 
                        </div>
                     </div>       
                </div>
@@ -183,7 +179,7 @@
          <!-- Sticky Footer -->
          <%@include file="include/footer.jsp" %>
          <!-- /.content-wrapper -->
-     	 </div>
+         </div>
       
       <!-- /#wrapper -->
       

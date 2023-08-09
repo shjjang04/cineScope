@@ -34,10 +34,10 @@
                      </div>
                      <form method="post">
                         <div class="form-group">
-                           <label>Mobile number</label>
+                           <label>id</label>
                            <input type="text" class="form-control" name="u_id" placeholder="아이디 입력">
                         </div>
-                        <div class="form-group">
+                        <div class="password">
                            <label>Password</label>
                            <input type="text" class="form-control" name="u_pw" placeholder="비밀번호 입력">
                         </div>

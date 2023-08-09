@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<<<<<<< HEAD
 <ul class="collapse show sidebar navbar-nav" id="navbarToggleExternalContent">
-=======
-<ul class="sidebar navbar-nav">
-
->>>>>>> branch 'yun' of https://github.com/shjjang04/cineScope.git
 
 	<li class="nav-item active"><a class="nav-link" href="${contextPath}/">
 			<i class="fas fa-fw fa-home"></i> <span>Home</span>
@@ -20,11 +15,7 @@
 			<i class="fas fa-fw fa-search"></i> <span>Search</span>
 	</a></li>
 	
-<<<<<<< HEAD
 	<li class="nav-item"><a class="nav-link" href="${contextPath}/boardListAll">
-=======
-	<li class="nav-item"><a class="nav-link" href="${contextPath}/board">
->>>>>>> branch 'yun' of https://github.com/shjjang04/cineScope.git
 			<i class="fas fa-fw fa-star"></i> <span>Rating board</span>
 	</a></li>
 	
@@ -32,7 +23,6 @@
 		<h6>My menu</h6>
 				
 	</li>
-<<<<<<< HEAD
 	<li class="nav-item">
 	<footer class="sticky-footer-side">
 		<div class="nav-item">
@@ -49,54 +39,4 @@
 		</div>
 	</li>
 	</footer>
-=======
-	
-	<li class="nav-item channel-sidebar-list">
-		<footer class="sticky-footer">
-					<a href="#"><img alt="" src="resources/img/google.png"></a><p>
-					<strong class="text-dark">Lim Sang-hyeon / Lee Geun-seop / Yoon Gap-min / Yoon Gap-min / Noh Gyeong-wook</strong>.<p>
-					<small class="mt-0 mb-0"><a	class="text-secondary">
-					© 2023 Cinescope : /*Let me go home*/ group³. All rights reserved.</a> </small>
-				</p>
-			</div>
-			<div class="col-lg-6 col-sm-6 text-right">
-				<div class="app">
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
-				
-	</li>
-	
-	
-	
-	<!--
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-		aria-expanded="false"> <i class="fas fa-fw fa-folder"></i> <span>Pages</span>
-	</a>
-		<div class="dropdown-menu">
-			<h6 class="dropdown-header">Login Screens:</h6>
-			<a class="dropdown-item" href="login.html">Login</a> <a
-				class="dropdown-item" href="register.html">Register</a> <a
-				class="dropdown-item" href="forgot-password.html">Forgot
-				Password</a>
-			<div class="dropdown-divider"></div>
-			<h6 class="dropdown-header">Other Pages:</h6>
-			<a class="dropdown-item" href="404.html">404 Page</a> <a
-				class="dropdown-item" href="blank.html">Blank Page</a>
-		</div></li>
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="categories.html" role="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false"> <i
-			class="fas fa-fw fa-list-alt"></i> <span>Categories</span>
-	</a>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="categories.html">Movie</a> <a
-				class="dropdown-item" href="categories.html">Music</a> <a
-				class="dropdown-item" href="categories.html">Television</a>
-		</div></li>
-		-->
->>>>>>> branch 'yun' of https://github.com/shjjang04/cineScope.git
 </ul>

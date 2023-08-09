@@ -768,7 +768,6 @@ Version: 1.0
 
  .category-item img {
      background: #fff none repeat scroll 0 0;
-     box-shadow: 0 0 2px #ccc;
      border-radius: 15px;
      width: 180px;
      height: 258px;
@@ -1422,7 +1421,7 @@ Version: 1.0
         padding: 0 25px 5px 0;
     }
     footer.sticky-footer {
-        margin-left: 0px;
+        margin-left: 90px;
     }
     .sidebar-toggled footer.sticky-footer {
         margin: 0;
