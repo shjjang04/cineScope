@@ -9,10 +9,9 @@
 
 </head>
  <body id="page-top">
-
+<%@include file="include/sidebar.jsp" %>
       <div id="wrapper">
          <!-- Sidebar -->
-         <%@include file="include/sidebar.jsp" %>
        
          <div id="content-wrapper">
             <div class="container-fluid upload-details">

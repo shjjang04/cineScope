@@ -42,7 +42,7 @@ public class SignupDAOImpl implements SignupDAO {
 	@Override
 	public SignupDTO selectOne(int sno) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne(namespace + ".selectOne", sno);
+		return sqlsession.selectOne(namespace + ".user_selectDetail", sno);
 	}
 
 	@Override
