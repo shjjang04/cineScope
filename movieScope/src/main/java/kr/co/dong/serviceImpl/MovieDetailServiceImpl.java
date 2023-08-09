@@ -76,6 +76,7 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 		if(userList == null) {
 			return null;
 		}
+		
 		for(int data : userList) {
 			for(UserfavoriteDTO dto : userfavoritedao.favCheck(data)) {
 				if(dto.getFK_m_number() != m_number) {
@@ -94,6 +95,7 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 			}
 		}
 		return selectList;
+		
 	}
 
 	
