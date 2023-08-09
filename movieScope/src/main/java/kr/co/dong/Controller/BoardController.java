@@ -1,16 +1,13 @@
 package kr.co.dong.Controller;
 
 import java.io.UnsupportedEncodingException;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.type.BigIntegerTypeHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.RedirectAttributesMethodArgumentResolver;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kr.co.dong.DAO.ArticleDAO;
-import kr.co.dong.DAOImpl.ArticleDAOImpl;
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.service.BoardService;
@@ -68,7 +61,6 @@ public class BoardController {
 	    mav.setViewName("boardListAll");
 	    return mav;
 	}
-<<<<<<< HEAD
 
 //	@PostMapping("boardListAll")
 //	public ModelAndView boardListAll2() {
@@ -81,24 +73,15 @@ public class BoardController {
 //		System.out.println("BoardController-boardListAll");
 //		return mav;
 //	}
-=======
 	
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 	//게시판 글쓰기Get
 	@GetMapping("boardWrite")
-<<<<<<< HEAD
-	public String boardWrite(@RequestParam("user") int user) {
-=======
 	public String boardWrite(@RequestParam("user") int user, HttpServletRequest request) throws UnsupportedEncodingException{
 		request.setCharacterEncoding("utf-8");
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 		return "boardWrite";
 	}
 	//게시판 글쓰기Post
 	@PostMapping("boardWrite")
-<<<<<<< HEAD
-	public String boardWritePro(BoardDTO boardDTO) {
-=======
 	public String boardWritePro(BoardDTO boardDTO, @RequestParam("user") int user,HttpServletRequest request) throws UnsupportedEncodingException{
 		request.setCharacterEncoding("utf-8");
 		logger.info("title: " + boardDTO.getB_title());
@@ -107,7 +90,6 @@ public class BoardController {
 			System.out.println("제목이 입력되지 않음");
 			return "redirect:boardListAll";
 		}
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 		System.out.println("보드라이투");
 		System.out.println(boardDTO);
 		System.out.println(boardDTO.getB_title());
@@ -120,14 +102,11 @@ public class BoardController {
 	@GetMapping("board_Detail")
 	public void board_Detail(@RequestParam("b_number") int b_number, Model model, @RequestParam("user") int user) {
 		model.addAttribute("board", boardService.board_detail(b_number));
-<<<<<<< HEAD
-=======
 		BoardDTO dto = boardService.board_detail(b_number);
 		int gett = dto.getB_cnt();
 		gett++;
 		dto.setB_cnt(gett);
 		boardService.board_update(dto);
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 		System.out.println("받은 유저 넘버: " + user);
 		//게시판 글에 댓글 전체조회
 		model.addAttribute("article", boardService.article_listall(b_number));
@@ -213,23 +192,15 @@ public class BoardController {
 	    return mav;
 	}
 
-<<<<<<< HEAD
-	
-=======
 	//게시판 글에 댓글 수정Post
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 	@PostMapping("article_Modify")
 	public ModelAndView article_Modify2(ArticleDTO dto, @RequestParam("user") int user) {
-<<<<<<< HEAD
-	    ModelAndView mav = new ModelAndView();
-=======
 		ModelAndView mav = new ModelAndView();
 		if (dto.getA_context() == "") {
 			System.out.println("내용이 입력되지 않음");
 			mav.setViewName("redirect:/board_Detail?b_number=" + dto.getFK_b_number() + "&user=" + user);
 			return mav;
 		}
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 	    boardService.article_update(dto);
 	    mav.setViewName("redirect:/board_Detail?b_number=" + dto.getFK_b_number() + "&user=" + user); // user 값을 다시 전달
 	    return mav;
@@ -247,11 +218,7 @@ public class BoardController {
 	    }
 		System.out.println("댓글삭제");
 		boardService.article_delete(a_number);
-<<<<<<< HEAD
-		mav.setViewName("redirect:/board_Detail?b_number=" + b_number);
-=======
 		mav.setViewName("redirect:/board_Detail?b_number=" + b_number + "&user=" + user);
->>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 		return mav;
 	}
 }
