@@ -9,10 +9,11 @@
 
 </head>
  <body id="page-top">
-   <%@include file="include/top.jsp"%>
+<%@include file="include/nav.jsp"%>
+   <!--  Sidebar -->
+<%@include file="include/sidebar.jsp" %>
       <div id="wrapper">
          <!-- Sidebar -->
-         <%@include file="include/sidebar.jsp" %>
 
          <div id="content-wrapper">
             <div class="container-fluid upload-details">
@@ -41,7 +42,11 @@
 		                        <div class="category-item mt-0 mb-0">
 		                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
 		                              <img class="img-fluid" src="${contextPath }/resources/img/images/${list.m_name }.jpg" alt="">
+<<<<<<< HEAD
 		                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
+=======
+		                              <h6><strong>영화 제목 : ${list.m_name }</strong></h6>
+>>>>>>> branch 'lim6' of https://github.com/shjjang04/cineScope.git
 		                              <p>평점 : ${list.m_grade }</p>
 		                           </a>
 		                        </div>
@@ -74,8 +79,6 @@
             </div>
 
             <!-- /.container-fluid -->
-            <!-- Sticky Footer -->
-            <%@include file="include/footer.jsp" %>
          </div>
          <!-- /.content-wrapper -->
       </div>
