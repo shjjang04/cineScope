@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="movie_detail" resultType="movieDTO">
-		select m_name, m_opening, m_reopening, m_runtime, m_grade, m_director, m_actor, m_attendance, m_awards from movie where m_number = #{m_number}
+		select m_number, m_name, m_opening, m_reopening, m_runtime, m_grade, m_director, m_actor, m_attendance, m_awards from movie where m_number = #{m_number}
 	</select>
 	
 	<select id="movie_all" resultType="movieDTO">

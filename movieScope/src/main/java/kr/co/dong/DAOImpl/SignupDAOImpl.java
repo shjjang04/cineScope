@@ -7,15 +7,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.dong.DAO.UserDAO;
-import kr.co.dong.DTO.UserDTO;
+import kr.co.dong.DAO.SignupDAO;
+import kr.co.dong.DTO.SignupDTO;
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class SignupDAOImpl implements SignupDAO {
 
 	@Autowired
 	private SqlSession sqlsession;
 
-	private final static String namespace = "kr.co.dong.userMapper";
+	private final static String namespace = "kr.co.dong.SignupMapper";
 
 	@Override
 	public String login(Map<String, Object> map) {
@@ -23,25 +23,25 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public UserDTO listAll() {
+	public SignupDTO listAll() {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".listAll");
 	}
 
 	@Override
-	public UserDTO selectOne(int uno) {
+	public SignupDTO selectOne(int uno) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".user_selectDetail", uno);
 	}
 
 	@Override
-	public void insert(UserDTO ud) {
+	public void insert(SignupDTO ud) {
 		// TODO Auto-generated method stub
 		sqlsession.insert(namespace + ".user_signup", ud);
 	}
 
 	@Override
-	public void update(UserDTO ud) {
+	public void update(SignupDTO ud) {
 		// TODO Auto-generated method stub
 		sqlsession.update(namespace + ".update", ud);
 	}

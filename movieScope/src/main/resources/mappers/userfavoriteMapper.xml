@@ -12,7 +12,7 @@
 		<!-- 플레이리스트/영화 조회하기 -->
 		<select id="userfavorite_check" resultType="UserfavoriteDTO">
 			SELECT * FROM userfavorite
-			 WHERE u_number=#{u_number}
+			 WHERE FK_u_number = #{FK_u_number}
 		</select>
 		
 		<!-- 플레이리스트/영화 추가 하기 처리를 -->

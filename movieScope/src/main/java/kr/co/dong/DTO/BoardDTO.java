@@ -1,7 +1,5 @@
 package kr.co.dong.DTO;
 
-import java.sql.Date;
-
 public class BoardDTO {
 	private int b_number;
 	private int b_cnt;

@@ -52,7 +52,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override //모두보기
 	public List<BoardDTO> board_listAll() {
 		// TODO Auto-generated method stub
-		return boardDAO.board_listAll();
+		return boardDAO.listAll();
 	}
 
 	@Override //c

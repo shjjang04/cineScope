@@ -18,26 +18,26 @@ public class UserfavoriteDAOImpl implements UserfavoriteDAO{
 	@Override
 	public List<UserfavoriteDTO> favCheck(int u_number) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace + ".favCheck", u_number);
+		return sqlSession.selectList(namespace + ".userfavorite_check", u_number);
 	}
 
 	@Override
 	public void favAdd(UserfavoriteDTO dto) {
 		// TODO Auto-generated method stub
-		sqlSession.insert(namespace + ".favAdd", dto);
+		sqlSession.insert(namespace + ".userfavorite_add", dto);
 	}
 
 	@Override
 	public void favDelete(int uf_number) {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace + ".favDelete", uf_number); 
+		sqlSession.delete(namespace + ".userfavorite_delete", uf_number); 
 		
 	}
 
 	@Override
 	public int favLikeMovie(int FK_u_number) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".find", FK_u_number);
+		return sqlSession.selectOne(namespace + ".userfavorite_find", FK_u_number);
 	}
 
 	@Override

@@ -1,16 +1,13 @@
 package kr.co.dong.Controller;
 
 import java.io.UnsupportedEncodingException;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.type.BigIntegerTypeHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.RedirectAttributesMethodArgumentResolver;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
-import kr.co.dong.DAO.ArticleDAO;
-import kr.co.dong.DAOImpl.ArticleDAOImpl;
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.service.BoardService;

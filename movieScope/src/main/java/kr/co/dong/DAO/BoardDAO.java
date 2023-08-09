@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.dong.DTO.BoardDTO;
 public interface BoardDAO {
-	public List<BoardDTO> board_listAll();
+	public List<BoardDTO> listAll();
 	public void delete(int b_number);
 	public void update(BoardDTO bD);
 	public BoardDTO detail(int b_number);

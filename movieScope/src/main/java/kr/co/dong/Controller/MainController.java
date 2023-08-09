@@ -26,12 +26,16 @@ public class MainController {
 	private MainService service;
 	
 	@GetMapping("/")
-	public ModelAndView main(HttpServletRequest request) throws Exception {
+	public ModelAndView main(HttpServletRequest request, HttpSession session) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
-		System.out.println(service.recommend());
 		mav.addObject("recommendList",service.recommend());
-//		mav.addObject("randomList", service.random());
+		if(session.getAttribute("user") != null) {
+		mav.addObject("fav", service.favCheck(Integer.parseInt(String.valueOf(session.getAttribute("user")))));
+		System.out.println(service.favRecommend(Integer.parseInt(String.valueOf(session.getAttribute("user")))));
+		mav.addObject("recommendList2", service.favRecommend(Integer.parseInt(String.valueOf(session.getAttribute("user")))));
+		}
+		mav.addObject("randomList", service.random());
 		mav.setViewName("home");
 		return mav;
 	}
