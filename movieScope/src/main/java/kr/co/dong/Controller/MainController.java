@@ -31,7 +31,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 //		mav.addObject("recommendList",service.recommend());
 //		mav.addObject("randomList", service.random());
-		mav.setViewName("dummy");
+		mav.setViewName("home");
 		return mav;
 	}
 	
