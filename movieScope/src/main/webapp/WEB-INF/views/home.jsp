@@ -58,25 +58,24 @@
                      </div>
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
-                        
                                  <div class="item">
+			                        	<c:forEach var="recommend" items="${recommendList}">
                                     <div class="category-item">
                                        <!-- 게시물 고유 주소 -->
-                                          <a href="">
+                                          <a href="${contextPath}/movieDetail?m_number=${recommend.m_number}">
                                        <!-- 영화 이미지 -->
-                                          <img class="img-fluid" src="resources/img/s1.png" alt="">
+                                          <img class="img-fluid" src="resources/img/${recommend.m_name}.png" alt="">
                                        <!-- 영화 제목 -->                                 
-                                          <strong><h6>바람난 파이터</h6></strong>
+                                          <strong><h6>${recommend.m_name}</h6></strong>
                                        <!-- 주연 -->
-                                          <p><strong>주연:</strong>양조간장,쯔란위</p>
+                                          <p><strong>주연:</strong>${recommend.m_actor}</p>
                                        <!-- 감독  -->
-                                          <p><strong>감독:</strong>오우얌</p>
+                                          <p><strong>감독:</strong>${recommend.m_director}</p>
                                        <!-- 더미 -->
-                                       </a>
+                                      	 </a>
                                     </div>
+			                           </c:forEach>
                                  </div>
-                           
-                                 
                        </div>
                     </div>       
                </div>

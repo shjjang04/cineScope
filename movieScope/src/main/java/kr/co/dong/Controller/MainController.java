@@ -29,7 +29,8 @@ public class MainController {
 	public ModelAndView main(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		ModelAndView mav = new ModelAndView();
-//		mav.addObject("recommendList",service.recommend());
+		System.out.println(service.recommend());
+		mav.addObject("recommendList",service.recommend());
 //		mav.addObject("randomList", service.random());
 		mav.setViewName("home");
 		return mav;

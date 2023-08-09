@@ -1,8 +1,11 @@
 package kr.co.dong.serviceImpl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -35,43 +38,52 @@ public class MainServiceImpl implements MainService{
 	}
 
 	@Override
-	public List<String> recommend() {
+	public List<MovieDTO> recommend() throws Exception {
 		// TODO Auto-generated method stub
-		List<String> list = null;
+		List<MovieDTO> list = new ArrayList<MovieDTO>();
 
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("MM");
 		List<MovieDTO> movieList = moviedao.listAll();
-		List<Integer> sameMonth = null;
+		List<Integer> sameMonth = new ArrayList<Integer>();
 		for(MovieDTO movie : movieList) {
-			if(formatter.format(movie.getM_opening()).equals(formatter.format(date))) {
+			if(formatter.format(formatter.parse(movie.getM_opening())).equals(formatter.format(date))) {
 				sameMonth.add(movie.getM_number());
 			}
 		}
 		int[] arr = new int[2];
-		List<int[]> compare = null;
-		List<Integer> attendance = null;
+		Map<Integer, Integer> compare = new HashMap<Integer,Integer>();
+		List<Integer> attendance = new ArrayList<Integer>();
 		for(int movie : sameMonth) {
-			attendance.add(split(moviedao.detail(movie).getM_attendance()));
-			arr[0] = split(moviedao.detail(movie).getM_attendance());
-			arr[1] = moviedao.detail(movie).getM_number();
-			compare.add(arr);
+			if(moviedao.detail(movie).getM_attendance() != null && !(moviedao.detail(movie).getM_attendance().equals("null")) ) {
+				attendance.add(split(moviedao.detail(movie).getM_attendance()));
+				arr[0] = split(moviedao.detail(movie).getM_attendance());
+				compare.put(movie, arr[0]);
+			}
 		}
 		
-		for(int[] data : compare) {
-			if(data[0] == Collections.max(attendance)) {
-				list.add(moviedao.detail(data[1]).getM_name());
-				attendance.remove(Collections.max(attendance));
-			}
-			if(list.size() == 10) {
-				break;
-			}
+		List<Map.Entry<Integer, Integer>> entryList = new ArrayList<Map.Entry<Integer,Integer>>(compare.entrySet());
+		entryList.sort(Map.Entry.comparingByValue());
+		
+		System.out.println(entryList);
+		for(int i = (entryList.size() - 1); i >= (entryList.size() - 10) ; i--) {
+			list.add(moviedao.detail(entryList.get(i).getKey()));
 		}
 		return list;
+//		for(int[] data : compare) {
+//			if(data[0] == Collections.max(attendance)) {
+//				list.add(moviedao.detail(data[1]).getM_name());
+//				attendance.remove(Collections.max(attendance));
+//			}
+//			if(list.size() == 10) {
+//				break;
+//			}
+//		}
+//		return list;
 	}
 	
 	public List<String> random(){
-		List<String> list = null;
+		List<String> list = new ArrayList<String>();
 		Random random = new Random();
 		for(int i = 0; i < 10; i++) {
 			int ran = (int)(random.nextInt(moviedao.listAll().size() - 1) + 1);
