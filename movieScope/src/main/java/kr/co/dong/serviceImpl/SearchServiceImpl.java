@@ -102,5 +102,4 @@ public class SearchServiceImpl implements SearchService{
 		// TODO Auto-generated method stub
 		return movieDAO.detail(m_number);
 	}
-
 }
