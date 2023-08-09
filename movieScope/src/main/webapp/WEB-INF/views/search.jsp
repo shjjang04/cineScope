@@ -107,7 +107,8 @@
 	          		  <div class="form-group">
 			             <label for="m_genre">Movie Genre</label>
 			             <select id="m_genre" class="custom-select" name="m_genre">
-			                <option value="SF" selected> SF</option>
+			             	<option value="모든장르" selected> 모든장르</option>
+			                <option value="SF" > SF</option>
 							<option value="가족" > 가족</option>
 							<option value="공연" > 공연</option>
 							<option value="공포" > 공포</option>
@@ -148,6 +149,7 @@
 	          		  <div class="form-group">
 			             <label for="m_nation">Nation</label>
 			             <select id="m_nation" class="custom-select" name="m_nation">
+			             	<option value="모든국가" selected> 모든국가</option>
 			                <option value="나이지리아" > 나이지리아</option>
 							<option value="네덜란드" > 네덜란드</option>
 							<option value="노르웨이" > 노르웨이</option>
@@ -177,7 +179,7 @@
 							<option value="터키" > 터키</option>
 							<option value="프랑스" > 프랑스</option>
 							<option value="핀란드" > 핀란드</option>
-							<option value="한국" selected>한국</option>
+							<option value="한국" >한국</option>
 							<option value="홍콩" > 홍콩</option>
 			             </select>
 			          </div>
