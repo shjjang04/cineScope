@@ -9,9 +9,12 @@
 
 </head>
  <body id="page-top">
+<<<<<<< HEAD
 <%@include file="include/nav.jsp"%>
    <!--  Sidebar -->
 <%@include file="include/sidebar.jsp" %>
+=======
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
       <div id="wrapper">
          <!-- Sidebar -->
 
@@ -43,10 +46,14 @@
 		                           <a href="${contextPath }/movieDetail?m_number=${list.m_number }">
 		                              <img class="img-fluid" src="${contextPath }/resources/img/images/${list.m_name }.jpg" alt="">
 <<<<<<< HEAD
+<<<<<<< HEAD
 		                              <h6>영화 제목 : ${list.m_name }<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
 =======
 		                              <h6><strong>${list.m_name }</strong></h6>
 >>>>>>> origin/Kicky5damon
+=======
+		                              <h6><strong>영화 제목 : ${list.m_name }</strong></h6>
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 		                              <p>평점 : ${list.m_grade }</p>
 		                           </a>
 		                        </div>

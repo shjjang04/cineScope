@@ -14,8 +14,12 @@
       <script src="${contextPath }/resources/vendor/jquery/jquery.min.js"></script>
       <script src="${contextPath }/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
+<<<<<<< HEAD
 	<script src="${contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 <!-- Scroll JavaScript -->
 		<script src="${contextPath }/resources/js/is.js"></script>	
+=======
+      <script src="${contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 <!-- nav -->
 		<script src="${contextPath }/resources/js/nav.js"></script>	

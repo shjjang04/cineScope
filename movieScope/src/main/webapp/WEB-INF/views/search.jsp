@@ -5,10 +5,13 @@
 <%@include file="include/head.jsp" %>
 <title>영화 찾기</title>
 </head>
+<<<<<<< HEAD
 <body id="page-top">
 <%@include file="include/nav.jsp"%>
 <!-- Sidebar -->
 <%@include file="include/sidebar.jsp" %>
+=======
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
       <div id="wrapper">
          <div id="content-wrapper">
          <div class="single-channel-page" id="content-wrapper">

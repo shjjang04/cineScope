@@ -18,7 +18,11 @@ Version: 1.0
     -- Video Page
     -- My Account
 	-- Footer
+<<<<<<< HEAD
 	-- board
+=======
+	-- Board
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 */
 /* Body */
 
@@ -1166,7 +1170,42 @@ Version: 1.0
 }
  .tags span a:hover {
      background: #000 none repeat scroll 0 0;
+     
 }
+
+ /* Board css */
+    table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 12px;
+	line-height: 150%;
+	margin-top: 10px;
+	}
+	
+	table th {
+		background-color: #f7f7f7;
+		border: 1px solid #ccc;
+		font-weight: bold;
+		padding: 5px;
+		text-align: center;
+	}
+	
+	table td {
+		border: 1px solid #ccc;
+		padding: 5px;
+		vertical-align: top;
+	}
+	
+	table td a {
+		color: #000;
+		text-decoration: none;
+	}
+	
+	table td a:hover {
+		color: #666;
+		text-decoration: underline;
+	}
+	
 /* Footer */
  .app img {
      background: #231f20 none repeat scroll 0 0;
@@ -1555,6 +1594,10 @@ Version: 1.0
     .sidebar-toggled .sidebar .channel-sidebar-list {
         display: none;
     }
+    
+  
+	    
+    
     
     
 }

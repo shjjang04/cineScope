@@ -22,16 +22,27 @@
             <!-- 여기서 부터 작성 --> 
             <%
 				int b_number = Integer.parseInt(request.getParameter("b_number"));
+<<<<<<< HEAD
 				int FK_u_number = Integer.parseInt(request.getParameter("FK_u_number"));
 				int a_number = Integer.parseInt(request.getParameter("a_number"));
+=======
+				int user = Integer.parseInt(request.getParameter("user"));
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 				String a_context = request.getParameter("a_context");
 			%>
 			
+<<<<<<< HEAD
 			<form action="article_Insert" method="POST">
 				내용: <input type="text" name="a_context"><br>
 				<input type="hidden" name="b_number" value="<%= b_number %>">
 				<input type="hidden" name="FK_u_number" value="<%= FK_u_number %>">
 				<input type="hidden" name="a_number" value="<%= a_number %>">
+=======
+			<form action="article_Insert" method="POST" charset="UTF-8">
+				내용: <input type="text" name="a_context"><br>
+				<input type="hidden" name="b_number" value="<%= b_number %>">
+				<input type="hidden" name="user" value="<%= user %>">
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 				<input type="submit" value="댓글 작성">
 			</form> 
                                      

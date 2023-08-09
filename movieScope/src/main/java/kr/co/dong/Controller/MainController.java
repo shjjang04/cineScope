@@ -36,17 +36,20 @@ public class MainController {
 	}
 	
 	@PostMapping("login")
-	public String login(@RequestParam Map<String, Object> map, HttpSession session, HttpServletRequest request) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		String user = service.login(map);
-		System.out.println(user);
-		if(user == null) { // 로그인 실패
-			return "redirect:login";
-		}else { // 로그인 성공 -> 세션 부여
-			session.setAttribute("user", user);
-			return "redirect:/";
-		}
+	public ModelAndView login(@RequestParam Map<String, Object> map, HttpSession session) throws Exception {
+	    ModelAndView mav = new ModelAndView();
+	    String user = service.login(map);
+	    System.out.println("user: " + user);
+	    if (user == null) { // 로그인 실패
+	        mav.setViewName("redirect:login");
+	    } else { // 로그인 성공 -> 세션 부여
+	        session.setAttribute("user", user);
+	        mav.addObject("user", user); // ModelAndView 객체에 user 값 추가
+	        mav.setViewName("redirect:/");
+	    }
+	    return mav;
 	}
+	
 	@GetMapping("login")
 	public String loginForm() {
 		return "login";

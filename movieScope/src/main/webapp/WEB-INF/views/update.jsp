@@ -8,7 +8,10 @@
 <title>영화조회 </title>
 
 </head>
+<<<<<<< HEAD
    <%@include file="include/nav.jsp"%>
+=======
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
       <div id="wrapper">
          <!-- Sidebar -->
          <%@include file="include/sidebar.jsp" %>

@@ -11,6 +11,7 @@
 <%@include file="include/sidebar.jsp" %>
 <div id="wrapper">
 		<div id="content-wrapper">
+<<<<<<< HEAD
 			<div class="single-channel-page" id="content-wrapper">
               <div class="single-channel-image">
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
@@ -20,26 +21,55 @@
         	<!-- 게시판모형 -->
         	<table class="table table-hover">
         		<thead>
+=======
+			<div class="single-channel-image">
+	               
+               <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
+               <div class="channel-profile">
+                  <img class="channel-profile-img" alt="" src="resources/img/s2.png">
+               </div>
+            </div>
+            <div class="container-fluid pb-0">
+        	
+        	<!-- 게시판모형 -->
+        	<button><a href="boardWrite?&user=${user}">글작성</a></button>
+        	<table>
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 				<tr>
+<<<<<<< HEAD
 					<th scope="col">번호</th>
 					<th scope="col">영화</th>
 					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
 					<th scope="col">작성일</th>
 					<th scope="col">조회수</th>
+=======
+					<th>번호</th>
+					<th>제목</th>
+					<th>날자</th>
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 				</tr>
 					<c:forEach var="board" items="${boardListAll }">
 						<tr>
+<<<<<<< HEAD
 						<td>${board.b_number }</td>
 						<td>${movie.m_name }</td>
 						<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
 						<td>${board.FK_u_number }</td>
 						<td>${board.b_date }</td>
 						<td>${board.b_cnt }</td>
+=======
+							<td>${board.b_number }</td>
+							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
+							<td>${board.b_date }</td>
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
 						</tr>
 					</c:forEach>
 			</table>
+<<<<<<< HEAD
         	<button><a href="boardWrite?&user=${user}">글작성</a></button>
+=======
+>>>>>>> branch 'lim7' of https://github.com/shjjang04/cineScope.git
                            
 		                           
                        </div>
