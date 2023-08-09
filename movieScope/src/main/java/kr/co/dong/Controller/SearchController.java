@@ -80,11 +80,11 @@ public class SearchController {
 		int pageTotal = (movieDtoList.size() / numInPage) + 1;	// 전체 페이지 갯수
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
-			cntPerPage = "5";
+			cntPerPage = String.valueOf(numInPage);
 		} else if (nowPage == null) {
 			nowPage = "1";
 		} else if (cntPerPage == null) { 
-			cntPerPage = "5";
+			cntPerPage = String.valueOf(numInPage);
 		}
 		for(int i = 0; i<pageTotal; i++) {
 			List<MovieDTO> tmp = new ArrayList<MovieDTO>();
@@ -114,9 +114,9 @@ public class SearchController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		logger.info("movieList : " + session.getAttribute("movieList"));
-		logger.info("session id : " + session.getAttribute("u_id"));
-		List<Integer> movieList=(List<Integer>)session.getAttribute("movieList");
+		logger.info("movieList : " + session.getAttribute("mlist"));
+		logger.info("session user : " + session.getAttribute("user"));
+		List<Integer> movieList=(List<Integer>)session.getAttribute("mlist");
 		List<MovieDTO> movieDtoList = new ArrayList<MovieDTO>();
 		for(int i = 0; i<movieList.size(); i++) {
 			movieDtoList.add(searchService.searchDetail(movieList.get(i)));
@@ -128,11 +128,11 @@ public class SearchController {
 		int pageTotal = (movieDtoList.size() / numInPage) + 1;	// 전체 페이지 갯수
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
-			cntPerPage = "5";
+			cntPerPage = String.valueOf(numInPage);
 		} else if (nowPage == null) {
 			nowPage = "1";
 		} else if (cntPerPage == null) { 
-			cntPerPage = "5";
+			cntPerPage = String.valueOf(numInPage);
 		}
 		for(int i = 0; i<pageTotal; i++) {
 			List<MovieDTO> tmp = new ArrayList<MovieDTO>();
@@ -158,7 +158,8 @@ public class SearchController {
 	
 	
 	@GetMapping("search/age")
-	public ModelAndView age(int m_age) {
+	public ModelAndView age(PagingVO vo, MovieVO mVo, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage, HttpSession session, int m_age) {
 		logger.info("m_age : " + m_age);
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_age(m_age);
@@ -168,13 +169,41 @@ public class SearchController {
 			movieDtoList.get(i).setM_number(movieList.get(i));
 		}
 		logger.info("movieList : " + movieList);
+		int total = movieList.size();  //총 영화 갯수
+		int numInPage = 8;	//한페이지에 보여줄 영화갯수
+		int pageTotal = (movieDtoList.size() / numInPage) + 1;	// 전체 페이지 갯수
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = String.valueOf(numInPage);
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = String.valueOf(numInPage);
+		}
+		for(int i = 0; i<pageTotal; i++) {
+			List<MovieDTO> tmp = new ArrayList<MovieDTO>();
+			for(int j = 0; j<numInPage; j++) {
+				if((j+i*numInPage) == movieDtoList.size())
+					break;
+				tmp.add(movieDtoList.get(j+i*numInPage));
+			}
+			if((i+1) == Integer.parseInt(nowPage)) {
+				mav.addObject("movieDtoList", tmp);
+			}
+		}
+		session.setAttribute("mlist", movieList);
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		mav.addObject("paging", vo);
+		mav.addObject("numInPage", numInPage);
+		mav.addObject("pageTotal", pageTotal);
+//		mav.addObject("movieDtoList", movieDtoList);
 		mav.addObject("movieList", movieList);
-		mav.addObject("movieDtoList", movieDtoList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
 	@GetMapping("search/genre")
-	public ModelAndView genre(String m_genre) {
+	public ModelAndView genre(PagingVO vo, MovieVO mVo, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage, HttpSession session, String m_genre) {
 		logger.info("m_genre : " + m_genre);
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_genre(m_genre);
@@ -184,13 +213,41 @@ public class SearchController {
 			movieDtoList.get(i).setM_number(movieList.get(i));
 		}
 		logger.info("movieList : " + movieList);
+		int total = movieList.size();  //총 영화 갯수
+		int numInPage = 8;	//한페이지에 보여줄 영화갯수
+		int pageTotal = (movieDtoList.size() / numInPage) + 1;	// 전체 페이지 갯수
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = String.valueOf(numInPage);
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = String.valueOf(numInPage);
+		}
+		for(int i = 0; i<pageTotal; i++) {
+			List<MovieDTO> tmp = new ArrayList<MovieDTO>();
+			for(int j = 0; j<numInPage; j++) {
+				if((j+i*numInPage) == movieDtoList.size())
+					break;
+				tmp.add(movieDtoList.get(j+i*numInPage));
+			}
+			if((i+1) == Integer.parseInt(nowPage)) {
+				mav.addObject("movieDtoList", tmp);
+			}
+		}
+		session.setAttribute("mlist", movieList);
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		mav.addObject("paging", vo);
+		mav.addObject("numInPage", numInPage);
+		mav.addObject("pageTotal", pageTotal);
+//		mav.addObject("movieDtoList", movieDtoList);
 		mav.addObject("movieList", movieList);
-		mav.addObject("movieDtoList", movieDtoList);
 		mav.setViewName("searchresult");
 		return mav;
 	}
 	@GetMapping("search/nation")
-	public ModelAndView nation(String m_nation) {
+	public ModelAndView nation(PagingVO vo, MovieVO mVo, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage, HttpSession session, String m_nation) {
 		logger.info("m_nation : " + m_nation);
 		ModelAndView mav = new ModelAndView();
 		List<Integer> movieList = searchService.searchAllM_nation(m_nation);
@@ -200,8 +257,35 @@ public class SearchController {
 			movieDtoList.get(i).setM_number(movieList.get(i));
 		}
 		logger.info("movieList : " + movieList);
+		int total = movieList.size();  //총 영화 갯수
+		int numInPage = 8;	//한페이지에 보여줄 영화갯수
+		int pageTotal = (movieDtoList.size() / numInPage) + 1;	// 전체 페이지 갯수
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = String.valueOf(numInPage);
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = String.valueOf(numInPage);
+		}
+		for(int i = 0; i<pageTotal; i++) {
+			List<MovieDTO> tmp = new ArrayList<MovieDTO>();
+			for(int j = 0; j<numInPage; j++) {
+				if((j+i*numInPage) == movieDtoList.size())
+					break;
+				tmp.add(movieDtoList.get(j+i*numInPage));
+			}
+			if((i+1) == Integer.parseInt(nowPage)) {
+				mav.addObject("movieDtoList", tmp);
+			}
+		}
+		session.setAttribute("mlist", movieList);
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		mav.addObject("paging", vo);
+		mav.addObject("numInPage", numInPage);
+		mav.addObject("pageTotal", pageTotal);
+//		mav.addObject("movieDtoList", movieDtoList);
 		mav.addObject("movieList", movieList);
-		mav.addObject("movieDtoList", movieDtoList);
 		mav.setViewName("searchresult");
 		return mav;
 	}

@@ -47,9 +47,9 @@
 							var sel = document.getElementById('cntPerPage').value;
 							location.href="boardList?nowPage=${paging.nowPage}&cntPerPage="+sel;
 						}
-					
+						
 					</script>
-	                     <c:if test="${movieDtoList != null }">                     	
+					     <c:if test="${movieDtoList != null }">                     	
 	                         <c:forEach var="list" items="${requestScope.movieDtoList }">
 			                     	<div class="col-xl-3 col-sm-6 mb-3">
 				                        <div class="category-item mt-0 mb-0">
@@ -65,39 +65,35 @@
 
                   </div>
                   
-                 <div style="display: block; text-align: center;">		
-					<c:if test="${paging.startPage != 1 }">
-							<a href="${contextPath }/searchresult?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-					</c:if>
-					<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-						<c:choose>
-							<c:when test="${p == paging.nowPage }">
-								<b>${p }</b>
-							</c:when>
-							<c:when test="${p != paging.nowPage }">
-								<a href="${contextPath }/searchresult?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-							</c:when>
-						</c:choose>
-					</c:forEach>
-					<c:if test="${paging.endPage != paging.lastPage}">
-						<a href="${contextPath }/searchresult?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-					</c:if>
-				</div>
+                 <nav aria-label="Page navigation example" style="display: block; text-align: center;">		
+					<ul class="pagination justify-content-center pagination-sm mb-0">
+						<c:if test="${paging.startPage != 1 }">
+								<li class="page-item">
+								<a class="page-link" href="${contextPath }/searchresult?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">Previous</a>
+								</li>
+						
+						</c:if>
+							
+						<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+							<c:choose>
+								<c:when test="${p == paging.nowPage }">
+									<li class="page-item active"><button type="button" class="page-link" >${p }</button></li>
+								</c:when>
+								<c:when test="${p != paging.nowPage }">
+									<a class="page-item" href="${contextPath }/searchresult?nowPage=${p }&cntPerPage=${paging.cntPerPage}"><button type="button" class="page-link" >${p }</button></a>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${paging.endPage != paging.lastPage}">
+							 <li class="page-item">
+							<a class="page-link" href="${contextPath }/searchresult?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">Next</a>
+							</li>
+						</c:if>
+					</ul>
+					
+				</nav>
  	
-                  <nav aria-label="Page navigation example">
-                     <ul class="pagination justify-content-center pagination-sm mb-0">
-                        <li class="page-item disabled">
-                           <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item active"><button type="button" class="page-link" id="button1" >1</button></li>
-                        <li class="page-item"><button type="button" class="page-link" id="button2">2</button></li>
-                        <li class="page-item"><button type="button" class="page-link" id="button3">3</button></li>
-                        <li class="page-item">
-                           <a class="page-link" href="#">Next</a>
-                        </li>
-                     </ul>
-                  </nav>
-
+                  
                </div>
                
             </c:if>
