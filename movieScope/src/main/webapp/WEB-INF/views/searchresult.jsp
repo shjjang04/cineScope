@@ -9,10 +9,11 @@
 
 </head>
  <body id="page-top">
-   <%@include file="include/top.jsp"%>
+<%@include file="include/nav.jsp"%>
+   <!--  Sidebar -->
+<%@include file="include/sidebar.jsp" %>
       <div id="wrapper">
          <!-- Sidebar -->
-         <%@include file="include/sidebar.jsp" %>
 
          <div id="content-wrapper">
             <div class="container-fluid upload-details">
@@ -74,8 +75,6 @@
             </div>
 
             <!-- /.container-fluid -->
-            <!-- Sticky Footer -->
-            <%@include file="include/footer.jsp" %>
          </div>
          <!-- /.content-wrapper -->
       </div>

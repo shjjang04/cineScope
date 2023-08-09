@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<nav
-	class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
+
+<nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
 	&nbsp;&nbsp;
 	<button class="btn btn-link btn-sm text-secondary order-1 order-sm-0"
 		id="sidebarToggle">
 		<i class="fas fa-bars"></i>
 	</button>
-	&nbsp;&nbsp; <a class="navbar-brand mr-1" href="${contextPath}/"><img
-		class="img-fluid" alt="" src="resources/img/logo.png"></a>
+	&nbsp;&nbsp; <a class="navbar-brand mr-1" href="${pageContext.request.contextPath}/"><img
+		class="img-fluid" alt="" src="${contextPath }/resources/img/logo.png"></a>
 	<!-- Navbar Search -->
 	<form
 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
@@ -30,7 +30,7 @@
 			<a class="nav-link dropdown-toggle user-dropdown-link" href="#"
 			id="userDropdown" role="button" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="false"> <img alt="Avatar"
-				src="resources/img/user.png"> Osahan
+				src="${contextPath }/resources/img/user.png"> Osahan
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="userDropdown">

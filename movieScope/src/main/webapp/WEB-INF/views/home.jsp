@@ -9,22 +9,16 @@
 <%@include file="include/nav.jsp"%>
 <!-- Sidebar -->
 <%@include file="include/sidebar.jsp" %>
-
 <div id="wrapper">
-<!-- Sidebar -->
-<%@include file="include/sidebar.jsp" %>
-
 		<div id="content-wrapper">
-			<div class="single-channel-image">
-	               <div class="custom-ciz0oy ewlhzcl4"><h3 class="custom-vwu94r ewlhzcl2"><span>영화, 드라마, 예능, 다큐멘터리를 무제한으로<br></span></h3>
-	               <h4 class="custom-10k810s ewlhzcl3">매주 업데이트 되는 5백 여편의 신작을 즐겨보세요.</h4><div class="custom-1azakc ewlhzcl11">
-	               <a href="/payment/choose_grade" class="custom-n4072y ewlhzcl8">2주 무료 이용 시작</a></div></div>
+			<div class="single-channel-page" id="content-wrapper">
+              <div class="single-channel-image">
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
-               <div class="channel-profile">
-                  <img class="channel-profile-img" alt="" src="resources/img/s2.png">
-               </div>
             </div>
             <div class="container-fluid pb-0">
+			<div class="single-channel-image">
+	               
+            </div>
                <div class="top-mobile-search">
 					<div class="row">
                      <div class="col-md-12">   
@@ -180,13 +174,11 @@
           </div>
           <hr> 
          
-         <!-- Sticky Footer -->
-         <%@include file="include/footer.jsp" %>
          <!-- /.content-wrapper -->
      	 </div>
       
       <!-- /#wrapper -->
-      
+      </div>
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
       

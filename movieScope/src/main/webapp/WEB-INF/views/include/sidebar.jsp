@@ -1,22 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <ul class="sidebar navbar-nav">
 
-
-	<li class="nav-item active"><a class="nav-link" href="${contextPath}/">
+	<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/">
 			<i class="fas fa-fw fa-home"></i> <span>Home</span>
 	</a></li>
 	
-	<li class="nav-item"><a class="nav-link" href="${contextPath}/profile">
+	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/profile">
 			<i class="fas fa-fw fa-user"></i> <span>My Channel</span>
 	</a></li>
 	
-	<li class="nav-item"><a class="nav-link" href="${contextPath}/search">
+	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/search">
 			<i class="fas fa-fw fa-search"></i> <span>Search</span>
 	</a></li>
 	
-	<li class="nav-item"><a class="nav-link" href="${contextPath}/board">
+	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/boardListAll">
 			<i class="fas fa-fw fa-star"></i> <span>Rating board</span>
 	</a></li>
 	
@@ -26,9 +26,9 @@
 	</li>
 	
 	<li class="nav-item channel-sidebar-list">
-		<footer class="sticky-footer">
-					<a href="#"><img alt="" src="resources/img/google.png"></a><p>
-					<strong class="text-dark">Lim Sang-hyeon / Lee Geun-seop / Yoon Gap-min / Yoon Gap-min / Noh Gyeong-wook</strong>.<p>
+		
+					<img alt="" src="${contextPath }/resources/img/flogo.png">
+					<strong class="text-dark">Lim Sang-hyeon / Lee keun-seop / Yun Gap-min / Jeon Jae-hong / Noh Gyeong-wook</strong>.<p>
 					<small class="mt-0 mb-0"><a	class="text-secondary">
 					© 2023 Cinescope : /*Let me go home*/ group³. All rights reserved.</a> </small>
 				</p>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 	</div>
-</footer>
+
 				
 	</li>
 	
