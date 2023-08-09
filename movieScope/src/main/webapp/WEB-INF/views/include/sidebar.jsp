@@ -1,68 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<ul class="sidebar navbar-nav">
-	<li class="nav-item active"><a class="nav-link" href="/">
+<ul class="collapse show sidebar navbar-nav" id="navbarToggleExternalContent">
+
+	<li class="nav-item active"><a class="nav-link" href="${contextPath}/">
 			<i class="fas fa-fw fa-home"></i> <span>Home</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="${contextPath }/search">
-			<i class="fas fa-fw fa-users"></i> <span>영화조회</span>
+	
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/profile">
+			<i class="fas fa-fw fa-user"></i> <span>My Channel</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link"
-		href="single-channel.html"> <i class="fas fa-fw fa-user-alt"></i>
-			<span>Single Channel</span>
+	
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/search">
+			<i class="fas fa-fw fa-search"></i> <span>Search</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="video-page.html">
-			<i class="fas fa-fw fa-video"></i> <span>Video Page</span>
+	
+	<li class="nav-item"><a class="nav-link" href="${contextPath}/boardListAll">
+			<i class="fas fa-fw fa-star"></i> <span>Rating board</span>
 	</a></li>
-	<li class="nav-item"><a class="nav-link" href="upload-video.html">
-			<i class="fas fa-fw fa-cloud-upload-alt"></i> <span>Upload
-				Video</span>
-	</a></li>
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-		aria-expanded="false"> <i class="fas fa-fw fa-folder"></i> <span>Pages</span>
-	</a>
-		<div class="dropdown-menu">
-			<h6 class="dropdown-header">Login Screens:</h6>
-			<a class="dropdown-item" href="login.html">Login</a> <a
-				class="dropdown-item" href="register.html">Register</a> <a
-				class="dropdown-item" href="forgot-password.html">Forgot
-				Password</a>
-			<div class="dropdown-divider"></div>
-			<h6 class="dropdown-header">Other Pages:</h6>
-			<a class="dropdown-item" href="404.html">404 Page</a> <a
-				class="dropdown-item" href="blank.html">Blank Page</a>
-		</div></li>
-	<li class="nav-item"><a class="nav-link" href="history-page.html">
-			<i class="fas fa-fw fa-history"></i> <span>History Page</span>
-	</a></li>
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="categories.html" role="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false"> <i
-			class="fas fa-fw fa-list-alt"></i> <span>Categories</span>
-	</a>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="categories.html">Movie</a> <a
-				class="dropdown-item" href="categories.html">Music</a> <a
-				class="dropdown-item" href="categories.html">Television</a>
-		</div></li>
+	
 	<li class="nav-item channel-sidebar-list">
-		<h6>SUBSCRIPTIONS</h6>
-		<ul>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s1.png"> Your Life
-			</a></li>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s2.png"> Unboxing <span
-					class="badge badge-warning">2</span>
-			</a></li>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s3.png"> Product / Service
-			</a></li>
-			<li><a href="subscriptions.html"> <img class="${contextPath }/resources/img-fluid"
-					alt="" src="${contextPath }/resources/img/s4.png"> Gaming
-			</a></li>
-		</ul>
+		<h6>My menu</h6>
+				
 	</li>
+	<li class="nav-item">
+	<footer class="sticky-footer-side">
+		<div class="nav-item">
+		<a href="#"><img alt="푸터로고" src="${contextPath }/resources/img/flogo.png"></a>
+		<p><strong class="text">Lim Sang-hyeon / Lee Keun-seop /
+				Yun Gap-min / Jeon Jae-hong / Noh Gyeong-wook</strong>
+		
+			<small class="mt-0 mb-0"><a class="text-secondary">
+			©2023 Cinescope : /*Let me go home*/ group³. All rights reserved.</a> </small>
+		</p>
+		</div>
+		<div class="col-lg-6 col-sm-6 text-right">
+			<div class="app"></div>
+		</div>
+	</li>
+	</footer>
 </ul>

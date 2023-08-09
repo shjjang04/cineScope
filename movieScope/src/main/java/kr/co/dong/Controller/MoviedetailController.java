@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.MovieDetailService;
 import kr.co.dong.service.SearchService;
 
