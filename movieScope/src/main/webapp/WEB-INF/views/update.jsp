@@ -8,7 +8,7 @@
 <title>영화조회 </title>
 
 </head>
-   <%@include file="include/top.jsp"%>
+   
       <div id="wrapper">
          <!-- Sidebar -->
          <%@include file="include/sidebar.jsp" %>
