@@ -8,12 +8,11 @@
    <%@include file="include/top.jsp"%>
       <div id="wrapper">
          <!-- Sidebar -->
-         <%@include file="include/sidebar.jsp" %>
          <div id="content-wrapper">
             <div class="container-fluid pb-0">
             <!-- 여기서 부터 본문 작성 -->
-            
-            <button type="button" onclick="location.href='login'" class="btn btn-primary border-none">로그인</button>
+            <button><a href="boardListAll">게시판</a></button>
+            <button><a href="Signup">회원가입</a></button>
             </div>
             <!-- /.container-fluid -->
             <!-- Sticky Footer -->

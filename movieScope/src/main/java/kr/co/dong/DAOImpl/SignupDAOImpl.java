@@ -28,12 +28,6 @@ public class SignupDAOImpl implements SignupDAO {
 	}
 
 	@Override
-	public void update(SignupDTO ud) {
-		// TODO Auto-generated method stub
-		sqlsession.update(namespace + ".user_update", ud);
-	}
-
-	@Override
 	public void delete(int u_no) {
 		// TODO Auto-generated method stub
 		sqlsession.delete(namespace + ".user_delete", u_no);
@@ -46,15 +40,15 @@ public class SignupDAOImpl implements SignupDAO {
 	}
 
 	@Override
-	public SignupDTO listAll() {
-		// TODO Auto-generated method stub
-		return sqlsession.selectOne(namespace + ".listAll");
-	}
-
-	@Override
 	public SignupDTO selectOne(int sno) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".selectOne", sno);
+	}
+
+	@Override
+	public int Checkid(String u_id) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namespace + ".Checkid", u_id);
 	}
 
 }
