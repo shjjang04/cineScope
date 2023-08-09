@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
@@ -15,6 +16,9 @@
 
 		<div id="content-wrapper">
 			<div class="single-channel-image">
+	               <div class="custom-ciz0oy ewlhzcl4"><h3 class="custom-vwu94r ewlhzcl2"><span>영화, 드라마, 예능, 다큐멘터리를 무제한으로<br></span></h3>
+	               <h4 class="custom-10k810s ewlhzcl3">매주 업데이트 되는 5백 여편의 신작을 즐겨보세요.</h4><div class="custom-1azakc ewlhzcl11">
+	               <a href="/payment/choose_grade" class="custom-n4072y ewlhzcl8">2주 무료 이용 시작</a></div></div>
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
                <div class="channel-profile">
                   <img class="channel-profile-img" alt="" src="resources/img/s2.png">

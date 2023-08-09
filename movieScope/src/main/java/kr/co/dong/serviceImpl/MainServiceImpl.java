@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.GenreDAO;
 import kr.co.dong.DAO.MovieDAO;
-import kr.co.dong.DAO.UserDAO;
+import kr.co.dong.DAO.SignupDAO;
 import kr.co.dong.DAO.UserfavoriteDAO;
 import kr.co.dong.DTO.MovieDTO;
 import kr.co.dong.service.MainService;
@@ -20,7 +20,7 @@ import kr.co.dong.service.MainService;
 public class MainServiceImpl implements MainService{
 
 	@Autowired
-	UserDAO userdao;
+	SignupDAO dao;
 	@Autowired
 	UserfavoriteDAO favdao;
 	@Autowired
@@ -31,7 +31,7 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public String login(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return userdao.login(map);
+		return dao.login(map);
 	}
 
 	@Override

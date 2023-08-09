@@ -1,9 +1,8 @@
 package kr.co.dong.DTO;
 
-public class UserDTO {
+public class SignupDTO {
 	private int u_number;
 	private int u_age;
-//	date type??? 우선 String 
 	private String u_date;
 	private String u_id;
 	private String u_pw;
@@ -86,8 +85,9 @@ public class UserDTO {
 
 	@Override
 	public String toString() {
-		return "userDTO [u_number=" + u_number + ", u_age=" + u_age + ", u_date=" + u_date + ", u_id=" + u_id
+		return "UserDTO [u_number=" + u_number + ", u_age=" + u_age + ", u_date=" + u_date + ", u_id=" + u_id
 				+ ", u_pw=" + u_pw + ", u_addr=" + u_addr + ", u_gender=" + u_gender + ", u_email=" + u_email
 				+ ", u_birthday=" + u_birthday + "]";
 	}
+
 }
