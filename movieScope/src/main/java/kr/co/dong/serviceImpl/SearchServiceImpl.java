@@ -33,9 +33,24 @@ public class SearchServiceImpl implements SearchService{
 		
 		List<Integer> list1 = movieDAO.searchAll(mVo);
 		List<Integer> list2 = ageDAO.searchMovie(mVo.getM_age());
-		List<Integer> list3 = genreDAO.searchMovie(mVo.getM_genre());
-		List<Integer> list4 = natinoDAO.searchMovie(mVo.getM_nation());
-		
+		List<Integer> list3 = new ArrayList<Integer>(); 
+		if(mVo.getM_genre().equals("모든장르")) {
+			List<MovieDTO> tmp = movieDAO.listAll();
+			for(int i = 0; i<tmp.size(); i++) {
+				list3.add(tmp.get(i).getM_number());
+			}
+		}else {			
+			list3 = genreDAO.searchMovie(mVo.getM_genre());
+		}
+		List<Integer> list4 = new ArrayList<Integer>();
+		if(mVo.getM_nation().equals("모든국가")) {
+			List<MovieDTO> tmp = movieDAO.listAll();
+			for(int i = 0; i<tmp.size(); i++) {
+				list4.add(tmp.get(i).getM_number());
+			}
+		}else {
+			list4 = natinoDAO.searchMovie(mVo.getM_nation());
+		}
 		Set<Integer> set1 = new HashSet<Integer>();
 		Set<Integer> set2 = new HashSet<Integer>();
 		Set<Integer> set3 = new HashSet<Integer>();
