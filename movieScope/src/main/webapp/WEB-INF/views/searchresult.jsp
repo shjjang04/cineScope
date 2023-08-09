@@ -46,8 +46,7 @@
 						function selChange() {
 							var sel = document.getElementById('cntPerPage').value;
 							location.href="boardList?nowPage=${paging.nowPage}&cntPerPage="+sel;
-						}
-						
+						}						
 					</script>
 					     <c:if test="${movieDtoList != null }">                     	
 	                         <c:forEach var="list" items="${requestScope.movieDtoList }">

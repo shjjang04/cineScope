@@ -188,8 +188,7 @@
 	       			<div class="osahan-area text-center mt-3">
                         <input type="submit" class="btn btn-outline-primary" value="검색">
                      </div>
-                     <hr>
-					
+                     <hr>					
 				</form>
 				<div class="row ">
                      <div class="col-lg-12">
