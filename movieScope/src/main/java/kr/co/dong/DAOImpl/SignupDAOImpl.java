@@ -1,6 +1,5 @@
 package kr.co.dong.DAOImpl;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,24 +13,12 @@ public class SignupDAOImpl implements SignupDAO {
 
 	@Autowired
 	private SqlSession sqlsession;
-
 	private final static String namespace = "kr.co.dong.SignupMapper";
-
+	
 	@Override
 	public String login(Map<String, Object> map) {
+		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".user_login", map);
-	}
-
-	@Override
-	public SignupDTO listAll() {
-		// TODO Auto-generated method stub
-		return sqlsession.selectOne(namespace + ".listAll");
-	}
-
-	@Override
-	public SignupDTO selectOne(int uno) {
-		// TODO Auto-generated method stub
-		return sqlsession.selectOne(namespace + ".user_selectDetail", uno);
 	}
 
 	@Override
@@ -41,21 +28,27 @@ public class SignupDAOImpl implements SignupDAO {
 	}
 
 	@Override
-	public void update(SignupDTO ud) {
+	public void delete(int u_no) {
 		// TODO Auto-generated method stub
-		sqlsession.update(namespace + ".update", ud);
-	}
-
-	@Override
-	public void delete(int uno) {
-		// TODO Auto-generated method stub
-		sqlsession.delete(namespace+".delete", uno);
+		sqlsession.delete(namespace + ".user_delete", u_no);
 	}
 
 	@Override
 	public String idCheck(String u_id) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne(namespace +".idCheck" ,u_id);
+		return sqlsession.selectOne(namespace + ".user_idCheck", u_id);
+	}
+
+	@Override
+	public SignupDTO selectOne(int sno) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namespace + ".selectOne", sno);
+	}
+
+	@Override
+	public int Checkid(String u_id) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namespace + ".Checkid", u_id);
 	}
 
 }

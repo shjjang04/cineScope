@@ -8,9 +8,10 @@ import kr.co.dong.DTO.UserfavoriteDTO;
 @Service
 public interface SignupService {
 
-	public void insert (SignupDTO dto);
-	public void update (SignupDTO dto);
-	public void delete (int s_no);
+	public void insert(SignupDTO dto);
+
+	// ID 중복확인
 	public String idCheck(String u_id);
-	
+	//ID 중복확인
+	public int Checkid(String u_id);
 }

@@ -12,7 +12,7 @@ public class SignupServiceImpl implements SignupService{
 
 	@Autowired
 	SignupDAO dao;
-	
+
 	@Override
 	public void insert(SignupDTO dto) {
 		// TODO Auto-generated method stub
@@ -20,21 +20,16 @@ public class SignupServiceImpl implements SignupService{
 	}
 
 	@Override
-	public void update(SignupDTO dto) {
-		// TODO Auto-generated method stub
-		dao.update(dto);
-	}
-
-	@Override
-	public void delete(int s_no) {
-		// TODO Auto-generated method stub
-		dao.delete(s_no);
-	}
-
-	@Override
 	public String idCheck(String u_id) {
 		// TODO Auto-generated method stub
 		return dao.idCheck(u_id);
+	}
+
+	@Override
+	public int Checkid(String u_id) {
+		// TODO Auto-generated method stub
+		int result = dao.Checkid(u_id);
+		return result;
 	}
 
 }

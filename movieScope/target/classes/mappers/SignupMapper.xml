@@ -6,17 +6,13 @@
 
 	<!-- 회원 가입 -->
 	<insert id="user_signup" parameterType="SignupDTO">
-		insert into User( u_date
-		,u_id ,u_pw u_age ,u_addr ,u_gender ,u_email ,u_birthday)
-		value(
-		#{u_date} ,#{u_id} ,#{u_pw} ,#{u_age} ,#{u_addr} ,#{u_gender}
-		,#{u_email} ,#{u_birthday})
+		insert into User( u_date ,u_id ,u_pw ,u_age ,u_addr ,u_gender ,u_email ,u_birthday)
+		value( curdate() ,#{u_id} ,#{u_pw} ,#{u_age} ,#{u_addr} ,#{u_gender} ,#{u_email} ,#{u_birthday})
 	</insert>
 
 	<!-- 로그인 -->
-	<select id="user_login" resultType="String">
-		select u_number from
-		user
+	<select id="user_login" resultType="Map">
+		select u_id, u_number from	user
 		where u_id = #{u_id} and u_pw = #{u_pw}
 	</select>
 
@@ -24,7 +20,10 @@
 	<select id="user_idCheck"  resultType="String">
 		select u_id from user where u_id = #{u_id}
 	</select>
-
+	<!--  idCheck -->
+	<select id="Checkid" resultType="int" parameterType = "String">
+	select count(*) from user where u_id = #{u_id}
+	</select>
 	<!-- 회원 상세정보 -->
 	<select id="user_selectDetail" resultType="SignupDTO">
 		select * from user
@@ -41,8 +40,7 @@
 	<!-- 이메일 수정 -->
 	<update id="user_updateEmail">
 		update user set u_email = #{u_email}
-		where u_number =
-		#{u_number}
+		where u_number = #{u_number}
 	</update>
 	<!--  주소 수정 -->
 	<update id="user_updateAdress">

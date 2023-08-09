@@ -1,6 +1,6 @@
 package kr.co.dong.serviceImpl;
 
-import org.springframework.stereotype.Service; 
+import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.AdminDAO;
 import kr.co.dong.DAO.SignupDAO;
@@ -9,7 +9,7 @@ import kr.co.dong.service.AdminService;
 @Service
 public class AdminServiceImpl implements AdminService{
 	AdminDAO admindao;
-	SignupDAO userdao;
+	SignupDAO dao;
 	
 	@Override
 	public void insert(AdminDTO ad) {
@@ -20,7 +20,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void delete(int u_no) {
 		// TODO Auto-generated method stub
-		userdao.delete(u_no);
+		dao.delete(u_no);
 	}
 	
 }
