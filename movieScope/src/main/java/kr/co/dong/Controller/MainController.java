@@ -44,6 +44,7 @@ public class MainController {
 			return "redirect:login";
 		}else { // 로그인 성공 -> 세션 부여
 			session.setAttribute("user", user);
+			
 			return "redirect:/";
 		}
 	}

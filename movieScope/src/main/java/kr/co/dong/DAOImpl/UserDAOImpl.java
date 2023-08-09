@@ -31,7 +31,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserDTO selectOne(int uno) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne(namespace + ".selectOne", uno);
+		return sqlsession.selectOne(namespace + ".user_selectDetail", uno);
 	}
 
 	@Override

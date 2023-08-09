@@ -19,7 +19,7 @@
 	<!-- 회원 상세정보 -->
 	<select id="user_selectDetail" resultType="userDTO">
 		select * from user
-		where = u_number = #{u_number}
+		where u_number = #{u_number}
 	</select>
 
 	<update id="update">

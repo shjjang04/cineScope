@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
+<%@ page session="true" %>
 <!DOCTYPE html>
 <head>
 <%@include file="include/head.jsp" %>
@@ -16,17 +17,12 @@
                <img class="img-fluid" alt="" src="resources/img/channel-banner.png">
                <div class="channel-profile">
                   <img class="channel-profile-img" alt="" src="resources/img/s2.png">
-                  <div class="social hidden-xs">
-                     Social &nbsp;
-                     <a class="fb" href="#">Facebook</a>
-                     <a class="tw" href="#">Twitter</a>
-                     <a class="gp" href="#">Google</a>
-                  </div>
+                  
                </div>
             </div>
             <div class="single-channel-nav">
                <nav class="navbar navbar-expand-lg navbar-light">
-                  <a class="channel-brand" href="#">Osahan Channel <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
+                  <a class="channel-brand">${u_id } <span title="" data-placement="top" data-toggle="tooltip"><i class="fas fa-check-circle text-success"></i></span></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
