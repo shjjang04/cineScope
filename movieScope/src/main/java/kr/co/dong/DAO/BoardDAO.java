@@ -2,9 +2,8 @@ package kr.co.dong.DAO;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import kr.co.dong.DTO.BoardDTO;
+import kr.co.dong.utils.Criteria;
 public interface BoardDAO {
 	public List<BoardDTO> board_listAll();
 	public void delete(int b_number);
@@ -12,4 +11,6 @@ public interface BoardDAO {
 	public BoardDTO detail(int b_number);
 	public void insert(BoardDTO bD);
 	public List<BoardDTO> checkAll(int uno);
+	public List<BoardDTO> getListWithPaging(Criteria cri);
+	public int checkNum(int FK_u_number);
 }

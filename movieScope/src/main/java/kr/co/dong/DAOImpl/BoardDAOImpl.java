@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.dong.DAO.BoardDAO;
 import kr.co.dong.DTO.BoardDTO;
+import kr.co.dong.utils.Criteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -52,6 +53,18 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardDTO> checkAll(int uno) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(namespace + ".checkAll", uno);
+	}
+
+	@Override
+	public List<BoardDTO> getListWithPaging(Criteria cri) {
+		// 페이징 처리
+		return sqlsession.selectList(namespace + ".getListWithPaging", cri);
+	}
+
+	@Override
+	public int checkNum(int FK_u_number) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namespace + ".board_check_num");
 	}
 
 }

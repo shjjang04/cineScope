@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
+import kr.co.dong.utils.Criteria;
 
 public interface BoardService {
 	public List<ArticleDTO> article_listall(int FK_b_number); //모두조회
@@ -12,6 +13,7 @@ public interface BoardService {
 	public void article_update(ArticleDTO aD); //u
 	public void article_delete(int a_number); //d
 	public List<BoardDTO> board_listAll(); //모두보이기
+	public List<BoardDTO> board_listAll2(Criteria cri);	// 페이징 처리
 	public void board_insert(BoardDTO bD); //c
 	public BoardDTO board_detail(int b_number); //r
 	public void board_update(BoardDTO bD); //u

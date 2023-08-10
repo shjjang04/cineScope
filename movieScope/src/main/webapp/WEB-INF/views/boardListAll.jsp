@@ -36,7 +36,46 @@
 						</tr>
 					</c:forEach>
 			</table>
-                           
+			<script type="text/javascript">
+				$(document).ready(function(){
+											
+					var actionForm = $("#actionForm");
+					
+					$(".paginate_button a").on("click", function(e){
+						
+						e.preventDefault();
+						
+						console.log('click');
+						
+						actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+						actionForm.submit();
+					});
+				});
+				?pageNum='+${pageMaker.cri.pageNum }+'&amount='+ ${pageMaker.cri.amount }
+			</script>
+			
+			<form id="actionForm" action="boardListAll" method='get'>
+				<input type='hidden' name='pageNum' value = "${pageMaker.cri.pageNum }">
+				<input type='hidden' name='amount' value = "${pageMaker.cri.amount }">
+			</form>
+			
+			<div aria-label="Page navigation example" style="display: block; text-align: center;">
+				<ul class="pagination justify-content-center pagination-sm mb-0"">
+					<c:if test='${pageMaker.prev }'>
+						<li class="paginate_button previous page-item"><a class="page-link" href="${contextPath }/boardListAll?pageNum=${pageMaker.startPage - 1 }"> Previous </a>
+						</li>
+					</c:if>
+				
+					<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+						<li class="paginate_button page-item ${pageMaker.cri.pageNum == num ? "active":"" } "><a class="page-link" href="${contextPath }/boardListAll?pageNum=${num}&amount=${pageMaker.cri.amount }">${num }</a></li>
+					</c:forEach>
+				
+					<c:if test="${pageMaker.next }">
+						<li class="paginate_button next page-item"><a class="page-link" href="${contextPath }/boardListAll?pageNum=${pageMaker.endPage + 1 }">Next</a></li>
+					</c:if>
+				</ul>
+			</div>
+            <!-- end Pagination -->         
 		                           
                        </div>
                     </div>       

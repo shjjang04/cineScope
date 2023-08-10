@@ -2,16 +2,21 @@ package kr.co.dong.serviceImpl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.dong.Controller.SearchController;
 import kr.co.dong.DAO.ArticleDAO;
 import kr.co.dong.DAO.BoardDAO;
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.service.BoardService;
+import kr.co.dong.utils.Criteria;
 @Service
 public class BoardServiceImpl implements BoardService{
+	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 	@Autowired
 	ArticleDAO articleDAO;
 	@Autowired
@@ -54,7 +59,13 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		return boardDAO.board_listAll();
 	}
-
+	@Override // 페이징 처리
+	public List<BoardDTO> board_listAll2(Criteria cri) {
+		// TODO Auto-generated method stub
+		logger.info("get List with criteria: " + cri);
+		return boardDAO.getListWithPaging(cri);
+	}
+	
 	@Override //c
 	public void board_insert(BoardDTO bD) {
 		// TODO Auto-generated method stub
