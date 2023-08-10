@@ -51,7 +51,7 @@ public class SignupController {
 	@ResponseBody
 	@PostMapping("Checkid")
 	public int Checkid(@RequestParam("u_id") String u_id) {
-		System.out.println("dddd : " + u_id);
+//		System.out.println("dddd : " + u_id);
 		int result = service.Checkid(u_id);
 		return result;
 	}

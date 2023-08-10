@@ -51,4 +51,10 @@ public class SignupDAOImpl implements SignupDAO {
 		return sqlsession.selectOne(namespace + ".Checkid", u_id);
 	}
 
+	@Override
+	public void update(SignupDTO dto) {
+		// TODO Auto-generated method stub
+		sqlsession.update(namespace + ".user_update", dto);
+	}
+
 }

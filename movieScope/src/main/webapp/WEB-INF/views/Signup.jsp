@@ -27,13 +27,14 @@
 <link rel="stylesheet"
 	href="resources/vendor/owl-carousel/owl.theme.css">
 <style>
-.id_ok{
-color:#008000;
-display: none;
+.id_ok {
+	color: #008000;
+	display: none;
 }
-.id_already{
-color:#6A82FB; 
-display: none;
+
+.id_already {
+	color: #6A82FB;
+	display: none;
 }
 </style>
 </head>
@@ -51,63 +52,54 @@ display: none;
 						</div>
 						<form action="Signup" method="post">
 							<div class="form-group">
-								<label>ID를 입력하세요</label>
-								 <input type="text" name="u_id" id="u_id" class="form-control"placeholder="Please enter your ID" oninput = "Checkid()">
-									<!-- id ajax 중복체크 -->
-									<span class = "id_ok"> 사용가능한 아이디 입니다.</span>
-									<span class = "id_already"> 사용 불가능한 아이디 입니다.</span>	
+								<label>ID를 입력하세요</label> <input type="text" name="u_id"
+									id="u_id" class="form-control"
+									placeholder="Please enter your ID" oninput="Checkid()">
+								<!-- id ajax 중복체크 -->
+								<span class="id_ok"> 사용가능한 아이디 입니다.</span> <span
+									class="id_already"> 사용 불가능한 아이디 입니다.</span>
 							</div>
 							<script type="text/javascript">
-							function Checkid() {
-								var id = $('#u_id').val();
-								console.log(id);
-								var paramData = {"u_id" : id};
-								
-								$.ajax({
-									url : "./Checkid",
-									type : "post",
-									data : paramData,
-									success : function (result) {
-										if (result == 0){// result가 0일 경우 아이디 생성 가능
-											$('.id_ok').css("display","inline-block");
-											$('.id_already').css("display","none");
-										} else { // result가 1일 경우 -> 이미 존재하는 아이디
-						                    $('.id_already').css("display","inline-block");
-						                    $('.id_ok').css("display", "none");
-						                    alert("아이디를 다시 입력해주세요");
-						                    $('#u_id').val('');
-						                }
-						            },
-						            error:function(){
-						                alert("에러입니다");
-						            }
-										});
+								function Checkid() {
+									var id = $('#u_id').val();
+									console.log(id);
+									var paramData = {"u_id" : id};
+
+									$.ajax({
+										url : "./Checkid",
+										type : "post",
+										data : paramData,
+										dataType : 'json'
+										success : function(result) {
+											if (result == 0) {// result가 0일 경우 아이디 생성 가능
+												$('.id_ok').css("display", "inline-block");
+												$('.id_already').css("display", "none");
+											} else { // result가 1일 경우 -> 이미 존재하는 아이디
+												$('.id_already').css("display",	"inline-block");
+												$('.id_ok').css("display", "none");
+											}
+										},
+										error : function() {
+											alert("에러입니다");
+										}
+									});
 								};
 							</script>
 							<div class="form-group">
 								<label>비밀번호를 입력하세요</label>
-								 <input type="password" name="u_pw" id = "u_pw" class="form-control" placeholder="please enter your Password">
-							</div>
-							<div class="form-group">
+								 <input type="password" name="u_pw"	id="u_pw" class="form-control" placeholder="please enter your Password" oninput = "Checkpw()">
 								<label>비밀번호를 다시 입력하세요</label>
-								 <input type="password" id = "u_pw" name="u_pw" class="form-control" placeholder="please enter your Password">
+								 <input type="password" name="pwCheck" id="pwCheck" class="form-control" placeholder="please enter your re-Password" oninput = "Checkpw()">
+								<span id = "pwConfirm"></span>
 							</div>
 							<script type="text/javascript">
-							function pwConfirm() {
-								var password = document.getElementById('u_pw');
-								var passwordConfirm = document.getElementById('u_pw');
-								var confirmMsg = document.getElementById('confirmMsg');
-								var correct = "#00ff00";
-								var wrongCorrect = "#ff0000";
-								
-								if (password.value == passwordConfirm.value){
-									confirmMsg.style.color = correct;
-									confirmMsg.innerHTML = "비밀번호 일치";
+							function Checkpw() {
+								if($("#u_pw").val() != $("#pwCheck").val()){
+									$('#pwConfirm').text('비밀번호 불일치').css('color', 'red')
 								}else {
-									confirmCorrect.style.color = worngCorrect;
-									confirmMsg.innerHTML = "비밀번호 불일치";
+									$('#pwConfirm').text('비밀번호 일치').css('color', 'green')
 								}
-							}
+							};
 							</script>
 							<div class="form-group">
 								<label>주소를 입력하세요</label> <input type="text" name="u_addr"

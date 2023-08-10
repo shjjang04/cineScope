@@ -12,7 +12,7 @@
 
 	<!-- 로그인 -->
 	<select id="user_login" resultType="String">
-		select u_number from	user
+		select u_number from user
 		where u_id = #{u_id} and u_pw = #{u_pw}
 	</select>
 
@@ -31,27 +31,15 @@
 	</select>
 
 	<!-- 회원 정보 수정 -->
-	<!-- 비밀번호 수정  -->
-	<update id="user_updatePw">
-		update user set u_pw = #{u_pw}
-		where n_number =
-		#{u_number}
+	<update id="user_update">
+		update user set u_pw = #{u_pw}, u_email = #{u_email}, u_addr = #{u_addr}
+		where n_number = #{u_number}
 	</update>
-	<!-- 이메일 수정 -->
-	<update id="user_updateEmail">
-		update user set u_email = #{u_email}
-		where u_number = #{u_number}
-	</update>
-	<!--  주소 수정 -->
-	<update id="user_updateAdress">
-		update user set u_adress = #{u_adress}
-		where u_number
-		= #{u_number}
-	</update>
+
 
 	<!-- 회원 탈퇴 -->
 	<delete id="user_delete">
-		delete from User where u_number = #{u_number}
+		delete from user where u_number = #{u_number}
 	</delete>
 
 	<!-- 프로필 페이지 사용자 정보 조회 / 사용자 고유 번호 당 생성 페이지 -->

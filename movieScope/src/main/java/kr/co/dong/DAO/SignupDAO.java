@@ -13,6 +13,8 @@ public interface SignupDAO {
 	public SignupDTO selectOne(int sno);
 	// 회원가입 정보 입력
 	public void insert(SignupDTO ud);
+	//회원 정보 수정
+	public void update (SignupDTO dto);
 	//회원정보 삭제
 	public void delete (int u_no);
 	//ID 중복 확인
