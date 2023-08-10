@@ -5,7 +5,7 @@
 <head>
 <%@include file="include/head.jsp" %>
 
-<title>영화조회 </title>
+<title> </title>
 
 </head>
    <%@include file="include/top.jsp"%>

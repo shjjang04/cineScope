@@ -25,15 +25,15 @@ public class MainController {
 	@Autowired
 	private MainService service;
 	
-	@GetMapping("/")
-	public ModelAndView main(HttpServletRequest request) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		ModelAndView mav = new ModelAndView();
+//	@GetMapping("/")
+//	public ModelAndView main(HttpServletRequest request) throws Exception {
+//		request.setCharacterEncoding("utf-8");
+//		ModelAndView mav = new ModelAndView();
 //		mav.addObject("recommendList",service.recommend());
 //		mav.addObject("randomList", service.random());
-		mav.setViewName("dummy");
-		return mav;
-	}
+//		mav.setViewName("dummy");
+//		return mav;
+//	}
 	
 	@PostMapping("login")
 	public String login(@RequestParam Map<String, Object> map, HttpSession session, HttpServletRequest request) throws Exception {
