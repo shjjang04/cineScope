@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.service.BoardService;
+import kr.co.dong.utils.Criteria;
+import kr.co.dong.utils.PageDTO;
 
 @Controller
 public class BoardController {
@@ -43,24 +45,48 @@ public class BoardController {
 	    return mav;
 	}
 	//게시판 전체조회
+//	@GetMapping("boardListAll")
+//	public ModelAndView boardListAll(HttpServletRequest request) throws UnsupportedEncodingException {
+//	    // 로그인 체크 인터셉터
+//		request.setCharacterEncoding("utf-8");
+//	    HttpSession session = request.getSession(false);
+//	    if(session == null || session.getAttribute("user") == null) {
+//	        return new ModelAndView("redirect:/login");
+//	    }
+//	    // request에서 user 파라미터 값 받아오기
+//	    String user = request.getParameter("user");
+//
+//	    ModelAndView mav = new ModelAndView();
+//	    List<BoardDTO> boardListAll = boardService.board_listAll();
+//	    mav.addObject("boardListAll",boardListAll);
+//	    mav.addObject("user",user);
+//	    mav.setViewName("boardListAll");
+//	    return mav;
+//	}
 	@GetMapping("boardListAll")
-	public ModelAndView boardListAll(HttpServletRequest request) throws UnsupportedEncodingException {
-	    // 로그인 체크 인터셉터
+	public ModelAndView boardListAll(Criteria cri, HttpServletRequest request) throws UnsupportedEncodingException {
+		// 로그인 체크 인터셉터
 		request.setCharacterEncoding("utf-8");
-	    HttpSession session = request.getSession(false);
-	    if(session == null || session.getAttribute("user") == null) {
-	        return new ModelAndView("redirect:/login");
-	    }
-	    // request에서 user 파라미터 값 받아오기
-	    String user = request.getParameter("user");
-
-	    ModelAndView mav = new ModelAndView();
-	    List<BoardDTO> boardListAll = boardService.board_listAll();
-	    mav.addObject("boardListAll",boardListAll);
-	    mav.addObject("user",user);
-	    mav.setViewName("boardListAll");
-	    return mav;
+		HttpSession session = request.getSession(false);
+		if(session == null || session.getAttribute("user") == null) {
+			return new ModelAndView("redirect:/login");
+		}
+		// request에서 user 파라미터 값 받아오기
+		String user = request.getParameter("user");
+		
+		ModelAndView mav = new ModelAndView();
+		logger.info("list: " + cri);
+		List<BoardDTO> boardListAll = boardService.board_listAll2(cri);
+		mav.addObject("boardListAll",boardListAll);
+		mav.addObject("pageMaker", new PageDTO(cri, boardService.board_listAll().size()));
+		mav.addObject("user",user);
+		mav.setViewName("boardListAll");
+		return mav;
 	}
+	
+	
+	
+	
 	
 	//게시판 글쓰기Get
 	@GetMapping("boardWrite")

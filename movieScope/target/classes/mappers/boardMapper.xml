@@ -35,4 +35,11 @@
 	<select id="checkALL" resultType="boardDTO">
 		select * from board where
 	</select>
+		
+	<select id="getListWithPaging" resultType="boardDTO">
+		<![CDATA[
+			SET @rownum:=0;
+			select * from (select @rownum:=@rownum+1 as num ,b_number, b_title, b_context, b_date, FK_u_number from board where @rownum < (#{pageNum} * #{amount}) order by b_number desc) A where num >(#{pageNum} - 1) * #{amount};
+		]]>
+	</select>
 </mapper>
