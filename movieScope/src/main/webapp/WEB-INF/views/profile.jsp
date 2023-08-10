@@ -40,7 +40,7 @@
 								<li class="nav-item active"><a class="nav-link" href="#">내가 찜한 영화
 										<span class="sr-only">(current)</span>
 								</a></li>
-								<li class="nav-item"><a class="nav-link" href="profile_board">내 영화 평점 </a>
+								<li class="nav-item"><a class="nav-link" href="profile_board">내 게시글 </a>
 								</li>
 							</ul>
 							
@@ -61,32 +61,44 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="main-title">
+									<div class="btn-group float-right right-action">
+										<a href="#" class="right-action-link text-gray"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false"> Sort by <i
+											class="fa fa-caret-down" aria-hidden="true"></i>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a class="dropdown-item" href="#"><i
+												class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a> <a
+												class="dropdown-item" href="#"><i
+												class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a> <a
+												class="dropdown-item" href="#"><i
+												class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+										</div>
+									</div>
 									<h5><strong>ㅤ내가 찜한 영화 </strong></h5>
 									<p>${u_id }님이 찜한 영화 목록이 표시됩니다</p>
 								</div>
 							</div>
 							<div class="col-xl-3 col-sm-6 mb-3">
-								<div class="category-item mt-0 mb-0">
-									<a href="#"><img class="img-fluid"
-										src="resources/img/v1.png" alt=""></a>
-									<div class="video-card-body">
-										<div class="video-title">
-		                                    <h6><a href="#"><strong>바람난 파이터</strong></h6></a>
-											
-										</div>
-										<!-- 영화 제목 -->                                 
+								<c:forEach var="recommend" items="${favList}">
+		                           <div class="item">
+		                              <div class="category-item">
+		                                 <!-- 게시물 고유 주소 -->
+		                                 	<a href="/dong/movieDetail?m_number=${recommend.m_number}">
+		                                 <!-- 영화 이미지 -->
+		                                    <img class="img-fluid" src="resources/img/images/${recommend.m_name}.jpg" alt="">
+		                                 <!-- 영화 제목 -->                                 
+		                                    <strong><h6>${recommend.m_name}</h6></strong>
 		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
+		                                    <p><strong>주연:</strong>${recommend.m_actor}</p>
 		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
-		                                    
-		                                    
-										<!-- 따로 데이터 추가해야할때  <div class="video-view">
-											1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11
-											Months ago
-										</div> -->
-									</div>
-								</div>
+		                                    <p><strong>감독:</strong>${recommend.m_director}</p>
+		                                 <!-- 더미 -->
+		                                 </a>
+		                              </div>
+		                           </div>
+                       </c:forEach>
 							</div>
 								
 						
@@ -119,9 +131,29 @@
 	</a>
 
 	<!-- Logout Modal-->
-      <%@include file="include/logoutModal.jsp" %>
-      <!-- JavaScript -->
-      <%@include file="include/js.jsp" %>
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-dialog-centered"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%@include file="include/js.jsp"%>
 </body>
 
 </html>

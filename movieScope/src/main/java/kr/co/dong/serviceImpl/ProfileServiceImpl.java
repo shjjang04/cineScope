@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 
 import kr.co.dong.DAO.ArticleDAO;
 import kr.co.dong.DAO.BoardDAO;
-import kr.co.dong.DAO.UserDAO;
+import kr.co.dong.DAO.SignupDAO;
 import kr.co.dong.DAO.UserfavoriteDAO;
 import kr.co.dong.DTO.BoardDTO;
-import kr.co.dong.DTO.UserDTO;
+import kr.co.dong.DTO.SignupDTO;
 import kr.co.dong.DTO.UserfavoriteDTO;
 import kr.co.dong.service.ProfileService;
 
 @Service
 public class ProfileServiceImpl implements ProfileService{
 	@Autowired
-	UserDAO userdao;
+	SignupDAO dao;
 	@Autowired
 	UserfavoriteDAO userfavdao;
 	@Autowired
@@ -26,9 +26,9 @@ public class ProfileServiceImpl implements ProfileService{
 	ArticleDAO articledao;
 
 	@Override
-	public UserDTO userDetail(int u_number) {
+	public SignupDTO userDetail(int u_number) {
 		// TODO Auto-generated method stub
-		UserDTO dto = userdao.selectOne(u_number);
+		SignupDTO dto = dao.selectOne(u_number);
 		return dto;
 	}
 

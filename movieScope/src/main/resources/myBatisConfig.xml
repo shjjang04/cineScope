@@ -11,7 +11,7 @@
 <typeAlias type="kr.co.dong.DTO.GenreDTO" alias="genreDTO"/>
 <typeAlias type="kr.co.dong.DTO.MovieDTO" alias="movieDTO"/>
 <typeAlias type="kr.co.dong.DTO.NationDTO" alias="nationDTO"/>
-<typeAlias type="kr.co.dong.DTO.UserDTO" alias="userDTO"/>
+<typeAlias type="kr.co.dong.DTO.SignupDTO" alias="SignupDTO"/>
 <typeAlias type="kr.co.dong.DTO.UserfavoriteDTO" alias="userfavoriteDTO"/>
 </typeAliases>
 </configuration>

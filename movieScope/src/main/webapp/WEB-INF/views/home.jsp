@@ -45,64 +45,68 @@
                      </div>
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
-                        
+                        <c:forEach var="recommend" items="${recommendList}">
 		                           <div class="item">
 		                              <div class="category-item">
 		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="">
+		                                 	<a href="/dong/movieDetail?m_number=${recommend.m_number}">
 		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.jpg" alt="">
+		                                    <img class="img-fluid" src="resources/img/images/${recommend.m_name}.jpg" alt="">
 		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>바람난 파이터</h6></strong>
+		                                    <strong><h6>${recommend.m_name}</h6></strong>
 		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
+		                                    <p><strong>주연:</strong>${recommend.m_actor}</p>
 		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
+		                                    <p><strong>감독:</strong>${recommend.m_director}</p>
 		                                 <!-- 더미 -->
 		                                 </a>
 		                              </div>
 		                           </div>
-                           
+                       </c:forEach>
 		                           
                        </div>
                     </div>       
                </div>
               </div>
             <hr> 
+                     <c:if test="${fav ne null}">
+                     <c:if test="${user ne null}">
             	<div class="row">
                      <div class="col-md-12">
                         <div class="main-title">
                            
                              <!--  영화 정보 입력 하는 곳 -->  <!--  영화 정보 입력 하는 곳 -->
-                           
+                             
                            <h5><strong>ㅤ오늘의 추천 영화</strong></h5>
                         </div>
                      </div>
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
-                        
-                           		<div class="item">
+                        <c:forEach var="recommend" items="${recommendList2}">
+		                           <div class="item">
 		                              <div class="category-item">
 		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="">
+		                                 	<a href="/dong/movieDetail?m_number=${recommend.m_number}">
 		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.jpg" alt="">
+		                                    <img class="img-fluid" src="resources/img/images/${recommend.m_name}.jpg" alt="">
 		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>바람난 파이터</h6></strong>
+		                                    <strong><h6>${recommend.m_name}</h6></strong>
 		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
+		                                    <p><strong>주연:</strong>${recommend.m_actor}</p>
 		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
+		                                    <p><strong>감독:</strong>${recommend.m_director}</p>
 		                                 <!-- 더미 -->
 		                                 </a>
 		                              </div>
 		                           </div>
-                           
-	                           
+                       </c:forEach>
                        </div>
-                    </div>       
+                    </div>  
                </div>
                <hr>
+               </c>
+                    </c:if>
+                    </c:if>     
                <div class="row">
                      <div class="col-md-12">
                         <div class="main-title">
@@ -114,24 +118,24 @@
                      </div>
                      <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
-                        
+                        <c:forEach var="recommend" items="${randomList}">
 		                           <div class="item">
 		                              <div class="category-item">
 		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="">
+		                                 	<a href="/dong/movieDetail?m_number=${recommend.m_number}">
 		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/s1.jpg" alt="">
+		                                    <img class="img-fluid" src="resources/img/images/${recommend.m_name}.jpg" alt="">
 		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>바람난 파이터</h6></strong>
+		                                    <strong><h6>${recommend.m_name}</h6></strong>
 		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
+		                                    <p><strong>주연:</strong>${recommend.m_actor}</p>
 		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
+		                                    <p><strong>감독:</strong>${recommend.m_director}</p>
 		                                 <!-- 더미 -->
 		                                 </a>
 		                              </div>
 		                           </div>
-                           
+                       </c:forEach>
 		                           
                        </div>
                     </div>       

@@ -29,8 +29,8 @@
 						<textarea class="form-control" name="b_context" rows="3">${board.b_context}</textarea>
 					</div>
 					<!-- <a href='board__Modify?b_number=${board.b_number},b_title=${board.b_title},b_context=${board.b_context}'>수정</a>  -->
-					<button type="submit" class="btn"><a href='board__Modify?b_number=${board.b_number},b_title=${board.b_title},b_context=${board.b_context}'>수정</a></button>
-					<button type="submit" class="btn"><a href='board__remove?b_number=${board.b_number}'>제거</a></button>
+					<button type="submit" class="btn btn-primary">수정완료</button>
+					<a href='board__remove?b_number=${board.b_number}'>제거</a>
 				</form>                           
 
                        </div>

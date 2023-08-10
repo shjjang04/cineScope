@@ -39,7 +39,7 @@
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item"><a class="nav-link" href="profile">내가 찜한 영화
 								</a></li>
-								<li class="nav-item active"><a class="nav-link" href="#">내 영화 평점
+								<li class="nav-item active"><a class="nav-link" href="#">내 게시글
 								<span class="sr-only">(current)</span></a>
 								</li>
 							</ul>
@@ -61,8 +61,8 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="main-title">
-					<h5><strong>ㅤ내 영화 평점</strong></h5>
-					<p>${u_id }님이 작성한 영화 평점들을 확인해보세요</p>
+					<h5><strong>ㅤ내 게시글</strong></h5>
+					<p>${u_id }님이 작성한 글들을 확인해보세요</p>
 					
 				</div>
 					<!-- 게시판모형 -->
@@ -124,10 +124,30 @@
 		class="fas fa-angle-up"></i>
 	</a>
 
-	 <!-- Logout Modal-->
-      <%@include file="include/logoutModal.jsp" %>
-      <!-- JavaScript -->
-      <%@include file="include/js.jsp" %>
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-dialog-centered"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%@include file="include/js.jsp"%>
 </body>
 
 </html>

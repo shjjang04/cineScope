@@ -5,10 +5,10 @@
 <head>
 <%@include file="include/head.jsp" %>
 
-<title>영화조회 </title>
+<title> </title>
 
 </head>
-   <%@include file="include/nav.jsp"%>
+   <%@include file="include/top.jsp"%>
       <div id="wrapper">
          <!-- Sidebar -->
          <%@include file="include/sidebar.jsp" %>
@@ -16,7 +16,6 @@
            <body id="page-top">
       <div id="wrapper">
          <div id="content-wrapper">
-            <!-- /.container-fluid -->
             <div class="container-fluid upload-details">
                <div class="row">
                   <div class="col-lg-12">
@@ -65,10 +64,13 @@
                   </div>
                </form>
             </div>
+            <!-- /.container-fluid -->
+            <!-- Sticky Footer -->
          </div>
          <!-- /.content-wrapper -->
      
       <!-- Bootstrap core JavaScript-->
       <%@include file="include/js.jsp" %>
    </body>
+            <%@include file="include/footer.jsp" %>
 </html>

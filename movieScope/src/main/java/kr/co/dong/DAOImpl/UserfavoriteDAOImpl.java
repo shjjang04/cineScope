@@ -1,6 +1,7 @@
 package kr.co.dong.DAOImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,31 +19,37 @@ public class UserfavoriteDAOImpl implements UserfavoriteDAO{
 	@Override
 	public List<UserfavoriteDTO> favCheck(int u_number) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace + ".favCheck", u_number);
+		return sqlSession.selectList(namespace + ".userfavorite_check", u_number);
 	}
 
 	@Override
 	public void favAdd(UserfavoriteDTO dto) {
 		// TODO Auto-generated method stub
-		sqlSession.insert(namespace + ".favAdd", dto);
+		sqlSession.insert(namespace + ".userfavorite_add", dto);
 	}
 
 	@Override
 	public void favDelete(int uf_number) {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace + ".favDelete", uf_number); 
+		sqlSession.delete(namespace + ".userfavorite_delete", uf_number); 
 		
 	}
 
 	@Override
 	public int favLikeMovie(int FK_u_number) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".find", FK_u_number);
+		return sqlSession.selectOne(namespace + ".userfavorite_find", FK_u_number);
 	}
 
 	@Override
 	public List<UserfavoriteDTO> favList() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(namespace + ".userfavoriteList");
+	}
+
+	@Override
+	public int favCheck(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".userfavorite_movieCheck", map);
 	}
 }
