@@ -37,10 +37,10 @@
 						
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav mr-auto">
-								<li class="nav-item active"><a class="nav-link" href="#">내가 찜한 영화
-										<span class="sr-only">(current)</span>
+								<li class="nav-item"><a class="nav-link" href="profile">내가 찜한 영화
 								</a></li>
-								<li class="nav-item"><a class="nav-link" href="profile_board">내 영화 평점 </a>
+								<li class="nav-item active"><a class="nav-link" href="#">내 영화 평점
+								<span class="sr-only">(current)</span></a>
 								</li>
 							</ul>
 							
@@ -61,33 +61,39 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="main-title">
-									<h5><strong>ㅤ내가 찜한 영화 </strong></h5>
-									<p>${u_id }님이 찜한 영화 목록이 표시됩니다</p>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6 mb-3">
-								<div class="category-item mt-0 mb-0">
-									<a href="#"><img class="img-fluid"
-										src="resources/img/v1.png" alt=""></a>
-									<div class="video-card-body">
-										<div class="video-title">
-		                                    <h6><a href="#"><strong>바람난 파이터</strong></h6></a>
-											
-										</div>
-										<!-- 영화 제목 -->                                 
-		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>양조간장,쯔란위</p>
-		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>오우얌</p>
-		                                    
-		                                    
-										<!-- 따로 데이터 추가해야할때  <div class="video-view">
-											1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11
-											Months ago
-										</div> -->
-									</div>
-								</div>
-							</div>
+					<h5><strong>ㅤ내 영화 평점</strong></h5>
+					<p>${u_id }님이 작성한 영화 평점들을 확인해보세요</p>
+					
+				</div>
+					<!-- 게시판모형 -->
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">번호</th>
+								<th scope="col">영화</th>
+								<th scope="col">제목</th>
+								<th scope="col">작성일</th>
+								<th scope="col">조회수</th>
+							</tr>
+							<c:forEach var="board" items="${boardListAll }">
+								<tr>
+									<td>${board.b_number }</td>
+									<td>${movie.m_name }</td>
+									<td><a
+										href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
+									<td>${board.b_date }</td>
+									<td>${board.b_cnt }</td>
+								</tr>
+							</c:forEach>
+					</table>
+					<button>
+						<a href="boardWrite?&user=${user}">글작성</a>
+					</button>
+
+
+				</div>
+			</div>
+		</div>
 								
 						
 						
@@ -118,7 +124,7 @@
 		class="fas fa-angle-up"></i>
 	</a>
 
-	<!-- Logout Modal-->
+	 <!-- Logout Modal-->
       <%@include file="include/logoutModal.jsp" %>
       <!-- JavaScript -->
       <%@include file="include/js.jsp" %>

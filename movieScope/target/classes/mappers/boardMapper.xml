@@ -33,6 +33,6 @@
 	</select>
 
 	<select id="checkALL" resultType="boardDTO">
-		select * from board where
+		select * from board where FK_u_number = #{FK_u_number}
 	</select>
 </mapper>

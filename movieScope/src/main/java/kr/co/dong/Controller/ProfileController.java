@@ -27,14 +27,23 @@ public class ProfileController {
 
 	@GetMapping("profile")
 	public ModelAndView profile(HttpSession session) {
-		logger.info("프로파일 페이지로 이동");
+		logger.info("프로필 페이지로 이동");
 		ModelAndView mav = new ModelAndView();
 		int num = Integer.parseInt(String.valueOf(session.getAttribute("user")));
 		mav.addObject("u_id", profileService.userDetail(num).getU_id());
 		mav.setViewName("profile");
 		return mav;
 	}
-	@GetMapping("profile/board")
+	@GetMapping("profile_board")
+	public ModelAndView profile_board(HttpSession session) {
+		logger.info("프로필 페이지로 이동");
+		ModelAndView mav = new ModelAndView();
+		int num = Integer.parseInt(String.valueOf(session.getAttribute("user")));
+		mav.addObject("u_id", profileService.userDetail(num).getU_id());
+		mav.setViewName("profile_board");
+		return mav;
+	}
+	@GetMapping("profile/board1")
 	public ModelAndView profileBoard(int FK_u_number) {
 		logger.info("보드에서 내가 작성한 글 불러오기");
 		ModelAndView mav = new ModelAndView();
