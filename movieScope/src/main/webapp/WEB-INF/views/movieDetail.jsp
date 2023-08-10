@@ -5,8 +5,11 @@
    
 <head>
     <%@include file="include/head.jsp"%>
+    
    </head>
    <body id="page-top">
+ 
+   
       <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
          &nbsp;&nbsp; 
          <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
@@ -170,6 +173,26 @@
                            <div class="single-video-title box mb-3">
                               <h2><a href="#">${movie[0]}</a></h2>
                               <p class="mb-0"><i class="fas fa-eye"></i> ${movie[6]}</p>
+                              
+                              <button class="btn btn-success border-none" id="fav" type="button"><i class="fas fa-bell"></i></button>
+                           <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                           <script>
+                               var fav =  document.getElementById("fav");
+                               fav.onclick = function() {
+                            	   if(fav.classList.contains("btn-success")){
+									fav.classList.add("btn-danger");
+									fav.classList.remove("btn-success");
+                            		location.href="movieDetail/add?FK_m_number=${m_number}"
+                            	   }else{
+                            		fav.classList.add("btn-success");
+                            		fav.classList.remove("btn-danger");
+                            	   }
+                            	   
+								};
+
+								
+								
+                              </script>
                            </div>
                            <div class="single-video-info-content box mb-3">
                         	  <h6>국가 :</h6>

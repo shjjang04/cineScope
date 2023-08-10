@@ -1,6 +1,7 @@
 package kr.co.dong.DAOImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,11 @@ public class UserfavoriteDAOImpl implements UserfavoriteDAO{
 	public List<UserfavoriteDTO> favList() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(namespace + ".userfavoriteList");
+	}
+
+	@Override
+	public int favCheck(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".userfavorite_movieCheck", map);
 	}
 }

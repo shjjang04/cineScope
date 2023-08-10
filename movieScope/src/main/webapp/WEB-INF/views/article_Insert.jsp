@@ -22,14 +22,14 @@
             <!-- 여기서 부터 작성 --> 
             <%
 				int b_number = Integer.parseInt(request.getParameter("b_number"));
-				int user = Integer.parseInt(request.getParameter("user"));
+				int user2 = Integer.parseInt(request.getParameter("user"));
 				String a_context = request.getParameter("a_context");
 			%>
 			
 			<form action="article_Insert" method="POST" charset="UTF-8">
 				내용: <input type="text" name="a_context"><br>
 				<input type="hidden" name="b_number" value="<%= b_number %>">
-				<input type="hidden" name="user" value="<%= user %>">
+				<input type="hidden" name="user" value="<%= user2 %>">
 				<input type="submit" value="댓글 작성">
 			</form> 
                                      

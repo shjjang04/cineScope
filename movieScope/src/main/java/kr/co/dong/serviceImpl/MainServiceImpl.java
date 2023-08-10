@@ -87,49 +87,50 @@ public class MainServiceImpl implements MainService{
 		List<String> list = new ArrayList<String>();
 		List<MovieDTO> recommendList = new ArrayList<MovieDTO>();
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		System.out.println("favCheck            "+favdao.favCheck(u_number));
-		if(favdao.favCheck(u_number) != null) {
-		for(UserfavoriteDTO fav : favdao.favCheck(u_number)) {
-			for(String genre : genredao.search(fav.getFK_m_number())){
-				list.add(genre);
+		if(favdao.favCheck(u_number).size() != 0) {
+			System.out.println("favCheck            "+favdao.favCheck(u_number));
+			if(favdao.favCheck(u_number) != null) {
+				for(UserfavoriteDTO fav : favdao.favCheck(u_number)) {
+					for(String genre : genredao.search(fav.getFK_m_number())){
+						list.add(genre);
+					}
+				}
+				for(String str : list) {
+					Integer count = map.get(str);
+					if(count == null) {
+						map.put(str, 1);
+					}else {
+						map.put(str, count++);
+					}
+				}
+				String findKey = "";
+				String genre = null;
+				for(String key : map.keySet()) {
+					// 키와 매핑된 값이랑 equals() 메서드에 전달된 값이랑 일치하면 반복문을 종료합니다.
+					if(map.get(key).equals(Collections.max(map.values()))) { // 키가 null이면 NullPointerException 예외 발생
+						findKey = key;
+						genre = findKey;
+						break;
+					}
+				}
+				int[] arr = new int[2];
+				Map<Integer, Integer> compare = new HashMap<Integer,Integer>();
+				List<Integer> attendance = new ArrayList<Integer>();
+				for(int movie : genredao.searchMovie(genre)) {
+					if(moviedao.detail(movie).getM_attendance() != null && !(moviedao.detail(movie).getM_attendance().equals("null")) ) {
+						attendance.add(split(moviedao.detail(movie).getM_attendance()));
+						arr[0] = split(moviedao.detail(movie).getM_attendance());
+						compare.put(movie, arr[0]);
+					}
+				}
+				List<Map.Entry<Integer, Integer>> entryList = new ArrayList<Map.Entry<Integer,Integer>>(compare.entrySet());
+				entryList.sort(Map.Entry.comparingByValue());
+				System.out.println("entry             " + entryList);
+				for(int i = (entryList.size() - 1); i >= (entryList.size() - 10) ; i--) {
+					recommendList.add(moviedao.detail(entryList.get(i).getKey()));
+				}
+				return recommendList;
 			}
-		}
-		for(String str : list) {
-			Integer count = map.get(str);
-			if(count == null) {
-				map.put(str, 1);
-			}else {
-				map.put(str, count++);
-			}
-		}
-	String findKey = "";
-	String genre = null;
-	  for(String key : map.keySet()) {
-		    // 키와 매핑된 값이랑 equals() 메서드에 전달된 값이랑 일치하면 반복문을 종료합니다.
-		    if(map.get(key).equals(Collections.max(map.values()))) { // 키가 null이면 NullPointerException 예외 발생
-		      findKey = key;
-		      genre = findKey;
-		      break;
-		    }
-		  }
-	  int[] arr = new int[2];
-		Map<Integer, Integer> compare = new HashMap<Integer,Integer>();
-		List<Integer> attendance = new ArrayList<Integer>();
-		for(int movie : genredao.searchMovie(genre)) {
-			if(moviedao.detail(movie).getM_attendance() != null && !(moviedao.detail(movie).getM_attendance().equals("null")) ) {
-				attendance.add(split(moviedao.detail(movie).getM_attendance()));
-				arr[0] = split(moviedao.detail(movie).getM_attendance());
-				compare.put(movie, arr[0]);
-			}
-		}
-		List<Map.Entry<Integer, Integer>> entryList = new ArrayList<Map.Entry<Integer,Integer>>(compare.entrySet());
-		entryList.sort(Map.Entry.comparingByValue());
-		
-		System.out.println(entryList);
-		for(int i = (entryList.size() - 1); i >= (entryList.size() - 10) ; i--) {
-				recommendList.add(moviedao.detail(entryList.get(i).getKey()));
-		}
-		return recommendList;
 		}
 		return null;
 	}

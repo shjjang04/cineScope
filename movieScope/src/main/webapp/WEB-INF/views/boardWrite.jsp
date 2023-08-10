@@ -21,14 +21,14 @@
             <div class="container-fluid pb-0">
             <!-- 여기서 부터 작성 -->                        
             <%
-				int user = Integer.parseInt(request.getParameter("user"));
+				int user2 = Integer.parseInt(request.getParameter("user"));
 			%>   
 			<form action="boardWrite" method="post">
 				<input type="hidden" name="FK_u_number" value="${user}"> <!-- 현재 로그인한 사용자의 u_number 값을 hidden 필드로 추가 -->
 				b_title: <input type="text" name="b_title"> <br>
 				b_context: <input type="text" name="b_context"> <br>
 				b_date(2021-01-01): <input type="date" name="b_date"> <br> 
-				<input type="hidden" name="user" value="<%= user %>">
+				<input type="hidden" name="user" value="<%= user2 %>">
 				<input type="submit" value="글작성">
 			</form>
 			         

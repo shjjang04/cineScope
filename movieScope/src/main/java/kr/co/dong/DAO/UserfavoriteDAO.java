@@ -1,6 +1,7 @@
 package kr.co.dong.DAO;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.co.dong.DTO.UserfavoriteDTO;
 public interface UserfavoriteDAO {
@@ -9,4 +10,5 @@ public interface UserfavoriteDAO {
 	   public void favDelete(int uf_number);
 	   public int favLikeMovie(int FK_u_number);
 	   public List<UserfavoriteDTO> favList();
+	   public int favCheck(Map<String, String> map);
 }

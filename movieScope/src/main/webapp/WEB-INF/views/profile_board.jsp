@@ -37,10 +37,10 @@
 						
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav mr-auto">
-								<li class="nav-item active"><a class="nav-link" href="#">내가 찜한 영화
-										<span class="sr-only">(current)</span>
+								<li class="nav-item"><a class="nav-link" href="profile">내가 찜한 영화
 								</a></li>
-								<li class="nav-item"><a class="nav-link" href="profile_board">내 게시글 </a>
+								<li class="nav-item active"><a class="nav-link" href="#">내 게시글
+								<span class="sr-only">(current)</span></a>
 								</li>
 							</ul>
 							
@@ -61,45 +61,39 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="main-title">
-									<div class="btn-group float-right right-action">
-										<a href="#" class="right-action-link text-gray"
-											data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false"> Sort by <i
-											class="fa fa-caret-down" aria-hidden="true"></i>
-										</a>
-										<div class="dropdown-menu dropdown-menu-right">
-											<a class="dropdown-item" href="#"><i
-												class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a> <a
-												class="dropdown-item" href="#"><i
-												class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a> <a
-												class="dropdown-item" href="#"><i
-												class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
-										</div>
-									</div>
-									<h5><strong>ㅤ내가 찜한 영화 </strong></h5>
-									<p>${u_id }님이 찜한 영화 목록이 표시됩니다</p>
-								</div>
-							</div>
-							<div class="col-xl-3 col-sm-6 mb-3">
-								<c:forEach var="recommend" items="${favList}">
-		                           <div class="item">
-		                              <div class="category-item">
-		                                 <!-- 게시물 고유 주소 -->
-		                                 	<a href="/dong/movieDetail?m_number=${recommend.m_number}">
-		                                 <!-- 영화 이미지 -->
-		                                    <img class="img-fluid" src="resources/img/images/${recommend.m_name}.jpg" alt="">
-		                                 <!-- 영화 제목 -->                                 
-		                                    <strong><h6>${recommend.m_name}</h6></strong>
-		                                 <!-- 주연 -->
-		                                    <p><strong>주연:</strong>${recommend.m_actor}</p>
-		                                 <!-- 감독  -->
-		                                    <p><strong>감독:</strong>${recommend.m_director}</p>
-		                                 <!-- 더미 -->
-		                                 </a>
-		                              </div>
-		                           </div>
-                       </c:forEach>
-							</div>
+					<h5><strong>ㅤ내 게시글</strong></h5>
+					<p>${u_id }님이 작성한 글들을 확인해보세요</p>
+					
+				</div>
+					<!-- 게시판모형 -->
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">번호</th>
+								<th scope="col">영화</th>
+								<th scope="col">제목</th>
+								<th scope="col">작성일</th>
+								<th scope="col">조회수</th>
+							</tr>
+							<c:forEach var="board" items="${boardListAll }">
+								<tr>
+									<td>${board.b_number }</td>
+									<td>${movie.m_name }</td>
+									<td><a
+										href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
+									<td>${board.b_date }</td>
+									<td>${board.b_cnt }</td>
+								</tr>
+							</c:forEach>
+					</table>
+					<button>
+						<a href="boardWrite?&user=${user}">글작성</a>
+					</button>
+
+
+				</div>
+			</div>
+		</div>
 								
 						
 						

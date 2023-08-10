@@ -1,9 +1,11 @@
 package kr.co.dong.serviceImpl;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,10 +65,10 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 	@Override
 	public List<String> userFav(int m_number){
 		// TODO Auto-generated method stub
-		List<Integer> userList = null;
-		List<Integer> movieList = null;
-		List<Integer> countList = null;
-		List<String> selectList = null;
+		List<Integer> userList = new ArrayList<Integer>();
+		List<Integer> movieList = new ArrayList<Integer>();
+		List<Integer> countList = new ArrayList<Integer>();
+		List<String> selectList = new ArrayList<String>();
 		List<UserfavoriteDTO> list = userfavoritedao.favList();
 		for(UserfavoriteDTO data : list) {
 			if(m_number == data.getFK_m_number()) {
@@ -89,9 +91,17 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 			countList.add(Collections.frequency(movieList, data));
 		}
 		Collections.sort(countList);
-		for(int data : set) {
-			if(Collections.frequency(movieList, data) >= countList.get(2)) {
-				selectList.add(moviedao.detail(data).getM_name());
+		if(countList.size() >= 3) {
+			for(int data : set) {
+				if(Collections.frequency(movieList, data) >= countList.get(2)) {
+					selectList.add(moviedao.detail(data).getM_name());
+				}
+			}
+		}else {
+			for(int data : set) {
+				if(Collections.frequency(movieList, data) >= countList.get(countList.size()-1)) {
+					selectList.add(moviedao.detail(data).getM_name());
+				}
 			}
 		}
 		return selectList;
@@ -115,6 +125,18 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 		}
 		
 		return merge;
+	}
+
+	@Override
+	public int favCheck(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return userfavoritedao.favCheck(map);
+	}
+
+	@Override
+	public void favAdd(UserfavoriteDTO dto) {
+		// TODO Auto-generated method stub
+		userfavoritedao.favAdd(dto);
 	}
 	
 }

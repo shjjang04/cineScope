@@ -1,9 +1,11 @@
 package kr.co.dong.Controller;
 
+import java.io.IOException;
 import java.lang.System.Logger;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,4 +61,15 @@ public class MainController {
 	public String loginForm() {
 		return "login";
 	}
+	
+	@GetMapping("logout")
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		String referer = request.getHeader("Referer");
+		System.out.println("로그아웃 진행");
+		session.setAttribute("user", null);
+		response.sendRedirect("/dong/");
+		
+	}
+	
 }
