@@ -52,24 +52,22 @@
 						</div>
 						<form action="Signup" method="post">
 							<div class="form-group">
-								<label>ID를 입력하세요</label> <input type="text" name="u_id"
-									id="u_id" class="form-control"
-									placeholder="Please enter your ID" oninput="Checkid()">
+								<label>ID를 입력하세요</label> 
+								<input type="text" name="u_id" id="u_id" class="form-control" placeholder="Please enter your ID(6~14자)" minlength="6" maxlength = "14" oninput="Checkid()">
 								<!-- id ajax 중복체크 -->
-								<span class="id_ok"> 사용가능한 아이디 입니다.</span> <span
-									class="id_already"> 사용 불가능한 아이디 입니다.</span>
+								<span class="id_ok"> 사용가능한 아이디 입니다.</span>
+								 <span class="id_already"> 사용 불가능한 아이디 입니다.</span>
 							</div>
 							<script type="text/javascript">
 								function Checkid() {
 									var id = $('#u_id').val();
 									console.log(id);
 									var paramData = {"u_id" : id};
-
 									$.ajax({
 										url : "./Checkid",
 										type : "post",
 										data : paramData,
-										dataType : 'json'
+										dataType : 'json',
 										success : function(result) {
 											if (result == 0) {// result가 0일 경우 아이디 생성 가능
 												$('.id_ok').css("display", "inline-block");
@@ -87,9 +85,9 @@
 							</script>
 							<div class="form-group">
 								<label>비밀번호를 입력하세요</label>
-								 <input type="password" name="u_pw"	id="u_pw" class="form-control" placeholder="please enter your Password" oninput = "Checkpw()">
+								 <input type="password" name="u_pw"	id="u_pw" class="form-control" placeholder="please enter your Password(6~14자)" minlength="6" maxlength = "14" oninput = "Checkpw()">
 								<label>비밀번호를 다시 입력하세요</label>
-								 <input type="password" name="pwCheck" id="pwCheck" class="form-control" placeholder="please enter your re-Password" oninput = "Checkpw()">
+								 <input type="password" name="pwCheck" id="pwCheck" class="form-control" placeholder="please enter your re-Password(6~14자)" oninput = "Checkpw()">
 								<span id = "pwConfirm"></span>
 							</div>
 							<script type="text/javascript">
@@ -100,6 +98,8 @@
 									$('#pwConfirm').text('비밀번호 일치').css('color', 'green')
 								}
 							};
+							
+							
 							</script>
 							<div class="form-group">
 								<label>주소를 입력하세요</label> <input type="text" name="u_addr"
@@ -114,18 +114,15 @@
 								<label>이메일을 입력하세요</label> <input type="email" name="u_email"
 									class="form-control" placeholder="Please enter your e-mail">
 							</div>
+						
 							<div class="form-group">
 								<label>생년 월일을 입력하세요</label> <input type="date" name="u_birthday"
-									class="form-control" placeholder="Please enter your birthday">
-							</div>
-							<div class="form-group">
-								<label>나이를 입력하세요</label> <input type="text" name="u_age"
-									class="form-control" placeholder="Please enter your age">
+									id = "birthday" class="form-control" placeholder="Please enter your birthday(ex:1991-01-01)">
+									<div class = "eheck_font" id = "birth_check"></div>
 							</div>
 							<div class="mt-4">
 								<button type="submit"
-									class="btn btn-outline-primary btn-block btn-lg">Sign
-									Up</button>
+									class="btn btn-outline-primary btn-block btn-lg">Sign Up</button>
 							</div>
 						</form>
 						<div class="text-center mt-5">

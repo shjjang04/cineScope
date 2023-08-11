@@ -22,24 +22,16 @@
                      </div>
                      <form action="register" method="post">
                         <div class="form-group">
-                           <label>id</label>
-                           <input type="text" class="form-control" name="u_id" placeholder="아이디">
-                        </div>
-                        <div class="form-group">
                            <label>Password</label>
                            <input type="password" class="form-control" name="u_pw" placeholder="비밀번호">
                         </div>
                         <div class="form-group">
                            <label>email</label>
-                           <input type="text" class="form-control" name="u_email" placeholder="이메일">
+                           <input type="e-mail" class="form-control" name="u_email" placeholder="이메일">
                         </div>
                          <div class="form-group">
                            <label>address</label>
                            <input type="text" class="form-control" name="u_addr" placeholder="주소">
-                        </div>
-                         <div class="form-group">
-                           <label>gender</label>
-                           <input type="text" class="form-control" name="u_gender" placeholder="성별">
                         </div>
                          <div class="form-group">
                            <label>birthday</label>
