@@ -41,7 +41,7 @@
 							<td>${board.b_number }</td>
 							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
 							<td>${board.b_date }</td>
-							<td>${board.FK_u_number }</td>
+							<td>${board.u_id }</td>
 							<td>${board.b_date }</td>
 							<td>${board.b_cnt }</td>
 						</tr>
