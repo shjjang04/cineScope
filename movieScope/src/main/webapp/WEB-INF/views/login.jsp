@@ -49,7 +49,7 @@
                         </div>
                      </form>
                      <div class="text-center mt-5">
-                        <p class="light-gray">아직 Cinescope 계정이 없나요? <a href="register.html">가입하기</a></p>
+                        <p class="light-gray">아직 Cinescope 계정이 없나요? <a href="Signup">가입하기</a></p>
                      </div>
                   </div>
                </div>
