@@ -30,17 +30,17 @@
         		<thead>
 				<tr>
 					<th scope="col">번호</th>
-					<th scope="col">영화</th>
 					<th scope="col">제목</th>
+					<th scope="col">내용</th>
 					<th scope="col">작성자</th>
 					<th scope="col">작성일</th>
 					<th scope="col">조회수</th>
 				</tr>
 					<c:forEach var="board" items="${boardListAll }">
 						<tr>
-							<td>${board.b_number }</td>
-							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
-							<td>${board.b_date }</td>
+							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_number}</a></td>
+							<td>${board.b_title }</td>
+							<td>${board.b_context }</td>
 							<td>${board.u_id }</td>
 							<td>${board.b_date }</td>
 							<td>${board.b_cnt }</td>

@@ -54,7 +54,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardDTO> checkAll(int uno) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList(namespace + ".checkAll", uno);
+		return sqlsession.selectList(namespace + ".checkALL", uno);
 	}
 
 	@Override
