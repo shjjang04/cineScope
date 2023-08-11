@@ -1,6 +1,8 @@
 package kr.co.dong.DAOImpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +62,23 @@ public class BoardDAOImpl implements BoardDAO {
 		// 페이징 처리
 		return sqlsession.selectList(namespace + ".getListWithPaging", cri);
 	}
+	
+	@Override
+	public List<BoardDTO> getListWithPaging(Criteria cri, int FK_u_number) {
+		// TODO Auto-generated method stub
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("pageNum", cri.getPageNum());
+		map.put("amount", cri.getAmount());
+		map.put("FK_u_number", FK_u_number);
+		return sqlsession.selectList(namespace + ".getListWithPaging2", map);
+	}
 
 	@Override
 	public int checkNum(int FK_u_number) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".board_check_num");
 	}
+
+	
 
 }

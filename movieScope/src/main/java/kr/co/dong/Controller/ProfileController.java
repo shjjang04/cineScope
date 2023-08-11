@@ -1,8 +1,10 @@
 package kr.co.dong.Controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,13 +15,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.dong.DAO.MovieDAO;
+import kr.co.dong.DAO.SignupDAO;
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
 import kr.co.dong.DTO.MovieDTO;
 import kr.co.dong.DTO.UserfavoriteDTO;
+import kr.co.dong.VO.BoardVO;
 import kr.co.dong.service.BoardService;
 import kr.co.dong.service.MovieDetailService;
 import kr.co.dong.service.ProfileService;
+import kr.co.dong.utils.Criteria;
+import kr.co.dong.utils.PageDTO;
 
 @Controller
 public class ProfileController {
@@ -32,6 +38,8 @@ public class ProfileController {
 	private MovieDetailService movieService;
 	@Autowired
 	private MovieDAO moviedao;
+	@Autowired
+	private SignupDAO signupdao;
 
 	@GetMapping("profile")
 	public ModelAndView profile(HttpSession session) {
@@ -53,11 +61,27 @@ public class ProfileController {
 		return mav;
 	}
 	@GetMapping("profile_board")
-	public ModelAndView profile_board(HttpSession session) {
+	public ModelAndView profile_board(HttpSession session, Criteria cri) throws UnsupportedEncodingException { 
 		logger.info("프로필 페이지로 이동");
+		
 		ModelAndView mav = new ModelAndView();
 		int num = Integer.parseInt(String.valueOf(session.getAttribute("user")));
 		mav.addObject("u_id", profileService.userDetail(num).getU_id());
+		logger.info("list: " + cri);
+		List<BoardDTO> boardListAll = boardService.board_listAll3(cri, num);
+		List<BoardVO> boardVo = new ArrayList<BoardVO>();
+		for(BoardDTO board : boardListAll) {
+			BoardVO tmp = new BoardVO();
+			tmp.setU_id(signupdao.selectOne(board.getFK_u_number()).getU_id());
+			tmp.setB_title(board.getB_title());
+			tmp.setB_cnt(board.getB_cnt());
+			tmp.setB_context(board.getB_context());
+			tmp.setB_number(board.getB_number());
+			tmp.setB_date(board.getB_date());
+			boardVo.add(tmp);
+		}
+		mav.addObject("boardListAll",boardVo);
+		mav.addObject("pageMaker", new PageDTO(cri, boardService.board_listAll().size()));
 		mav.setViewName("profile_board");
 		return mav;
 	}
