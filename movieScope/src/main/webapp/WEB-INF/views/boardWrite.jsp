@@ -21,14 +21,14 @@
             <div class="container-fluid pb-0">
             <!-- 여기서 부터 작성 -->                        
             <%
-				int user2 = Integer.parseInt(request.getParameter("user"));
+				int user3 = Integer.parseInt(request.getParameter("user"));
 			%>   
 			<form action="boardWrite" method="post">
 				<input type="hidden" name="FK_u_number" value="${user}"> <!-- 현재 로그인한 사용자의 u_number 값을 hidden 필드로 추가 -->
 				b_title: <input type="text" name="b_title"> <br>
 				b_context: <input type="text" name="b_context"> <br>
 				b_date(2021-01-01): <input type="date" name="b_date"> <br> 
-				<input type="hidden" name="user" value="<%= user2 %>">
+				<input type="hidden" name="user" value="<%= user3 %>">
 				<input type="submit" value="글작성">
 			</form>
 			         
@@ -51,8 +51,23 @@
       <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
       
       <!-- Logout Modal-->
-      <%@include file="include/logoutModal.jsp" %>
-      <!-- JavaScript -->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+               <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-primary" href="login.html">Logout</a>
+               </div>
+            </div>
+         </div>
+      </div>
       <%@include file="include/js.jsp" %>
    </body>
 

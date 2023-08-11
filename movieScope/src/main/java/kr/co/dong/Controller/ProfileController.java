@@ -37,10 +37,10 @@ public class ProfileController {
 	public ModelAndView profile(HttpSession session) {
 		logger.info("프로필 페이지로 이동");
 		ModelAndView mav = new ModelAndView();
-		int num = Integer.parseInt(String.valueOf(session.getAttribute("user")));
 		if(session == null || session.getAttribute("user") == null) {
 	        return new ModelAndView("redirect:/login");
 	    }
+		int num = Integer.parseInt(String.valueOf(session.getAttribute("user")));
 		mav.addObject("u_id", profileService.userDetail(num).getU_id());
 		List<UserfavoriteDTO> favList = profileService.userFav(num);
 		List<MovieDTO> list = new ArrayList<MovieDTO>();

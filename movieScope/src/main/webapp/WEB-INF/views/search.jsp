@@ -24,7 +24,6 @@
                         <p>Cinescope DB에 등록 된 영화들을 조건 검색합니다</p>
                      </div>
                   </div>
-                 
                   
                </div>
                <hr>
