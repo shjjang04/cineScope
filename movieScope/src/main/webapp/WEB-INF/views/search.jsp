@@ -13,7 +13,7 @@
          <div id="content-wrapper">
          <div class="single-channel-page" id="content-wrapper">
               <div class="single-channel-image">
-               <img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner2.jpg">
+               <img class="img-fluid" alt="검색 샘플 이미지" src="${contextPath }/resources/img/channel-banner2.jpg">
             </div>
             <div class="container-fluid upload-details">
             <!-- 여기서 부터 본문 작성 -->

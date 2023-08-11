@@ -19,23 +19,35 @@
                </div>
             </div>
             <div class="container-fluid pb-0">
-        	
+        	<div class="main-title">
+					<h5>ㅤUser rating board</h5>
+					<p>Cinescope 사용자들이 직접 작성한 영화 평점을 확인해보세요</p>
+					
+				</div>
         	<!-- 게시판모형 -->
-        	<button><a href="boardWrite?&user=${user}">글작성</a></button>
-        	<table>
+        	
+        	<table class="table table-hover">
+        		<thead>
 				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>날자</th>
+					<th scope="col">번호</th>
+					<th scope="col">영화</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성자</th>
+					<th scope="col">작성일</th>
+					<th scope="col">조회수</th>
 				</tr>
 					<c:forEach var="board" items="${boardListAll }">
 						<tr>
 							<td>${board.b_number }</td>
 							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
 							<td>${board.b_date }</td>
+							<td>${board.FK_u_number }</td>
+							<td>${board.b_date }</td>
+							<td>${board.b_cnt }</td>
 						</tr>
 					</c:forEach>
 			</table>
+			<button><a href="boardWrite?&user=${user}">글작성</a></button>
 			<script type="text/javascript">
 				$(document).ready(function(){
 											
@@ -93,24 +105,9 @@
       <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
       
       <!-- Logout Modal-->
-      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                  </button>
-               </div>
-               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-               <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
-               </div>
-            </div>
-         </div>
-      </div>
-      <%@include file="include/js.jsp" %>
+      <%@include file="include/logoutModal.jsp" %>
+	  <!-- JavaScript -->
+      <%@include file="include/js.jsp" %>   
    </body>
 
 </html>

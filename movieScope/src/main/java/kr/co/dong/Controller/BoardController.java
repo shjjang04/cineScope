@@ -135,15 +135,20 @@ public class BoardController {
 	}
 	//게시판 글 수정Post
 	@PostMapping("board_Modify")
-	public String board_Modify(int b_number) {
-		if (boardService.board_detail(b_number).getB_title() == "") {
+	public ModelAndView board_Modify(BoardDTO boardDTO) {
+		logger.info("boardDTO : " + boardDTO);
+		ModelAndView mav = new ModelAndView();
+		if (boardService.board_detail(boardDTO.getB_number()).getB_title() == "") {
 			System.out.println("제목이 입력되지 않음");
-			return "redirect:boardListAll";
+			mav.setViewName("redirect:boardListAll");
+			return mav;
 		}
 		System.out.println("게시판 글 수정중....");
-		boardService.board_update(boardService.board_detail(b_number));
+		boardService.board_update(boardDTO);
 		System.out.println("게시판 글 수정 완료");
-		return "redirect:/boardListAll";
+		mav.addObject("board", boardDTO);
+		mav.setViewName("board_Detail");
+		return mav;
 	}
 	
 	//게시판 글 삭제
