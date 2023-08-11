@@ -29,7 +29,7 @@ public class SearchServiceImpl implements SearchService{
 	
 	@Override
 	public List<Integer> searchCollectAll(MovieVO mVo) {
-		// movie 컬럼별 해당되는 값과 매치되는 것을 찾아줌
+		// movie 而щ읆蹂� �빐�떦�릺�뒗 媛믨낵 留ㅼ튂�릺�뒗 寃껋쓣 李얠븘以�
 		
 		List<Integer> list1 = movieDAO.searchAll(mVo);
 		List<Integer> list2 = ageDAO.searchMovie(mVo.getM_age());
@@ -81,19 +81,19 @@ public class SearchServiceImpl implements SearchService{
 
 	@Override
 	public List<Integer> searchAllM_age(int m_age) {
-		// movie 연령제한별 영화정보 전체 검색
+		// movie �뿰�졊�젣�븳蹂� �쁺�솕�젙蹂� �쟾泥� 寃��깋
 		return ageDAO.searchMovie(m_age);
 	}
 
 	@Override
 	public List<Integer> searchAllM_genre(String m_genre) {
-		// movie 장르별 영화정보 전체 검색
+		// movie �옣瑜대퀎 �쁺�솕�젙蹂� �쟾泥� 寃��깋
 		return genreDAO.searchMovie(m_genre);
 	}
 
 	@Override
 	public List<Integer> searchAllM_nation(String m_nation) {
-		// movie 국가별 영화정보 전체 검색
+		// movie 援�媛�蹂� �쁺�솕�젙蹂� �쟾泥� 寃��깋
 		return natinoDAO.searchMovie(m_nation);
 	}
 

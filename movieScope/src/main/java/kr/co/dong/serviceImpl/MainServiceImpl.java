@@ -106,8 +106,8 @@ public class MainServiceImpl implements MainService{
 				String findKey = "";
 				String genre = null;
 				for(String key : map.keySet()) {
-					// 키와 매핑된 값이랑 equals() 메서드에 전달된 값이랑 일치하면 반복문을 종료합니다.
-					if(map.get(key).equals(Collections.max(map.values()))) { // 키가 null이면 NullPointerException 예외 발생
+					// �궎�� 留ㅽ븨�맂 媛믪씠�옉 equals() 硫붿꽌�뱶�뿉 �쟾�떖�맂 媛믪씠�옉 �씪移섑븯硫� 諛섎났臾몄쓣 醫낅즺�빀�땲�떎.
+					if(map.get(key).equals(Collections.max(map.values()))) { // �궎媛� null�씠硫� NullPointerException �삁�쇅 諛쒖깮
 						findKey = key;
 						genre = findKey;
 						break;
