@@ -10,7 +10,5 @@
       <script src="${contextPath }/resources/vendor/owl-carousel/owl.carousel.js"></script>
 <!-- Custom scripts for all pages-->
       <script src="${contextPath }/resources/js/custom.js"></script>
-<!-- Scroll JavaScript -->
-		<script src="${contextPath }/resources/js/is.js"></script>	
 <!-- nav -->
 		<script src="${contextPath }/resources/js/nav.js"></script>	

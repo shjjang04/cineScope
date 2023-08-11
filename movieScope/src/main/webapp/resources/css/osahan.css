@@ -424,7 +424,7 @@ Version: 1.0
      padding: 0 18px;
 }
  .osahan-right-navbar .nav-link {
-     padding: 17px 13px !important;
+     padding: !important;
      position: relative;
 }
  .osahan-right-navbar {
@@ -472,6 +472,7 @@ Version: 1.0
      height: 28px;
      margin: 0 14px 0 0;
      width: 28px;
+     list-style:none;
 }
  .channel-sidebar-list li a {
      color: #fff;
@@ -1229,9 +1230,11 @@ Version: 1.0
      .sidebar .channel-sidebar-list {
          display: none;
     }
-    .sidebar .nav-item .nav-link span {
+    .
+ .nav-item .nav-link span {
          display: block;
          font-size: 0.65rem;
+         list-style:none;
     }
      .video-card-image img {
          width: 100%;
@@ -1245,7 +1248,7 @@ Version: 1.0
     }
      .osahan-right-navbar .nav-link {
          font-size: 0;
-         padding: 22px 5px !important;
+         padding: !important;
     }
      .osahan-right-navbar .nav-link .fas {
          font-size: 12px;
