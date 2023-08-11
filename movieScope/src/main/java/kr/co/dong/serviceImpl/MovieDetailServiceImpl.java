@@ -49,6 +49,7 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 		list[8] = (dto.getM_awards());
 		list[9] = merge(genredao.search(m_number));
 		list[10] = (nationdao.search(m_number));
+		try {
 		switch(agedao.search(m_number)) {
 		case 0:
 			list[11] = "전체이용가";
@@ -58,6 +59,10 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 			list[11] = "15세이용가";
 		case 18:
 			list[11] = "청소년관람불가";
+		}
+		}catch (Exception e) {
+			// TODO: handle exception
+			list[11] = "";
 		}
 		return list;
 	}

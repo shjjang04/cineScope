@@ -19,7 +19,7 @@
 	</select>
 
 	<update id="board_update">
-		update board set b_title = #{b_title}, b_context = #{b_context}
+		update board set b_title = #{b_title}, b_context = #{b_context}, b_cnt = #{b_cnt}
 		where b_number = #{b_number}
 	</update>
 
@@ -39,7 +39,14 @@
 	<select id="getListWithPaging" resultType="boardDTO">
 		<![CDATA[
 			SET @rownum:=0;
-			select * from (select @rownum:=@rownum+1 as num ,b_number, b_title, b_context, b_date, FK_u_number from board where @rownum < (#{pageNum} * #{amount}) order by b_number desc) A where num >(#{pageNum} - 1) * #{amount};
+			select * from (select @rownum:=@rownum+1 as num ,b_number, b_title, b_context, b_date, b_cnt, FK_u_number from board where @rownum < (#{pageNum} * #{amount}) order by b_number desc) A where num >(#{pageNum} - 1) * #{amount};
+		]]>
+	</select>
+	<select id="getListWithPaging2" resultType="boardDTO">
+		<![CDATA[
+			SET @rownum:=0;
+			select * from (select @rownum:=@rownum+1 as num ,b_number, b_title, b_context, b_date, FK_u_number from board where FK_u_number = #{FK_u_number} and @rownum < (#{pageNum} * #{amount}) order by b_number desc) A where num >(#{pageNum} - 1) * #{amount};
+			
 		]]>
 	</select>
 </mapper>

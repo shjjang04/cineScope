@@ -85,6 +85,7 @@ public class BoardController {
 		List<BoardDTO> boardListAll = boardService.board_listAll2(cri);
 		List<BoardVO> boardVo = new ArrayList<BoardVO>();
 		for(BoardDTO board : boardListAll) {
+			System.out.println(board.getB_cnt());
 			BoardVO tmp = new BoardVO();
 			tmp.setU_id(signupdao.selectOne(board.getFK_u_number()).getU_id());
 			tmp.setB_title(board.getB_title());
@@ -132,14 +133,12 @@ public class BoardController {
 	//게시판 글 상세조회Get
 	@GetMapping("board_Detail")
 	public void board_Detail(@RequestParam("b_number") int b_number, Model model, @RequestParam("user") int user) {
-		model.addAttribute("board", boardService.board_detail(b_number));
 		BoardDTO dto = boardService.board_detail(b_number);
-		int gett = dto.getB_cnt();
-		gett++;
-		dto.setB_cnt(gett);
+		dto.setB_cnt(dto.getB_cnt()+1);
 		boardService.board_update(dto);
 		System.out.println("받은 유저 넘버: " + user);
 		//게시판 글에 댓글 전체조회
+		model.addAttribute("board", dto);
 		model.addAttribute("article", boardService.article_listall(b_number));
 	}
 	
