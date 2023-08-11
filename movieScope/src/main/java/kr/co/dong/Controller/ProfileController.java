@@ -95,14 +95,14 @@ public class ProfileController {
 		mav.setViewName("profile");
 		return mav;
 	}
-	@GetMapping("profile/userfavdel")
-	public ModelAndView userfavdel(int uf_number,int u_number) {
-		logger.info("유저 찜 항목 삭제");
-		ModelAndView mav = new ModelAndView();
-		profileService.userFavDel(uf_number);
-		List<UserfavoriteDTO> favList = profileService.userFav(u_number);
-		mav.addObject("favList", favList);
-		mav.setViewName("profile");
-		return mav;
-	}
+//	@GetMapping("profile/userfavdel")
+//	public ModelAndView userfavdel(int uf_number,int u_number) {
+//		logger.info("유저 찜 항목 삭제");
+//		ModelAndView mav = new ModelAndView();
+//		profileService.userFavDel(uf_number);
+//		List<UserfavoriteDTO> favList = profileService.userFav(u_number);
+//		mav.addObject("favList", favList);
+//		mav.setViewName("profile");
+//		return mav;
+//	}
 }

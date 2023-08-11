@@ -8,7 +8,6 @@
 <title> </title>
 
 </head>
-   <%@include file="include/top.jsp"%>
       <div id="wrapper">
          <!-- Sidebar -->
          <%@include file="include/sidebar.jsp" %>

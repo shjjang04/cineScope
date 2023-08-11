@@ -69,7 +69,7 @@
 										url : "./Checkid",
 										type : "post",
 										data : paramData,
-										dataType : 'json'
+										dataType : 'json',
 										success : function(result) {
 											if (result == 0) {// result가 0일 경우 아이디 생성 가능
 												$('.id_ok').css("display", "inline-block");

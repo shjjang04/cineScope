@@ -11,4 +11,5 @@ public interface MovieDetailService {
 	public List<String> userFav(int m_number) throws Exception;
 	public int favCheck(Map<String, String> map);
 	public void favAdd(UserfavoriteDTO dto);
+	public void favCancel(UserfavoriteDTO dto);
 }

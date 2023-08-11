@@ -47,9 +47,9 @@ public class ProfileServiceImpl implements ProfileService{
 	}
 
 	@Override
-	public void userFavDel(int FK_u_number) {
+	public void userFavDel(UserfavoriteDTO dto) {
 		// TODO Auto-generated method stub
-		userfavdao.favDelete(FK_u_number);
+		userfavdao.favDelete(dto);
 		
 	}
 

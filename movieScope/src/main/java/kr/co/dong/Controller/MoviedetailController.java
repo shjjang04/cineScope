@@ -58,4 +58,15 @@ public class MoviedetailController {
 		return mav;
 	}
 	
+	@GetMapping("movieDetail/cancel")
+	public ModelAndView cancel(int FK_m_number, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		UserfavoriteDTO dto = new UserfavoriteDTO();
+		dto.setFK_m_number(FK_m_number);
+		dto.setFK_u_number(Integer.parseInt(String.valueOf(session.getAttribute("user"))));
+		service.favCancel(dto);
+		mav.setViewName("redirect:/movieDetail?m_nnumber=" + FK_m_number);
+		return mav;
+	}
+	
 }

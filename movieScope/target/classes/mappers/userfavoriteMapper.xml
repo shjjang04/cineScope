@@ -6,7 +6,7 @@
 		<!-- 플레이리스트/ 삭제 하기 처리를 위한 SQL -->
 		<delete id="userfavorite_delete">
 			DELETE from userfavorite
-			WHERE uf_number=#{uf_number}
+			WHERE FK_u_number=#{FK_u_number} and FK_m_number = #{FK_m_number}
 		</delete>
 		
 		<!-- 플레이리스트/영화 조회하기 -->

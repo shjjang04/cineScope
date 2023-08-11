@@ -5,10 +5,20 @@
    
 <head>
     <%@include file="include/head.jsp"%>
-    
+    <script>
+		function favCheck() {
+			var fav =  document.getElementById("fav");
+         	   if(${fav} > 0){
+					fav.classList.add("btn-danger");
+					fav.classList.remove("btn-success");
+         	   }else{
+         		fav.classList.add("btn-success");
+         		fav.classList.remove("btn-danger");
+         	   }
+		}   		
+   	</script>
    </head>
-   <body id="page-top">
- 
+   <body id="page-top" onload="favCheck();">
    
       <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
          &nbsp;&nbsp; 
@@ -173,19 +183,15 @@
                            <div class="single-video-title box mb-3">
                               <h2><a href="#">${movie[0]}</a></h2>
                               <p class="mb-0"><i class="fas fa-eye"></i> ${movie[6]}</p>
-                              
                               <button class="btn btn-success border-none" id="fav" type="button"><i class="fas fa-bell"></i></button>
                            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
                            <script>
                                var fav =  document.getElementById("fav");
                                fav.onclick = function() {
-                            	   if(fav.classList.contains("btn-success")){
-									fav.classList.add("btn-danger");
-									fav.classList.remove("btn-success");
+                            	   if(fav.classList.contain('btn-success')){
                             		location.href="movieDetail/add?FK_m_number=${m_number}"
                             	   }else{
-                            		fav.classList.add("btn-success");
-                            		fav.classList.remove("btn-danger");
+                            		location.href="movieDetail/cancel?FK_m_number=${m_number}"
                             	   }
                             	   
 								};

@@ -29,9 +29,9 @@ public class UserfavoriteDAOImpl implements UserfavoriteDAO{
 	}
 
 	@Override
-	public void favDelete(int uf_number) {
+	public void favDelete(UserfavoriteDTO dto) {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace + ".userfavorite_delete", uf_number); 
+		sqlSession.delete(namespace + ".userfavorite_delete", dto); 
 		
 	}
 

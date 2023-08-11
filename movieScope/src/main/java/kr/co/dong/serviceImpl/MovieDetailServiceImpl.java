@@ -139,4 +139,9 @@ public class MovieDetailServiceImpl implements MovieDetailService{
 		userfavoritedao.favAdd(dto);
 	}
 	
+	@Override
+	public void favCancel(UserfavoriteDTO dto) {
+		userfavoritedao.favDelete(dto);
+	}
+	
 }
