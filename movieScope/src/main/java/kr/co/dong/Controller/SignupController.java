@@ -28,7 +28,7 @@ public class SignupController {
 	}
 
 	@PostMapping("Signup")
-	public ModelAndView Signup(SignupDTO dto) {
+	public ModelAndView Signup(SignupDTO dto) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		if (service.idCheck(dto.getU_id()) == null) {
 			service.insert(dto);
@@ -54,5 +54,15 @@ public class SignupController {
 //		System.out.println("dddd : " + u_id);
 		int result = service.Checkid(u_id);
 		return result;
+	}
+	
+	@GetMapping("update")
+	public String mypage() {
+		return "update";
+	}
+	@PostMapping("update")
+	public String update(SignupDTO dto) {
+		service.update(dto);
+		return "redirect:/";
 	}
 }

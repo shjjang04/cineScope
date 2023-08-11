@@ -45,15 +45,6 @@
                            <input class="form-control border-form-control " name="u_email" placeholder="이메일" type="email">
                         </div>
                      </div>
-                     <div class="col-sm-6">
-                        <div class="form-group">
-                           <label class="control-label">gender <span class="required">*</span></label>
-                           <select  class="custom-select" name="u_gender">
-                        	   <option value="남자">남자</option>
-                               <option value="여자">여자</option>
-                           </select>
-                        </div>
-                     </div>
                   </div>
                   <div class="row">
                      <div class="col-sm-12 text-right">

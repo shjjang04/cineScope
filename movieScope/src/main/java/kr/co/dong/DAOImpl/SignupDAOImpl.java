@@ -15,46 +15,45 @@ public class SignupDAOImpl implements SignupDAO {
 	private SqlSession sqlsession;
 	private final static String namespace = "kr.co.dong.SignupMapper";
 	
+	// 로그인
 	@Override
 	public String login(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".user_login", map);
 	}
-
+	// 회원 정보 삽입(가입)
 	@Override
 	public void insert(SignupDTO ud) {
 		// TODO Auto-generated method stub
 		sqlsession.insert(namespace + ".user_signup", ud);
 	}
-
-	@Override
-	public void delete(int u_no) {
-		// TODO Auto-generated method stub
-		sqlsession.delete(namespace + ".user_delete", u_no);
-	}
-
+		// 아이디 체크
 	@Override
 	public String idCheck(String u_id) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".user_idCheck", u_id);
 	}
-
+	// ???
 	@Override
 	public SignupDTO selectOne(int sno) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".user_selectDetail", sno);
 	}
-
+	// 아이디 체크
 	@Override
 	public int Checkid(String u_id) {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(namespace + ".Checkid", u_id);
 	}
-
 	@Override
-	public void update(SignupDTO dto) {
+	public void update(SignupDTO sd) {
 		// TODO Auto-generated method stub
-		sqlsession.update(namespace + ".user_update", dto);
+		sqlsession.update(namespace + ".user_update", sd);
+	}
+	@Override
+	public int delete(int u_no) {
+		// TODO Auto-generated method stub
+		return sqlsession.delete(namespace + ".delete", u_no);
 	}
 
 }
