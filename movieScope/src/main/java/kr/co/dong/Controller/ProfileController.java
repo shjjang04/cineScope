@@ -81,7 +81,7 @@ public class ProfileController {
 			boardVo.add(tmp);
 		}
 		mav.addObject("boardListAll",boardVo);
-		mav.addObject("pageMaker", new PageDTO(cri, boardService.board_listAll().size()));
+		mav.addObject("pageMaker", new PageDTO(cri, boardService.checkAll(num).size()));
 		mav.setViewName("profile_board");
 		return mav;
 	}

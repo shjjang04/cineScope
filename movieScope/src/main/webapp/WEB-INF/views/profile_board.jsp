@@ -71,17 +71,17 @@
 					        		<thead>
 									<tr>
 										<th scope="col">번호</th>
-										<th scope="col">영화</th>
 										<th scope="col">제목</th>
+										<th scope="col">내용</th>
 										<th scope="col">작성자</th>
 										<th scope="col">작성일</th>
 										<th scope="col">조회수</th>
 									</tr>
 										<c:forEach var="board" items="${boardListAll }">
 											<tr>
-												<td>${board.b_number }</td>
-												<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title}</a></td>
-												<td>${board.b_date }</td>
+												<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_number}</a></td>
+												<td>${board.b_title }</td>
+												<td>${board.b_context }</td>
 												<td>${board.u_id }</td>
 												<td>${board.b_date }</td>
 												<td>${board.b_cnt }</td>
@@ -115,16 +115,16 @@
 								<div aria-label="Page navigation example" style="display: block; text-align: center;">
 									<ul class="pagination justify-content-center pagination-sm mb-0"">
 										<c:if test='${pageMaker.prev }'>
-											<li class="paginate_button previous page-item"><a class="page-link" href="${contextPath }/boardListAll?pageNum=${pageMaker.startPage - 1 }"> Previous </a>
+											<li class="paginate_button previous page-item"><a class="page-link" href="${contextPath }/profile_board?pageNum=${pageMaker.startPage - 1 }"> Previous </a>
 											</li>
 										</c:if>
 									
 										<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-											<li class="paginate_button page-item ${pageMaker.cri.pageNum == num ? "active":"" } "><a class="page-link" href="${contextPath }/boardListAll?pageNum=${num}&amount=${pageMaker.cri.amount }">${num }</a></li>
+											<li class="paginate_button page-item ${pageMaker.cri.pageNum == num ? "active":"" } "><a class="page-link" href="${contextPath }/profile_board?pageNum=${num}&amount=${pageMaker.cri.amount }">${num }</a></li>
 										</c:forEach>
 									
 										<c:if test="${pageMaker.next }">
-											<li class="paginate_button next page-item"><a class="page-link" href="${contextPath }/boardListAll?pageNum=${pageMaker.endPage + 1 }">Next</a></li>
+											<li class="paginate_button next page-item"><a class="page-link" href="${contextPath }/profile_board?pageNum=${pageMaker.endPage + 1 }">Next</a></li>
 										</c:if>
 									</ul>
 								</div>
