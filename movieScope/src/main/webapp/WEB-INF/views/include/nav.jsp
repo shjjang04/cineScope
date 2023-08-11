@@ -13,28 +13,17 @@
 	<!-- Navbar Search -->
 	<form
 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
-		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search for...">
-			<div class="input-group-append">
-				<button class="btn btn-light" type="button">
-					<i class="fas fa-search"></i>
-				</button>
-			</div>
-		</div>
 	</form>
 	<!-- Navbar -->
 		<!-- 로그인 버튼 -->
 	<div class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
-	    <% 
-	        String user = (String)session.getAttribute("user"); // 현재 세션의 user 값을 가져옵니다.
-	        if(user != null) { // user 값이 null 이 아닐 경우 로그아웃 버튼을 생성합니다.
-	    %>
-	        <button type="button" onclick="location.href='logout'" class="btn btn-primary border-none">Logout</button> 
-	    <% } else { // user 값이 null 인 경우 로그인 버튼을 생성합니다. %>
-	        <button type="button" onclick="location.href='login'" class="btn btn-primary border-none">Login</button>
-	    <% } %>
 	</div>
-		<li class="nav-item dropdown no-arrow osahan-right-navbar-user">
+		<% 
+	        String user = (String)session.getAttribute("user"); // 현재 세션의 user 값을 가져옵니다.
+	        if(user == null) { // user 값이 null 이 아닐 경우 로그아웃 버튼을 생성합니다.
+	    %>
+	    	<button type="button" onclick="location.href='login'" class="btn btn-danger boarder-none">login</button>
+	    <% } else { // user 값이 null 인 경우 로그인 버튼을 생성합니다. %>
 			<a class="nav-link dropdown-toggle user-dropdown-link" href="#"
 			id="userDropdown" role="button" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="false"> <img alt="Avatar"
@@ -49,10 +38,10 @@
 					class="dropdown-item" href="update"><i
 					class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
 				<div class="dropdown-divider"></div>
+			
 				<a class="dropdown-item" href="" data-toggle="modal"
 					data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i>
 					&nbsp; Logout</a>
 			</div>
-		</li>
-	</ul>
+					     <% } %>
 </nav>

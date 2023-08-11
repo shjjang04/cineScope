@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
@@ -39,8 +41,15 @@
                         <div class="main-title">
                            
                            <!--  영화 정보 입력 하는 곳 -->
-                           
-                           <h5><strong>ㅤ월에 개봉한 영화</strong></h5>
+                          <%
+                          Date date = new Date();
+                          SimpleDateFormat fomatter = new SimpleDateFormat("MM");
+                          String str = fomatter.format(date);
+                          if(str.charAt(0) == '0'){
+                        	  str = String.valueOf(str.charAt(1));
+                          }
+                          %>
+                           <h5><strong><%=str%>월에 개봉한 영화</strong></h5>
                         </div>
                      </div>
                      <div class="col-md-12">
