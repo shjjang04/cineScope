@@ -46,7 +46,7 @@
 					class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a> <a
 					class="dropdown-item" href="subscriptions"><i
 					class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a> <a
-					class="dropdown-item" href="settings"><i
+					class="dropdown-item" href="update"><i
 					class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="" data-toggle="modal"

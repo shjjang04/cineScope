@@ -33,7 +33,7 @@
 	<!-- 회원 정보 수정 -->
 	<update id="user_update">
 		update user set u_pw = #{u_pw}, u_email = #{u_email}, u_addr = #{u_addr}
-		where n_number = #{u_number}
+		where u_number = #{u_number}
 	</update>
 
 

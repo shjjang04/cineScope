@@ -2,6 +2,8 @@ package kr.co.dong.Controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,11 +59,15 @@ public class SignupController {
 	}
 	
 	@GetMapping("update")
-	public String mypage() {
+	public String mypage(HttpSession session) {
+		if(session.getAttribute("user") == null) {
+			return "redirect:/login";
+		}
 		return "update";
 	}
 	@PostMapping("update")
-	public String update(SignupDTO dto) {
+	public String update(SignupDTO dto, HttpSession session) {
+		dto.setU_number(Integer.parseInt(String.valueOf(session.getAttribute("user"))));
 		service.update(dto);
 		return "redirect:/";
 	}
