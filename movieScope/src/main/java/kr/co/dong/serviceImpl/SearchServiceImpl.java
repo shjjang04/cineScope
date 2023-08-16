@@ -43,6 +43,7 @@ public class SearchServiceImpl implements SearchService{
 			} 
 			}catch (Exception e) {
 				// TODO: handle exception
+				list100.add(data);
 			}
 			
 			if(mVo.getM_runtime() != "") {
@@ -56,6 +57,7 @@ public class SearchServiceImpl implements SearchService{
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
+				list100.add(data);
 			}
 		}
 		for(int data : list100) {

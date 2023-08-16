@@ -36,7 +36,7 @@
 					<tr>
 						<td>${board.b_number }</td>
 						<td>${board.b_cnt }</td>
-						<td>${user }</td>
+						<td>${board.u_id }</td>
 						<td>${board.b_date }</td>
 						<td>${board.b_title }</td>
 					</tr>
