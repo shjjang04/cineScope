@@ -159,10 +159,14 @@ public class SearchController {
 	
 	@GetMapping("search/age")
 	public ModelAndView age(PagingVO vo, MovieVO mVo, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage, HttpSession session, int m_age) {
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage, HttpSession session, String m_age) {
+		int age = 101;
+		if(m_age != null) {
+			age = Integer.parseInt(m_age);
+		}
 		logger.info("m_age : " + m_age);
 		ModelAndView mav = new ModelAndView();
-		List<Integer> movieList = searchService.searchAllM_age(m_age);
+		List<Integer> movieList = searchService.searchAllM_age(age);
 		List<MovieDTO> movieDtoList = new ArrayList<MovieDTO>();
 		for(int i = 0; i<movieList.size(); i++) {
 			movieDtoList.add(searchService.searchDetail(movieList.get(i)));
