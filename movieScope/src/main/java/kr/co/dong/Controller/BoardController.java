@@ -2,6 +2,7 @@ package kr.co.dong.Controller;
 
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +123,11 @@ public class BoardController {
 			System.out.println("제목이 입력되지 않음");
 			return "redirect:boardListAll";
 		}
+		LocalDateTime localDate = LocalDateTime.now(); // 현재 날짜 얻기
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // 날짜 포맷 지정
+    	String formattedDate = localDate.format(formatter); // 포맷에 따라 문자열로 변환
+    	System.out.println("Date: " + formatter);
+    	boardDTO.setB_date(formattedDate);
 		System.out.println("보드라이투");
 		System.out.println(boardDTO);
 		System.out.println(boardDTO.getB_title());
@@ -159,6 +165,11 @@ public class BoardController {
 			mav.setViewName("redirect:boardListAll");
 			return mav;
 		}
+		LocalDateTime localDate = LocalDateTime.now(); // 현재 날짜 얻기
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // 날짜 포맷 지정
+    	String formattedDate = localDate.format(formatter); // 포맷에 따라 문자열로 변환
+    	System.out.println("Date: " + formatter);
+    	boardDTO.setB_date(formattedDate);
 		System.out.println("게시판 글 수정중....");
 		boardService.board_update(boardDTO);
 		System.out.println("게시판 글 수정 완료");
@@ -197,8 +208,8 @@ public class BoardController {
 		System.out.println("user: " + user);
 		ArticleDTO dto = new ArticleDTO();
 		dto.setA_context(a_context);
-	    	LocalDate localDate = LocalDate.now(); // 현재 날짜 얻기
-	    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // 날짜 포맷 지정
+	    	LocalDateTime localDate = LocalDateTime.now(); // 현재 날짜 얻기
+	    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // 날짜 포맷 지정
 	    	String formattedDate = localDate.format(formatter); // 포맷에 따라 문자열로 변환
 	    	System.out.println("Date: " + formatter);
 	    dto.setA_date(formattedDate);
