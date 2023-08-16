@@ -16,32 +16,45 @@
 	</form>
 	<!-- Navbar -->
 		<!-- 로그인 버튼 -->
-	<div class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
-	</div>
+	<div class= "navbar-nav ml-auto ml-md-0 osahan-right-navbar">
+		
 		<% 
-	        String user = (String)session.getAttribute("user"); // 현재 세션의 user 값을 가져옵니다.
-	        if(user == null) { // user 값이 null 이 아닐 경우 로그아웃 버튼을 생성합니다.
+	        String user2 = (String)session.getAttribute("user"); // 현재 세션의 user 값을 가져옵니다.
+	        if(user2 != null) { // user 값이 null 이 아닐 경우 계정 드롭다운을 보여줍니다.
 	    %>
-	    	<button type="button" onclick="location.href='login'" class="btn btn-danger boarder-none">login</button>
-	    <% } else { // user 값이 null 인 경우 로그인 버튼을 생성합니다. %>
+	        <div class="nav-item dropdown arrow osahan-right-navbar-user">
 			<a class="nav-link dropdown-toggle user-dropdown-link" href="#"
 			id="userDropdown" role="button" data-toggle="dropdown"
-			aria-haspopup="true" aria-expanded="false"> <img alt="Avatar"
-				src="${contextPath }/resources/img/user.png"> Osahan
+			aria-haspopup="true" aria-expanded="true"> 
+			<img alt="Avatar" src="resources/img/user.png">
+				${u_id } 님 환영합니다.
 		</a>
-			<div class="dropdown-menu dropdown-menu-right"
-				aria-labelledby="userDropdown">
-				<a class="dropdown-item" href="account"><i
-					class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a> <a
-					class="dropdown-item" href="subscriptions"><i
-					class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a> <a
-					class="dropdown-item" href="update"><i
-					class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+				<a class="dropdown-item" href="profile">
+				<i class="fas fa-fw fa-user-circle"></i> &nbsp; 내가 찜한 영화</a>
+				<a class="dropdown-item" href="update">
+				<i class="fas fa-fw fa-cog"></i> &nbsp; 계정 설정</a>
 				<div class="dropdown-divider"></div>
-			
+				
 				<a class="dropdown-item" href="" data-toggle="modal"
-					data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i>
-					&nbsp; Logout</a>
+					data-target="#logoutModal">
+					<i class="fas fa-fw fa-sign-out-alt"></i>
+					&nbsp; 로그아웃</a>
 			</div>
-					     <% } %>
+		</div>
+	    <% } else { // user 값이 null 인 경우 아무것도 생성하지 않음 %>
+	        <div class="nav-item dropdown no-arrow osahan-right-navbar-user">
+	        	
+					<a class="nav-link">로그인이 필요합니다</a>			
+			</div>
+	    <% } %>
+		<% 
+	        String user = (String)session.getAttribute("user"); // 현재 세션의 user 값을 가져옵니다.
+	    %>
+	         
+	    <% if(user == null) { // user 값이 null 인 경우 로그인 버튼을 생성합니다. %>
+	        <button type="button" onclick="location.href='login'" class="btn btn-primary">로그인</button>
+	    <% } %>
+	</div>
+	
 </nav>

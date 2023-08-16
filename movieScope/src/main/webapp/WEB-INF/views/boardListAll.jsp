@@ -20,12 +20,12 @@
             </div>
             <div class="container-fluid pb-0">
         	<div class="main-title">
-					<h5>ㅤUser rating board</h5>
-					<p>Cinescope 사용자들이 직접 작성한 영화 평점을 확인해보세요</p>
+					<h5><strong>ㅤ유저 영화 게시판</strong></h5>
+					<p>Cinescope 사용자들이 직접 작성한 영화 관련 게시물을 확인해보세요</p>
 					
 				</div>
         	<!-- 게시판모형 -->
-        	
+        	<br>
         	<table class="table table-hover">
         		<thead>
 				<tr>

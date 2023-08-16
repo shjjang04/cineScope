@@ -1055,6 +1055,12 @@ pre code {
 		flex: 0 0 100%;
 		max-width: 100%
 	}
+	.col-md-13{
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%
+		
+	}
 	.order-md-first {
 		-ms-flex-order: -1;
 		order: -1
@@ -7464,6 +7470,7 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .mb-3, .my-3 {
+	
 	margin-bottom: 1rem !important
 }
 
@@ -7612,7 +7619,7 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .p-5 {
-	padding: 3rem !important
+	padding: 30px !important
 }
 
 .pt-5, .py-5 {

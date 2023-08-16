@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <ul class="sidebar navbar-nav">
-
-	<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/">
+		
+	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/">
 			<i class="fas fa-fw fa-home"></i> <span>Home</span>
 	</a></li>
 	
@@ -17,19 +17,17 @@
 	</a></li>
 	
 	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/boardListAll">
-			<i class="fas fa-fw fa-star"></i> <span>Rating board</span>
+			<i class="fas fa-fw fa-star"></i> <span>User Rating board</span>
 	</a></li>
 	
-	<li class="nav-item channel-sidebar-list">
-		<h6>My menu</h6>
 				
 	</li>
 	
 	<li class="nav-item channel-sidebar-list">
 		
 					<img alt="" src="${contextPath }/resources/img/flogo.png">
-					<strong class="text-dark">Lim Sang-hyeon / Lee Keun-seop / Yun Gap-min / Jeon Jae-hong / Noh Gyeong-wook</strong>.<p>
-					<small class="mt-0 mb-0"><a	class="text-secondary">
+					<strong class="text-light">Lim Sang-hyeon / Lee Keun-seop / Yun Gap-min / Jeon Jae-hong / Noh Gyeong-wook</strong>.<p>
+					<small class="text-light" color:"#fff";><a>
 					© 2023 Cinescope : /*Let me go home*/ group³. All rights reserved.</a> </small>
 				</p>
 			</div>

@@ -3,22 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Askbootstrap">
-      <meta name="author" content="Askbootstrap">
-      <title>로그인 - Cinescope</title>
-      <!-- Favicon Icon -->
-      <link rel="icon" type="image/png" href="resources/img/favicon.png">
-      <!-- Bootstrap core CSS-->
-      <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom fonts for this template-->
-      <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-      <!-- Custom styles for this template-->
-      <link href="resources/css/osahan.css" rel="stylesheet">
-      <!-- Owl Carousel -->
-      <link rel="stylesheet" href="resources/vendor/owl-carousel/owl.carousel.css">
-      <link rel="stylesheet" href="resources/vendor/owl-carousel/owl.theme.css">
+<%@include file="include/head.jsp" %>
+<title>로그인</title>
    </head>
    <body class="login-main-body">
       <section class="login-main-wrapper">

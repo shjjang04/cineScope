@@ -173,7 +173,7 @@
 	       			</div>
 	       			</div>
 	       			<div class="osahan-area text-center mt-3">
-                        <input type="submit" class="btn btn-outline-primary" value="검색">
+                        <input type="submit" class="btn btn-secondary border-none" value="검색">
                      </div>
                      <hr>					
 				</form>
@@ -216,7 +216,7 @@
                    </div>                  
                 </div>
                 <div class="osahan-area text-center mt-3">
-                	<input type="submit" class="btn btn-outline-primary" value="검색">
+                	<input type="submit" class="btn btn-secondary border-none" value="검색">
              	</div>
              	<hr>
            		</form>
@@ -238,7 +238,8 @@
 	<div class="row ">
                            <div class="col-lg-12">
                               <div class="main-title">
-                                 <h6>장르별 영화 목록 검색을 원하시면 한가지만 선택하세요</h6>
+                              <h6><strong>장르로 검색하기</strong></h6>
+                        <p>선택한 한 장르의 모든 영화를 검색합니다.</p>
                               </div>
                            </div>
                         </div>
@@ -348,7 +349,7 @@
                            </div>
                            </div>
                            <div class="osahan-area text-center mt-3">
-			                <input type="submit" class="btn btn-outline-primary" value="검색">
+			                <input type="submit" class="btn btn-secondary border-none" value="검색">
 			             	</div>
 			             	<hr>
                           </form>
@@ -515,7 +516,7 @@
                            </div>
                            </div>
                            <div class="osahan-area text-center mt-3">
-			                <input type="submit" class="btn btn-outline-primary" value="검색">
+			                <input type="submit" class="btn btn-secondary border-none" value="검색">
 			             	</div>
 			             	<hr>
 							</form>

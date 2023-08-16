@@ -49,7 +49,7 @@
                         	  str = String.valueOf(str.charAt(1));
                           }
                           %>
-                           <h5><strong><%=str%>월에 개봉한 영화</strong></h5>
+                           <h5><strong>ㅤ<%=str%>월에 개봉한 영화</strong></h5>
                         </div>
                      </div>
                      <div class="col-md-12">

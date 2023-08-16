@@ -4,39 +4,8 @@
 <!DOCTYPE html>
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Askbootstrap">
-<meta name="author" content="Askbootstrap">
-<title>Sign_up</title>
-<!-- Favicon Icon -->
-<link rel="icon" type="image/png" href="img/favicon.png">
-<!-- Bootstrap core CSS-->
-<link href="resources/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- Custom fonts for this template-->
-<link href="resources/vendor/fontawesome-free/css/all.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Custom styles for this template-->
-<link href="resources/css/osahan.css" rel="stylesheet">
-<!-- Owl Carousel -->
-<link rel="stylesheet"
-	href="resources/vendor/owl-carousel/owl.carousel.css">
-<link rel="stylesheet"
-	href="resources/vendor/owl-carousel/owl.theme.css">
-<style>
-.id_ok {
-	color: #008000;
-	display: none;
-}
-
-.id_already {
-	color: #6A82FB;
-	display: none;
-}
-</style>
+<%@include file="include/head.jsp"%>
+<title>회원가입</title>
 </head>
 
 <body class="login-main-body">
@@ -55,8 +24,8 @@
 								<label>ID를 입력하세요</label> 
 								<input type="text" name="u_id" id="u_id" class="form-control" placeholder="Please enter your ID(6~14자)" minlength="6" maxlength = "14" oninput="Checkid()">
 								<!-- id ajax 중복체크 -->
-								<span class="id_ok"> 사용가능한 아이디 입니다.</span>
-								 <span class="id_already"> 사용 불가능한 아이디 입니다.</span>
+								<span class="id_ok">ㅤ사용가능한 아이디 입니다.</span>
+								 <span class="id_already">ㅤ사용 불가능한 아이디 입니다.</span>
 							</div>
 							<script type="text/javascript">
 								function Checkid() {
@@ -86,6 +55,7 @@
 							<div class="form-group">
 								<label>비밀번호를 입력하세요</label>
 								 <input type="password" name="u_pw"	id="u_pw" class="form-control" placeholder="please enter your Password(6~14자)" minlength="6" maxlength = "14" oninput = "Checkpw()">
+								<br>
 								<label>비밀번호를 다시 입력하세요</label>
 								 <input type="password" name="pwCheck" id="pwCheck" class="form-control" placeholder="please enter your re-Password(6~14자)" oninput = "Checkpw()">
 								<span id = "pwConfirm"></span>
@@ -93,9 +63,9 @@
 							<script type="text/javascript">
 							function Checkpw() {
 								if($("#u_pw").val() != $("#pwCheck").val()){
-									$('#pwConfirm').text('비밀번호 불일치').css('color', 'red')
+									$('#pwConfirm').text('ㅤ비밀번호 불일치').css('color', 'red')
 								}else {
-									$('#pwConfirm').text('비밀번호 일치').css('color', 'green')
+									$('#pwConfirm').text('ㅤ비밀번호 일치').css('color', 'green')
 								}
 							};
 							

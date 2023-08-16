@@ -19,6 +19,7 @@ Version: 1.0
     -- My Account
 	-- Footer
 	-- board
+	-- Sign up
 */
 /* Body */
 
@@ -428,7 +429,7 @@ Version: 1.0
      position: relative;
 }
  .osahan-right-navbar {
-     margin: 0 7px 0 0;
+     margin: 0 15px 0 0;
 }
  .user-dropdown-link img {
      border-radius: 50px;
@@ -776,7 +777,6 @@ Version: 1.0
      box-shadow: 0 0 5px #ccc;
      border-radius: 15px;
      width: 180px;
-     height: 263px;
      margin: 1px 0 8px;
      object-fit: scale-down;
      transform: scale(1);
@@ -791,8 +791,10 @@ Version: 1.0
      margin: 6px 2px;
      padding: 24px 12px;
      text-align: center;
-     width: 100%;
-     height:100%;
+     /*width: 100%;*/
+     /*height:100%;*/
+}
+
 }
  .top-category .category-item {
      padding: 20px 11px;
@@ -811,7 +813,9 @@ Version: 1.0
 }
 /* Video Card */
 .video-block .mb-3 {
+	margin: auto;
     margin-bottom: 30px !important;
+    max-width: 335px;
 }
  .video-card-image {
      border-radius: 2px;
@@ -971,6 +975,27 @@ Version: 1.0
  .channels-card-image-btn {
      margin: 3px 0 7px;
 }
+
+
+/* Sign up */
+.id_ok {
+	color: #008000;
+	display: none;
+	margin: 3px 1px 1px 1px;
+}
+
+.id_already {
+	color: #6A82FB;
+	display: none;
+	margin: 3px 1px 1px 1px;
+}
+.pwConfirm {
+	margin: 3px 1px 1px 1px;
+}
+	
+
+
+
 /* Login Pages */
  .login-main-wrapper {
      background: #ff516b;
@@ -989,7 +1014,7 @@ Version: 1.0
      height: calc(100vh - 0rem);
 }
  .login-main-left {
-     margin: auto;
+ 	 margin: auto;
      max-width: 335px;
 }
  .login-main-right.bg-white {

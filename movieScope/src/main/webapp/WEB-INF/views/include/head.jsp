@@ -7,7 +7,7 @@
       <meta name="description" content="Askbootstrap">
       <meta name="author" content="Askbootstrap">
       
-      <title>Cinescope - 모두의 영화 취향을 조준하다!</title>
+      
       
 <!-- Favicon Icon -->
     <link rel="icon" type="resources/image/png" href="${contextPath }/resources/img/favicon.png">
