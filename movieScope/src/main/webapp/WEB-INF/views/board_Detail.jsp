@@ -16,18 +16,23 @@
 			<div class="single-channel-image">
 
 				<img class="img-fluid" alt=""
-					src="${contextPath }/resources/img/channel-banner.png">
+					src="${contextPath }/resources/img/channel-banner5.png">
 				<div class="channel-profile">
 					<img class="channel-profile-img" alt=""
 						src="${contextPath }/resources/img/s2.png">
 				</div>
 			</div>
 			<div class="container-fluid pb-0">
+			<div class="main-title">
+					<h5><strong>ㅤ유저 영화 게시판</strong></h5>
+					<p>Cinescope 사용자들이 직접 작성한 영화 관련 게시물을 확인해보세요</p>
+					
+				</div>
 				<!-- 여기서 부터 작성 -->
 				<div>
 							<div class="k2"><strong>조회수</strong> | ${board.b_cnt }</div><br>
 							<div class="k2"><strong>작성일</strong> | ${board.b_date }</div>
-							<div class="k1"><strong>No. ${board.b_number }</strong</div>
+							<div class="k1"><strong>No. ${board.b_number }</strong></div>
 							</div>
 				<table class="table table-hover">
 					<thead>
@@ -36,7 +41,7 @@
 						</tr>
 
 						<tr>
-							<td><i class="fas fa-fw fa-user"></i><strong>${user }</strong></td>
+							<td><i class="fas fa-fw fa-user"></i><strong>${board.u_id }</strong></td>
 						</tr>
 
 						<tr height="1" bgcolor="#f5f5f5">

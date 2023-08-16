@@ -15,7 +15,6 @@
 		<div id="content-wrapper">
 			<div class="single-channel-page" id="content-wrapper">
               <div class="single-channel-image">
-               <div class="category-item2 mt-0 mb-0"><h3><strong>123456</strong></h3></div>
                <img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner2.jpg">
             </div>
             <div class="container-fluid pb-0">

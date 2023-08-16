@@ -16,7 +16,7 @@
 			<div class="single-channel-page" id="content-wrapper">
 				<div class="single-channel-image">
 					<img class="img-fluid" alt=""
-						src="resources/img/channel-banner.png">
+						src="resources/img/channel-banner3.jpg">
 					<div class="channel-profile">
 						<img class="channel-profile-img" alt="" src="${contextPath }/resources/img/s2.png">
 
@@ -44,15 +44,7 @@
 								</li>
 							</ul>
 							
-							<form class="form-inline my-2 my-lg-0">
-								<input class="form-control form-control-sm mr-sm-1"
-									type="search" placeholder="Search" aria-label="Search">
-								<button class="btn btn-outline-success btn-sm my-2 my-sm-0"
-									type="submit">
-									<i class="fas fa-search"></i>
-								</button>
-								&nbsp;&nbsp;&nbsp;
-							</form>
+							
 						</div>
 					</nav>
 				</div>

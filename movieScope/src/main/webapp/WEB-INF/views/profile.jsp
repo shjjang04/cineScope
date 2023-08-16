@@ -15,7 +15,7 @@
 		<div id="content-wrapper">
 			<div class="single-channel-page" id="content-wrapper">
 				<div class="single-channel-image">
-					<img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner2.jpg">
+					<img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner3.jpg">
 					<div class="channel-profile">
 						<img class="channel-profile-img" alt="" src="resources/img/s2.png">
 

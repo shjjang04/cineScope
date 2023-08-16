@@ -13,7 +13,7 @@
 		<div class="single-channel-page" id="content-wrapper">
 			<div class="single-channel-image">
 	               
-              <img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner2.jpg">
+              <img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner5.jpg">
             <div class="container-fluid pb-0">
         	<div class="main-title">
 					<h5><strong>ㅤ유저 영화 게시판</strong></h5>

@@ -1223,9 +1223,6 @@ Version: 1.0
 /* Mobile Media */
 /* Extra small devices (portrait phones, less than 576px) */
  @media (max-width: 575.98px) {
-    .top-mobile-search {
-        display: block;
-    }
     #wrapper #content-wrapper .container-fluid {
         padding-bottom: 15px !important;
         padding-left: 108px;
@@ -1357,7 +1354,7 @@ Version: 1.0
         padding-left: 15px;
     }
     .single-channel-page {
-         padding: 0 0 0 90px !important;
+         padding: 0 0 0 255px !important;
     }
     .sidebar-toggled .single-channel-page {
         padding: 0 !important;
@@ -1383,7 +1380,6 @@ Version: 1.0
     }
     .sidebar .nav-item .nav-link span {
          display: block;
-         font-size: 0.65rem;
     }
      .video-card-image img {
          width: 100%;
@@ -1396,7 +1392,6 @@ Version: 1.0
          text-align: right !important;
     }
      .osahan-right-navbar .nav-link {
-         font-size: 0;
          padding: 22px 5px !important;
     }
      .osahan-right-navbar .nav-link .fas {
@@ -1452,20 +1447,9 @@ Version: 1.0
         padding-right: 15px !important;
         padding-top: 1rem !important;
     }
-    .sidebar .nav-item .nav-link {
-        padding: 8px 14px !important;
-    }
-    .sidebar-toggled #wrapper #content-wrapper .container-fluid {
-        padding-left: 105px;
-    }
+    
     .single-channel-page {
          padding: 0 0 0 225px !important;
-    }
-     .sidebar-toggled .sidebar .channel-sidebar-list {
-         display: none;
-    }
-    .sidebar-toggled .single-channel-page {
-        padding: 0 0 0 90px !important;
     }
     .single-channel-page .container-fluid {
         padding: 30px 15px 15px !important;
@@ -1478,13 +1462,10 @@ Version: 1.0
          padding: 22px 5px !important;
     }
      .osahan-right-navbar .nav-link .fas {
-         font-size: 12px;
     }
      #sidebarToggle {
          margin: 0 9px 0 0;
     }
-     .navbar-brand img {
-         vertical-align: top;
     }
      .owl-theme .owl-controls .owl-buttons div {
          margin: 4px !important;
@@ -1508,7 +1489,6 @@ Version: 1.0
          margin: 0;
     }
      .single-channel-nav .nav-link {
-         margin: 0;
     }
      .osahan-navbar-search .form-control {
          width: auto !important;
@@ -1531,12 +1511,7 @@ Version: 1.0
         padding-right: 15px !important;
         padding-top: 1rem !important;
     }
-    .sidebar .nav-item .nav-link {
-        padding: 8px 14px !important;
-    }
-    .sidebar-toggled #wrapper #content-wrapper .container-fluid {
-        padding-left: 105px;
-    }
+    
     .single-channel-page {
          padding: 0 0 0 225px !important;
     }
