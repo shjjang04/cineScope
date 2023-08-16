@@ -1514,6 +1514,18 @@ pre code {
 	vertical-align: top;
 	border-top: 1px solid #dee2e6
 }
+.k1 {
+	
+	max-width: 50%;
+	text-align: left;
+	float: left;
+}
+.k2 {
+	
+	max-width: 50%;
+	text-align: right;
+	float: right;
+}
 
 .table thead th {
 	vertical-align: bottom;

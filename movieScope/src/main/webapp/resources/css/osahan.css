@@ -20,6 +20,7 @@ Version: 1.0
 	-- Footer
 	-- board
 	-- Sign up
+	-- Article
 */
 /* Body */
 
@@ -794,6 +795,16 @@ Version: 1.0
      /*width: 100%;*/
      /*height:100%;*/
 }
+ .category-item2 {
+ 	 z-index: 2;
+     background: none;
+     margin: 6px 2px;
+     padding: 24px 12px;
+     text-align: center;
+     position: absolute;
+     /*width: 100%;*/
+     /*height:100%;*/
+}
 
 }
  .top-category .category-item {
@@ -1201,7 +1212,14 @@ Version: 1.0
      margin: 5px 0 0;
      object-fit: scale-down;
      padding: 3px 4px;
+}     
+/* article */
+.article {
+	bgcolor: #DBC5FF;
+	border-radius: 3px;
+	border-color: #ddd;
 }
+
 /* Mobile Media */
 /* Extra small devices (portrait phones, less than 576px) */
  @media (max-width: 575.98px) {

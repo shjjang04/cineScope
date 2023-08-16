@@ -1,89 +1,108 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <head>
-<%@include file="include/head.jsp" %>
+<%@include file="include/head.jsp"%>
 </head>
 <body id="page-top">
 
-<%@include file="include/nav.jsp"%>
-<!-- Sidebar -->
-<%@include file="include/sidebar.jsp" %>
-<div id="wrapper">
+	<%@include file="include/nav.jsp"%>
+	<!-- Sidebar -->
+	<%@include file="include/sidebar.jsp"%>
+	<div id="wrapper">
 		<div id="content-wrapper">
 			<div class="single-channel-image">
-	               
-               <img class="img-fluid" alt="" src="${contextPath }/resources/img/channel-banner.png">
-               <div class="channel-profile">
-                  <img class="channel-profile-img" alt="" src="${contextPath }/resources/img/s2.png">
-               </div>
-            </div>
-            <div class="container-fluid pb-0">
-            <!-- 여기서 부터 작성 --> 
-            
-                                      
-		    <table class="table table-hover">
-		    	<thead>
-		    	<thead>
-				<tr>
-					<th scope="col">글번호</th>
-					<th scope="col">조회수</th>
-					<th scope="col">작성자</th>
-					<th scope="col">작성일</th>
-					<th scope="col">제목</th>
-				</tr>
-					<tr>
-						<td>${board.b_number }</td>
-						<td>${board.b_cnt }</td>
-						<td>${user }</td>
-						<td>${board.b_date }</td>
-						<td>${board.b_title }</td>
-					</tr>
-			
-				<tr>
-					<td>내용</td>
-				</tr>
-				<tr height="1" bgcolor="#FAD3EB">
-					<td colspan="4" width="407">${board.b_context }</td>
-				</tr>
-			</table>
-			
-			<button><a href="board_Modify?b_number=${board.b_number}">글수정</a></button> 
-			<hr>  
-			
-		 	<a href="article_Insert?b_number=${board.b_number}&user=${user}">댓글작성</a><br>
-			<c:forEach var="article" items="${article }">
-		 		<tr>
-		 			<td>댓글작성자: ${article.FK_u_number }</td>
-		 			<td>내용: ${article.a_context }</td>
-					<a href="article_Modify?a_number=${article.a_number}&user=${user}&b_number=${board.b_number}">수정</a>
-					<a href="article_Remove?a_number=${article.a_number}&user=${user}&b_number=${board.b_number}">삭제</a><br>
-		 		</tr>
-			</c:forEach>
-			
-			       
-		                           
-		                           
-                       </div>
-                    </div>       
-               </div>
-          <!-- /.container-fluid -->
-          </div>
-          <hr> 
-         
-         <!-- /.content-wrapper -->
-     	 </div>
-      
-      <!-- /#wrapper -->
-      
-      <!-- Scroll to Top Button-->
-      <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
-      
-      <!-- Logout Modal-->
-      <%@include file="include/logoutModal.jsp" %>
-      <!-- JavaScript -->
-      <%@include file="include/js.jsp" %>
-   </body>
+
+				<img class="img-fluid" alt=""
+					src="${contextPath }/resources/img/channel-banner.png">
+				<div class="channel-profile">
+					<img class="channel-profile-img" alt=""
+						src="${contextPath }/resources/img/s2.png">
+				</div>
+			</div>
+			<div class="container-fluid pb-0">
+				<!-- 여기서 부터 작성 -->
+				<div>
+							<div class="k2"><strong>조회수</strong> | ${board.b_cnt }</div><br>
+							<div class="k2"><strong>작성일</strong> | ${board.b_date }</div>
+							<div class="k1"><strong>No. ${board.b_number }</strong</div>
+							</div>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col"><h4><strong>${board.b_title }</strong></h4></th>
+						</tr>
+
+						<tr>
+							<td><i class="fas fa-fw fa-user"></i><strong>${user }</strong></td>
+						</tr>
+
+						<tr height="1" bgcolor="#f5f5f5">
+							<td colspan="4">${board.b_context }<br>
+							<br>
+							<br>
+							<br></td>
+						</tr>
+				</table>
+
+
+
+				<button class="btn btn-outline-primary">
+					<a href="board_Modify?b_number=${board.b_number}">수정하기</a>
+				</button>
+				<button class="btn btn-outline-primary">
+					<a href="article_Insert?b_number=${board.b_number}&user=${user}">댓글작성</a>
+				</button>
+				<button type="button" class="btn btn-outline-primary"
+					onclick="history.back()">뒤로가기</button>
+				<hr>
+
+				<c:forEach var="article" items="${article }">
+					<thead>
+						<div>
+							<div class="article">
+								<i class="fas fa-fw fa-user"></i><strong>${article.FK_u_number }</strong>
+							</div>
+							<div>${article.a_context }
+								<button class="btn btn-outline btn-sm border-none">
+									<a
+										href="article_Modify?a_number=${article.a_number}&user=${user}&b_number=${board.b_number}">수정</a>
+								</button>
+								<button class="btn btn-outline btn-sm border-none">
+									<a
+										href="article_Remove?a_number=${article.a_number}&user=${user}&b_number=${board.b_number}">삭제</a>
+								</button>
+							</div>
+				</c:forEach>
+			</div>
+			<br>
+			<hr>
+
+
+
+
+		</div>
+	</div>
+	</div>
+	<!-- /.container-fluid -->
+	</div>
+
+	<!-- /.content-wrapper -->
+	</div>
+
+	<!-- /#wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<%@include file="include/logoutModal.jsp"%>
+	<!-- JavaScript -->
+	<%@include file="include/js.jsp"%>
+</body>
 
 </html>

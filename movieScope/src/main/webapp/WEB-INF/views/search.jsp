@@ -333,20 +333,6 @@
                               </div>
                            </div>
                            <!-- checkbox 6col -->
-                           <div class="col-lg-2 col-xs-6 col-4">
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="스릴러" class="custom-control-input" id="czcustomCheck5" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck5">스릴러</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="액션" class="custom-control-input" id="czcustomCheck6" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck6">액션</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" name="m_genre" value="코미디" class="custom-control-input" id="czcustomCheck7" onclick='checkOnlyOneGenre(this)'>
-                                 <label class="custom-control-label" for="czcustomCheck7">코미디</label>
-                              </div>
-                           </div>
                            </div>
                            <div class="osahan-area text-center mt-3">
 			                <input type="submit" class="btn btn-secondary border-none" value="검색">
