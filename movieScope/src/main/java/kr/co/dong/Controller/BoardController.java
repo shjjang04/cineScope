@@ -86,7 +86,6 @@ public class BoardController {
 		List<BoardDTO> boardListAll = boardService.board_listAll2(cri);
 		List<BoardVO> boardVo = new ArrayList<BoardVO>();
 		for(BoardDTO board : boardListAll) {
-			System.out.println(board.getB_cnt());
 			BoardVO tmp = new BoardVO();
 			tmp.setU_id(signupdao.selectOne(board.getFK_u_number()).getU_id());
 			tmp.setB_title(board.getB_title());
@@ -142,22 +141,43 @@ public class BoardController {
 		BoardDTO dto = boardService.board_detail(b_number);
 		dto.setB_cnt(dto.getB_cnt()+1);
 		boardService.board_update(dto);
+		BoardVO tmp = new BoardVO();
+		tmp.setU_id(signupdao.selectOne(dto.getFK_u_number()).getU_id());
+		tmp.setB_title(dto.getB_title());
+		tmp.setB_cnt(dto.getB_cnt());
+		tmp.setB_context(dto.getB_context());
+		tmp.setB_number(dto.getB_number());
+		tmp.setB_date(dto.getB_date());
+		
 		System.out.println("받은 유저 넘버: " + user);
 		//게시판 글에 댓글 전체조회
-		model.addAttribute("board", dto);
+		model.addAttribute("board", tmp);
 		model.addAttribute("article", boardService.article_listall(b_number));
 	}
 	
 	//게시판 글 수정Get
 	@GetMapping("board_Modify")
-	public String board_Modify(Model model, int b_number) {
+	public String board_Modify(Model model, int b_number, HttpSession session) {
 		System.out.println("게시판 글 수정 open");
-		model.addAttribute("board", boardService.board_detail(b_number));
+		BoardDTO dto = boardService.board_detail(b_number);
+		int user = Integer.parseInt(String.valueOf(session.getAttribute("user")));
+		if (dto.getFK_u_number() != user) {
+	        
+	        return "redirect:board_Detail?b_number=" + b_number + "&user=" + user;// redirect를 사용하여 boardListAll로 이동
+	    }
+		BoardVO tmp = new BoardVO();
+		tmp.setU_id(signupdao.selectOne(dto.getFK_u_number()).getU_id());
+		tmp.setB_title(dto.getB_title());
+		tmp.setB_cnt(dto.getB_cnt());
+		tmp.setB_context(dto.getB_context());
+		tmp.setB_number(dto.getB_number());
+		tmp.setB_date(dto.getB_date());
+		model.addAttribute("board", tmp);
 		return "board_Modify";
 	}
 	//게시판 글 수정Post
 	@PostMapping("board_Modify")
-	public ModelAndView board_Modify(BoardDTO boardDTO) {
+	public ModelAndView board_Modify(BoardDTO boardDTO, HttpSession session) {
 		logger.info("boardDTO : " + boardDTO);
 		ModelAndView mav = new ModelAndView();
 		if (boardService.board_detail(boardDTO.getB_number()).getB_title() == "") {
@@ -173,8 +193,18 @@ public class BoardController {
 		System.out.println("게시판 글 수정중....");
 		boardService.board_update(boardDTO);
 		System.out.println("게시판 글 수정 완료");
-		mav.addObject("board", boardDTO);
-		mav.setViewName("board_Detail");
+//		BoardVO tmp = new BoardVO();
+//		tmp.setU_id(signupdao.selectOne(boardDTO.getFK_u_number()).getU_id());
+//		tmp.setB_title(boardDTO.getB_title());
+//		tmp.setB_cnt(boardDTO.getB_cnt());
+//		tmp.setB_context(boardDTO.getB_context());
+//		tmp.setB_number(boardDTO.getB_number());
+//		tmp.setB_date(boardDTO.getB_date());
+//		
+//		mav.addObject("board", tmp);
+		int b_number = boardDTO.getB_number();
+		int user = Integer.parseInt(String.valueOf(session.getAttribute("user")));
+		mav.setViewName("redirect:board_Detail?b_number=" + b_number + "&user=" + user);
 		return mav;
 	}
 	
