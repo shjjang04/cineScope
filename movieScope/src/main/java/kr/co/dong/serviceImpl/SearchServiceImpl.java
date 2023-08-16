@@ -30,8 +30,37 @@ public class SearchServiceImpl implements SearchService{
 	@Override
 	public List<Integer> searchCollectAll(MovieVO mVo) {
 		// movie 컬럼별 해당되는 값과 매치되는 것을 찾아줌
-		
 		List<Integer> list1 = movieDAO.searchAll(mVo);
+		Set<Integer> list100 = new HashSet<Integer>();
+		List<Integer> list1000 = new ArrayList<Integer>();
+		for(int data : list1) {
+			try {
+				if(mVo.getM_attendance() != "") {
+					if(Integer.parseInt(mVo.getM_attendance()) < split(movieDAO.detail(data).getM_attendance())) {
+						list100.add(data);
+					}
+				
+			} 
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			if(mVo.getM_runtime() != "") {
+				if(Integer.parseInt(mVo.getM_runtime()) < runTimesplit(movieDAO.detail(data).getM_runtime())) {
+					list100.add(data);
+				}
+			}
+			try {
+				if(Float.parseFloat(mVo.getM_grade()) < Float.parseFloat(movieDAO.detail(data).getM_grade())) {
+					list100.add(data);
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		for(int data : list100) {
+			list1000.add(data);
+		}
 		List<Integer> list2 = ageDAO.searchMovie(mVo.getM_age());
 		List<Integer> list3 = new ArrayList<Integer>(); 
 		if(mVo.getM_genre().equals("모든장르")) {
@@ -56,8 +85,8 @@ public class SearchServiceImpl implements SearchService{
 		Set<Integer> set3 = new HashSet<Integer>();
 		Set<Integer> set4 = new HashSet<Integer>();
 		
-		for(int i=0 ; i<list1.size(); i++) {
-			set1.add(list1.get(i));
+		for(int i=0 ; i<list1000.size(); i++) {
+			set1.add(list1000.get(i));
 		}
 		for(int i=0 ; i<list2.size(); i++) {
 			set2.add(list2.get(i));
@@ -102,4 +131,21 @@ public class SearchServiceImpl implements SearchService{
 		// TODO Auto-generated method stub
 		return movieDAO.detail(m_number);
 	}
+	
+	public int split(String str) {
+		str=str.replace(",", "");
+		str=str.replace("명", "");
+		return Integer.parseInt(str);
+	}
+	
+	public int runTimesplit(String str) {
+		str=str.replace("분", "");
+		try {
+			return Integer.parseInt(str);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return 10000;
+		}
+	}
 }
+
