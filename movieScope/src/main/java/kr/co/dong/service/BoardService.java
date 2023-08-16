@@ -14,6 +14,7 @@ public interface BoardService {
 	public void article_delete(int a_number); //d
 	public List<BoardDTO> board_listAll(); //모두보이기
 	public List<BoardDTO> board_listAll2(Criteria cri);	// 페이징 처리
+	public List<BoardDTO> board_listAll3(Criteria cri, int FK_u_number);	// 페이징 처리, 작성 유저글만
 	public void board_insert(BoardDTO bD); //c
 	public BoardDTO board_detail(int b_number); //r
 	public void board_update(BoardDTO bD); //u

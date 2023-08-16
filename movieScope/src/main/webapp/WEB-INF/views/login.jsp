@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                            <label>Password</label>
-                           <input type="text" class="form-control" name="u_pw" placeholder="비밀번호 입력">
+                           <input type="password" class="form-control" name="u_pw" placeholder="비밀번호 입력">
                         </div>
                         <div class="mt-4">
                            <div class="row">

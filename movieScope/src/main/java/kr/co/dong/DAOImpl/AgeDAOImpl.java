@@ -26,7 +26,7 @@ public class AgeDAOImpl implements AgeDAO{
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		if(m_age == -1) {
 			map.put("bottom", -1);
-			map.put("top", 19);
+			map.put("top", 100);
 		}
 		else if(m_age == 0) {
 			map.put("bottom", -1);

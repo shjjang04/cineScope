@@ -3,6 +3,7 @@ package kr.co.dong.Controller;
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,9 +21,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.dong.DAO.SignupDAO;
 import kr.co.dong.DTO.ArticleDTO;
 import kr.co.dong.DTO.BoardDTO;
+import kr.co.dong.VO.BoardVO;
 import kr.co.dong.service.BoardService;
+import kr.co.dong.service.ProfileService;
 import kr.co.dong.utils.Criteria;
 import kr.co.dong.utils.PageDTO;
 
@@ -31,6 +35,8 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private SignupDAO signupdao;
 	
 	//더미체크
 	@GetMapping("dummy")
@@ -77,7 +83,19 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		logger.info("list: " + cri);
 		List<BoardDTO> boardListAll = boardService.board_listAll2(cri);
-		mav.addObject("boardListAll",boardListAll);
+		List<BoardVO> boardVo = new ArrayList<BoardVO>();
+		for(BoardDTO board : boardListAll) {
+			System.out.println(board.getB_cnt());
+			BoardVO tmp = new BoardVO();
+			tmp.setU_id(signupdao.selectOne(board.getFK_u_number()).getU_id());
+			tmp.setB_title(board.getB_title());
+			tmp.setB_cnt(board.getB_cnt());
+			tmp.setB_context(board.getB_context());
+			tmp.setB_number(board.getB_number());
+			tmp.setB_date(board.getB_date());
+			boardVo.add(tmp);
+		}
+		mav.addObject("boardListAll",boardVo);
 		mav.addObject("pageMaker", new PageDTO(cri, boardService.board_listAll().size()));
 		mav.addObject("user",user);
 		mav.setViewName("boardListAll");
@@ -115,14 +133,12 @@ public class BoardController {
 	//게시판 글 상세조회Get
 	@GetMapping("board_Detail")
 	public void board_Detail(@RequestParam("b_number") int b_number, Model model, @RequestParam("user") int user) {
-		model.addAttribute("board", boardService.board_detail(b_number));
 		BoardDTO dto = boardService.board_detail(b_number);
-		int gett = dto.getB_cnt();
-		gett++;
-		dto.setB_cnt(gett);
+		dto.setB_cnt(dto.getB_cnt()+1);
 		boardService.board_update(dto);
 		System.out.println("받은 유저 넘버: " + user);
 		//게시판 글에 댓글 전체조회
+		model.addAttribute("board", dto);
 		model.addAttribute("article", boardService.article_listall(b_number));
 	}
 	

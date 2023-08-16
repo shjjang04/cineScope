@@ -44,7 +44,7 @@
 				<tr>
 					<td>내용</td>
 				</tr>
-				<tr height="1" bgcolor="#82B5DF">
+				<tr height="1" bgcolor="#FAD3EB">
 					<td colspan="4" width="407">${board.b_context }</td>
 				</tr>
 			</table>

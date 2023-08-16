@@ -12,5 +12,6 @@ public interface BoardDAO {
 	public void insert(BoardDTO bD);
 	public List<BoardDTO> checkAll(int uno);
 	public List<BoardDTO> getListWithPaging(Criteria cri);
+	public List<BoardDTO> getListWithPaging(Criteria cri, int FK_u_number);
 	public int checkNum(int FK_u_number);
 }

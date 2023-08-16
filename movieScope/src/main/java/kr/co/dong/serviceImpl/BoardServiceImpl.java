@@ -65,6 +65,13 @@ public class BoardServiceImpl implements BoardService{
 		logger.info("get List with criteria: " + cri);
 		return boardDAO.getListWithPaging(cri);
 	}
+	@Override
+	public List<BoardDTO> board_listAll3(Criteria cri, int FK_u_number) {
+		// TODO Auto-generated method stub
+		logger.info("get List with criteria: " + cri);
+		logger.info("user: " + FK_u_number);
+		return boardDAO.getListWithPaging(cri, FK_u_number);
+	}
 	
 	@Override //c
 	public void board_insert(BoardDTO bD) {
@@ -104,5 +111,7 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println(b_number);
 		articleDAO.board_article_delete(b_number);
 	}
+
+	
 
 }
