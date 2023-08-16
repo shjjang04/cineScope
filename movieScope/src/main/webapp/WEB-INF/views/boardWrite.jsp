@@ -33,7 +33,9 @@
 						<textarea class="form-control" name="b_context" rows="3"></textarea>
 					</div>
 				<input type="hidden" name="user" value="<%= user3 %>">
-				<input type="submit" value="글작성">
+				<div>
+				<input class="btn btn-outline-primary" type="submit" value="쓰기">
+				</div>
 			</form>
 			         
 

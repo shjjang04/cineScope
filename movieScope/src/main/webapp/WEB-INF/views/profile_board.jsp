@@ -79,8 +79,8 @@
 									</tr>
 										<c:forEach var="board" items="${boardListAll }">
 											<tr>
-												<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_number}</a></td>
-												<td>${board.b_title }</td>
+												<td>${board.b_number}</td>
+												<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title }</td>
 												<td>${board.b_context }</td>
 												<td>${board.u_id }</td>
 												<td>${board.b_date }</td>
@@ -88,7 +88,7 @@
 											</tr>
 										</c:forEach>
 								</table>
-								<button><a href="boardWrite?&user=${user}">글작성</a></button>
+								<button class="btn btn-outline-primary"><a href="boardWrite?&user=${user}"><i class="fas fa-fw fa-pen"></i> 쓰기</a></button>
 								<script type="text/javascript">
 									$(document).ready(function(){
 																

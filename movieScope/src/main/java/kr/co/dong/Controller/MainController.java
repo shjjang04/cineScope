@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.dong.service.MainService;
+import kr.co.dong.service.ProfileService;
 import kr.co.dong.serviceImpl.MainServiceImpl;
 
 /**
@@ -26,6 +27,8 @@ public class MainController {
 	
 	@Autowired
 	private MainService service;
+	@Autowired
+	private ProfileService profileService;
 	
 	@GetMapping("/")
 	public ModelAndView main(HttpServletRequest request, HttpSession session) throws Exception {
@@ -47,13 +50,15 @@ public class MainController {
 	    ModelAndView mav = new ModelAndView();
 	    String user = service.login(map);
 	    System.out.println("user: " + user);
-	    if (user == null) { // 로그인 실패
+	    if (user == null) { // 濡쒓렇�씤 �떎�뙣
 	        mav.setViewName("redirect:login");
-	    } else { // 로그인 성공 -> 세션 부여
+	    } else { // 濡쒓렇�씤 �꽦怨� -> �꽭�뀡 遺��뿬
 	        session.setAttribute("user", user);
-	        mav.addObject("user", user); // ModelAndView 객체에 user 값 추가
+	        mav.addObject("user", user); // ModelAndView 媛앹껜�뿉 user 媛� 異붽�
 	        mav.setViewName("redirect:/");
 	    }
+	    session.setAttribute("u_idd", profileService.userDetail(Integer.parseInt(user)).getU_id());
+	    
 	    return mav;
 	}
 	
@@ -66,7 +71,7 @@ public class MainController {
 	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		String referer = request.getHeader("Referer");
-		System.out.println("로그아웃 진행");
+		System.out.println("濡쒓렇�븘�썐 吏꾪뻾");
 		session.setAttribute("user", null);
 		response.sendRedirect("/dong/");
 		

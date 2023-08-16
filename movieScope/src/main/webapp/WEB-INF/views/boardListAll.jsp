@@ -10,14 +10,10 @@
 <!-- Sidebar -->
 <%@include file="include/sidebar.jsp" %>
 <div id="wrapper">
-		<div id="content-wrapper">
+		<div class="single-channel-page" id="content-wrapper">
 			<div class="single-channel-image">
 	               
               <img class="img-fluid" alt="검색 샘플 이미지" src="resources/img/channel-banner2.jpg">
-               <div class="channel-profile">
-                  <img class="channel-profile-img" alt="" src="resources/img/s2.png">
-               </div>
-            </div>
             <div class="container-fluid pb-0">
         	<div class="main-title">
 					<h5><strong>ㅤ유저 영화 게시판</strong></h5>
@@ -38,8 +34,8 @@
 				</tr>
 					<c:forEach var="board" items="${boardListAll }">
 						<tr>
-							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_number}</a></td>
-							<td>${board.b_title }</td>
+							<td>${board.b_number}</a></td>
+							<td><a href="board_Detail?b_number=${board.b_number}&user=${user}">${board.b_title }</td>
 							<td>${board.b_context }</td>
 							<td>${board.u_id }</td>
 							<td>${board.b_date }</td>
@@ -47,7 +43,7 @@
 						</tr>
 					</c:forEach>
 			</table>
-			<button><a href="boardWrite?&user=${user}">글작성</a></button>
+			<button class="btn btn-outline-primary"><a href="boardWrite?&user=${user}"><i class="fas fa-fw fa-pen"></i> 쓰기</a></button>
 			<script type="text/javascript">
 				$(document).ready(function(){
 											

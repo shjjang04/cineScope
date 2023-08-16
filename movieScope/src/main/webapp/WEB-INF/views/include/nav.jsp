@@ -20,14 +20,15 @@
 		
 		<% 
 	        String user2 = (String)session.getAttribute("user"); // 현재 세션의 user 값을 가져옵니다.
+	        String u_idd = (String)session.getAttribute("u_idd"); 
 	        if(user2 != null) { // user 값이 null 이 아닐 경우 계정 드롭다운을 보여줍니다.
 	    %>
 	        <div class="nav-item dropdown arrow osahan-right-navbar-user">
 			<a class="nav-link dropdown-toggle user-dropdown-link" href="#"
 			id="userDropdown" role="button" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="true"> 
-			<img alt="Avatar" src="resources/img/user.png">
-				${u_id } 님 환영합니다.
+			<img alt="Avatar" src="${contextPath }/resources/img/user.png">
+				${u_idd } 님 환영합니다.
 		</a>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 				<a class="dropdown-item" href="profile">

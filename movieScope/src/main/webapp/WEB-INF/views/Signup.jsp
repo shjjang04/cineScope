@@ -39,11 +39,12 @@
 										dataType : 'json',
 										success : function(result) {
 											if (result == 0) {// result가 0일 경우 아이디 생성 가능
-												$('.id_ok').css("display", "inline-block");
+												$('.id_ok').css("display", "inline");
 												$('.id_already').css("display", "none");
-											} else { // result가 1일 경우 -> 이미 존재하는 아이디
+											}else { // result가 1일 경우 -> 이미 존재하는 아이디
 												$('.id_already').css("display",	"inline-block");
 												$('.id_ok').css("display", "none");
+												
 											}
 										},
 										error : function() {
