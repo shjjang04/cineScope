@@ -22,12 +22,13 @@
 						<form action="Signup" method="post">
 							<div class="form-group">
 								<label>ID를 입력하세요</label> 
-								<input type="text" name="u_id" id="u_id" class="form-control" placeholder="Please enter your ID(6~14자)" minlength="6" maxlength = "14" oninput="Checkid()">
+								<input type="text" name="u_id" id="u_id" class="form-control" placeholder="Please enter your ID(6~14자)" minlength="6" maxlength = "14" onkeyup="Checkid()">
 								<!-- id ajax 중복체크 -->
 								<span class="id_ok">ㅤ사용가능한 아이디 입니다.</span>
 								 <span class="id_already">ㅤ사용 불가능한 아이디 입니다.</span>
 							</div>
 							<script type="text/javascript">
+						
 								function Checkid() {
 									var id = $('#u_id').val();
 									console.log(id);
@@ -55,22 +56,39 @@
 							</script>
 							<div class="form-group">
 								<label>비밀번호를 입력하세요</label>
-								 <input type="password" name="u_pw"	id="u_pw" class="form-control" placeholder="please enter your Password(6~14자)" minlength="6" maxlength = "14" oninput = "Checkpw()">
+								 <input type="password" name="u_pw"	id="u_pw" class="form-control" placeholder="please enter your Password(6~14자)" minlength="6" maxlength = "14" onkeyup = "Checkpw()">
 								<br>
 								<label>비밀번호를 다시 입력하세요</label>
-								 <input type="password" name="pwCheck" id="pwCheck" class="form-control" placeholder="please enter your re-Password(6~14자)" oninput = "Checkpw()">
+								 <input type="password" name="pwCheck" id="pwCheck" class="form-control" placeholder="please enter your re-Password(6~14자)" onkeyup = "Checkpw()">
 								<span id = "pwConfirm"></span>
 							</div>
 							<script type="text/javascript">
-							function Checkpw() {
-								if($("#u_pw").val() != $("#pwCheck").val()){
-									$('#pwConfirm').text('ㅤ비밀번호 불일치').css('color', 'red')
-								}else {
-									$('#pwConfirm').text('ㅤ비밀번호 일치').css('color', 'green')
-								}
-							};
-							
-							
+							  function Checkpw() {
+							    if ($('#u_pw') != "" || $('#pwCheck') != "") {
+							      if ($("#u_pw").val() != $("#pwCheck").val()) { 
+							        $('#pwConfirm').text('비밀번호 불일치').css('color', 'red')
+							      } else if ($('#u_pw').val() == "" || $('#pwCheck').val() == ""){ 
+							        $('#pwConfirm').text('비밀번호를 입력하지 않았습니다').css('color', 'red')
+							      } else {
+							        $('#pwConfirm').text('비밀번호 일치').css('color', 'green')
+							      }
+							    }
+							  };
+							  function checkPassword(id, password1, password2) {
+							        //비밀번호가 입력되었는지 확인하기
+							        if (!checkExistData(password1, "비밀번호를"))
+							            return false;
+							        //비밀번호 확인이 입력되었는지 확인하기
+							        if (!checkExistData(password2, "비밀번호 확인을"))
+							            return false;
+							 
+							        var password1RegExp = /^[a-zA-z0-9]{4,12}$/; //비밀번호 유효성 검사
+							        if (!password1RegExp.test(password1)) {
+							            alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
+							            form.password1.value = "";
+							            form.password1.focus();
+							            return false;
+							        }
 							</script>
 							<div class="form-group">
 								<label>주소를 입력하세요</label> <input type="text" name="u_addr"
