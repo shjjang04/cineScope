@@ -33,36 +33,47 @@ public class SearchServiceImpl implements SearchService{
 		List<Integer> list1 = movieDAO.searchAll(mVo);
 		Set<Integer> list100 = new HashSet<Integer>();
 		List<Integer> list1000 = new ArrayList<Integer>();
-		System.out.println(list1.get(0));
 		for(int data : list1) {
+			int tmp1 = 0;
+			int tmp2 = 0;
+			int tmp3 = 0;
 			try {
 				if(mVo.getM_attendance() != "") {
-					if(Integer.parseInt(mVo.getM_attendance()) < split(movieDAO.detail(data).getM_attendance())) {
-						list100.add(data);
+					if(Integer.parseInt(mVo.getM_attendance()) <= split(movieDAO.detail(data).getM_attendance())) {
+						tmp1++;
 					}
-				
-			} 
+				}else {
+					tmp1++;
+				}
 			}catch (Exception e) {
 				// TODO: handle exception
+				tmp1++;
 			}
 			
 			if(mVo.getM_runtime() != "") {
-				if(Integer.parseInt(mVo.getM_runtime()) < runTimesplit(movieDAO.detail(data).getM_runtime())) {
-					list100.add(data);
+				if(Integer.parseInt(mVo.getM_runtime()) <= runTimesplit(movieDAO.detail(data).getM_runtime())) {
+					tmp2++;
 				}
+			}else {
+				tmp2++;
 			}
 			try {
 				if(mVo.getM_grade() != "") {
-					if(Float.parseFloat(mVo.getM_grade()) < Float.parseFloat(movieDAO.detail(data).getM_grade())) {
-						list100.add(data);
+					if(Float.parseFloat(mVo.getM_grade()) <= Float.parseFloat(movieDAO.detail(data).getM_grade())) {
+						tmp3++;
 					}
+				}else {
+					tmp3++;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
+				tmp3++;
 			}
-			if(mVo.getM_attendance() == "" && mVo.getM_runtime() == "" && mVo.getM_grade() == "") {
+			int tmp = tmp1*tmp2*tmp3;
+			if(tmp != 0) {
 				list100.add(data);
 			}
+
 		}
 		for(int data : list100) {
 			list1000.add(data);
