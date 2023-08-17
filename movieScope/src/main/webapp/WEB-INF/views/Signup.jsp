@@ -74,21 +74,7 @@
 							      }
 							    }
 							  };
-							  function checkPassword(id, password1, password2) {
-							        //비밀번호가 입력되었는지 확인하기
-							        if (!checkExistData(password1, "비밀번호를"))
-							            return false;
-							        //비밀번호 확인이 입력되었는지 확인하기
-							        if (!checkExistData(password2, "비밀번호 확인을"))
-							            return false;
-							 
-							        var password1RegExp = /^[a-zA-z0-9]{4,12}$/; //비밀번호 유효성 검사
-							        if (!password1RegExp.test(password1)) {
-							            alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
-							            form.password1.value = "";
-							            form.password1.focus();
-							            return false;
-							        }
+							  
 							</script>
 							<div class="form-group">
 								<label>주소를 입력하세요</label> <input type="text" name="u_addr"
