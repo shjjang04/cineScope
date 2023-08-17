@@ -33,6 +33,7 @@ public class SearchServiceImpl implements SearchService{
 		List<Integer> list1 = movieDAO.searchAll(mVo);
 		Set<Integer> list100 = new HashSet<Integer>();
 		List<Integer> list1000 = new ArrayList<Integer>();
+		System.out.println(list1.get(0));
 		for(int data : list1) {
 			try {
 				if(mVo.getM_attendance() != "") {
@@ -43,7 +44,6 @@ public class SearchServiceImpl implements SearchService{
 			} 
 			}catch (Exception e) {
 				// TODO: handle exception
-				list100.add(data);
 			}
 			
 			if(mVo.getM_runtime() != "") {
@@ -52,11 +52,15 @@ public class SearchServiceImpl implements SearchService{
 				}
 			}
 			try {
-				if(Float.parseFloat(mVo.getM_grade()) < Float.parseFloat(movieDAO.detail(data).getM_grade())) {
-					list100.add(data);
+				if(mVo.getM_grade() != "") {
+					if(Float.parseFloat(mVo.getM_grade()) < Float.parseFloat(movieDAO.detail(data).getM_grade())) {
+						list100.add(data);
+					}
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
+			}
+			if(mVo.getM_attendance() == "" && mVo.getM_runtime() == "" && mVo.getM_grade() == "") {
 				list100.add(data);
 			}
 		}
